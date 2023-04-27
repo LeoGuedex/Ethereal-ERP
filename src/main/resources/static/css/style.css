@@ -1,13 +1,15 @@
-body{
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background: url("../imagens/background.jpeg") no-repeat center center fixed;
+    background-size: cover;
 }
+
 .main{
 	width: 350px;
 	height: 500px;
@@ -54,7 +56,7 @@ button{
 	justify-content: center;
 	display: block;
 	color: #fff;
-	background: #573b8a;
+	background-color: #19B6AD;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 20px;
