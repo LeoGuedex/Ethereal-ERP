@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
       if (xhr.status === 200) {
-        alert('Login realizado com sucesso!');
         window.location.href = 'index';
       } else if (xhr.status === 401) {
         alert('Login não autorizado!');
