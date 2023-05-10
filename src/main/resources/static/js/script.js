@@ -1,32 +1,24 @@
-$(document).ready(function() {
-  $('#loginForm').submit(function(e) {
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('loginButton').addEventListener('click', function(e) {
     e.preventDefault();
 
-    const email = $('input[name="email"]').val();
-    const password = $('input[name="pswd"]').val();
+    const email = document.getElementsByName('email')[0].value;
+    const password = document.getElementsByName('pswd')[0].value;
     const url = 'http://localhost:8080/api/users/login';
 
-    $.ajax({
-      url: url,
-      method: 'POST',
-      data: JSON.stringify({ email: email, password: password }),
-      dataType: 'json',
-      contentType: 'application/json',
-      success: function(response) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
         alert('Login realizado com sucesso!');
-        window.location.replace('index');
-      },
-      error: function(xhr, status, error) {
-        if (xhr.status == 401) {
-          alert('Login não autorizado!');
-        } else {
-          alert('Erro desconhecido!');
-        }
+        window.location.href = 'index';
+      } else if (xhr.status === 401) {
+        alert('Login não autorizado!');
+      } else {
+        alert('Erro desconhecido!');
       }
-    });
-  });
-
-  $('#loginButton').click(function() {
-    $('#loginForm').submit();
+    };
+    xhr.send(JSON.stringify({ email: email, password: password }));
   });
 });
