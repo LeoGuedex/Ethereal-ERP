@@ -29,12 +29,15 @@ public class DBService {
     @Autowired
     private CustomerRotineTableRepository customerRotineTableRepository;
 
+    @Autowired
+    private HCUserRepository hcUserRepository;
+
     public void createTestCustomer() throws ParseException {
 
         Customer customer = new Customer();
         customer.setName("Cliente Teste");
         customer.setAge(32);
-        customer.setEmail("joao.silva@gmail.com");
+        customer.setEmail("email@email.com");
         customer.setAddress("Rua das Flores, 123");
         customer.setBirthDate("1990-05-12");
         customer.setPhoneNumber("11 99999-9999");
@@ -295,6 +298,17 @@ public class DBService {
         customerRotineTable.setCustomer(customer);
         customer.setCustomerRotineTable(customerRotineTable);
         customerRotineTableRepository.save(customerRotineTable);
+    }
+
+    public void createLoginAdmin(){
+        HCUser user = new HCUser();
+        user.setUsername("admin");
+        user.setPassword("admin");
+        user.setEmail("email@email.com");
+        user.setName("Leonardo Guedes");
+        user.setPersonFunction("Developer Java");
+        user.setAdmin(true);
+        hcUserRepository.save(user);
     }
 
 }

@@ -1,21 +1,32 @@
-function fazerLogin() {
-   const email = document.getElementsByName('email')[0].value;
-   const password = document.getElementsByName('pswd')[0].value;
-   const url = `http://localhost:8080/clients?email=${email}&password=${password}`;
+$(document).ready(function() {
+  $('#loginForm').submit(function(e) {
+    e.preventDefault();
 
-   fetch(url, { method: 'GET' })
-       .then(response => response.json())
-       .then(data => {
-           if (data.authorized) {
-               alert('Login autorizado!');
-           } else {
-               alert('Login não autorizado!');
-           }
-       })
-       .catch(error => {
-           console.error('Erro ao fazer login', error);
-       });
-}
+    const email = $('input[name="email"]').val();
+    const password = $('input[name="pswd"]').val();
+    const url = 'http://localhost:8080/api/users/login';
 
-const btnLogin = document.getElementById('btn-login');
-btnLogin.addEventListener('click', fazerLogin);
+    $.ajax({
+      url: url,
+      method: 'POST',
+      data: JSON.stringify({ email: email, password: password }),
+      dataType: 'json',
+      contentType: 'application/json',
+      success: function(response) {
+        alert('Login realizado com sucesso!');
+        window.location.replace('index');
+      },
+      error: function(xhr, status, error) {
+        if (xhr.status == 401) {
+          alert('Login não autorizado!');
+        } else {
+          alert('Erro desconhecido!');
+        }
+      }
+    });
+  });
+
+  $('#loginButton').click(function() {
+    $('#loginForm').submit();
+  });
+});

@@ -18,6 +18,7 @@ public class TestConfig {
     @Bean
     public boolean instantiateDatabase() throws ParseException {
         dbService.createTestCustomer();
+        dbService.createLoginAdmin();
         return true;
     }
 
