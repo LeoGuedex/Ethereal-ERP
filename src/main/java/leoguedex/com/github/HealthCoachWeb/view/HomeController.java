@@ -31,7 +31,7 @@ public class HomeController {
         return "pages-error-404";
     }
 
-    @GetMapping("/table")
+    @GetMapping("/data")
     public String table() {
         return "tables-data";
     }
