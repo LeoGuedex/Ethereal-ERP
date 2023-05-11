@@ -6,6 +6,8 @@ import leoguedex.com.github.HealthCoachWeb.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.text.ParseException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Service
 public class DBService {
@@ -41,6 +43,11 @@ public class DBService {
         customer.setAddress("Rua das Flores, 123");
         customer.setBirthDate("1990-05-12");
         customer.setPhoneNumber("11 99999-9999");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = LocalDateTime.now().format(formatter);
+        customer.setWhenCreated(LocalDateTime.parse(formattedDateTime, formatter));
+
         customer.setWeight(75.5);
         customer.setHeight(1.75);
         customer.setWorksOrStudies(true);

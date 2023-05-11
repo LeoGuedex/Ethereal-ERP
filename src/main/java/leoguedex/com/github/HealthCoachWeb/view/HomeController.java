@@ -1,6 +1,7 @@
 package leoguedex.com.github.HealthCoachWeb.view;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -40,5 +41,11 @@ public class HomeController {
     public String profile() {
         return "users-profile";
     }
+
+    @ExceptionHandler(value = { Exception.class })
+    public String handleException() {
+        return "pages-error-404";
+    }
+
 
 }

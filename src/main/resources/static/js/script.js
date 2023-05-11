@@ -1,23 +1,32 @@
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('loginButton').addEventListener('click', function(e) {
-    e.preventDefault();
+function login() {
+  const loginForm = document.getElementById('loginForm');
+  const loginButton = document.getElementById('loginButton');
 
-    const email = document.getElementsByName('email')[0].value;
-    const password = document.getElementsByName('pswd')[0].value;
+  loginButton.addEventListener('click', function() {
+    const email = loginForm.email.value;
+    const password = loginForm.pswd.value;
     const url = 'http://localhost:8080/api/users/login';
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        window.location.href = 'index';
-      } else if (xhr.status === 401) {
-        alert('Login não autorizado!');
-      } else {
-        alert('Erro desconhecido!');
-      }
-    };
-    xhr.send(JSON.stringify({ email: email, password: password }));
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email, password: password })
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log(response);
+          window.location.href = 'index';
+        } else if (response.status === 401) {
+          alert('Login não autorizado!');
+        } else {
+          throw new Error('Erro desconhecido!');
+        }
+      })
+      .catch(error => {
+        console.error('Erro:', error);
+        alert(error.message);
+      });
   });
-});
+}
