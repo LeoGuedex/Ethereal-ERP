@@ -28,17 +28,17 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/static/");
     }
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("login");
-        registry.addViewController("/index").setViewName("index");
-        registry.addViewController("/forms").setViewName("forms-layouts");
-        registry.addViewController("/contact").setViewName("pages-contact");
-        registry.addViewController("/data").setViewName("tables-data");
-        registry.addViewController("/profile").setViewName("users-profile");
-        registry.addViewController("/404").setViewName("pages-error-404");
-        registry.addViewController("/**").setViewName("pages-error-404");
-    }
+    //@Override
+    //public void addViewControllers(ViewControllerRegistry registry) {
+    //    registry.addViewController("/").setViewName("login");
+    //    registry.addViewController("/index").setViewName("index");
+    //    registry.addViewController("/forms").setViewName("forms-layouts");
+    //    registry.addViewController("/contact").setViewName("pages-contact");
+    //    registry.addViewController("/data").setViewName("tables-data");
+    //    registry.addViewController("/profile").setViewName("users-profile");
+    //    registry.addViewController("/404").setViewName("pages-error-404");
+    //    registry.addViewController("/**").setViewName("pages-error-404");
+    //}
 
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
