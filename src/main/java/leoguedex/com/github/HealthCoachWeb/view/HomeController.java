@@ -47,5 +47,4 @@ public class HomeController {
         return "pages-error-404";
     }
 
-
 }

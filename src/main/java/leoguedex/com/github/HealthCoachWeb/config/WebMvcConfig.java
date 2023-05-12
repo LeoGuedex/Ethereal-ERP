@@ -25,19 +25,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**")
-                .addResourceLocations("classpath:/static/");
+                .addResourceLocations("classpath:/static/").setCachePeriod(31536000);
     }
 
     //@Override
     //public void addViewControllers(ViewControllerRegistry registry) {
-    //    registry.addViewController("/").setViewName("login");
-    //    registry.addViewController("/index").setViewName("index");
-    //    registry.addViewController("/forms").setViewName("forms-layouts");
-    //    registry.addViewController("/contact").setViewName("pages-contact");
-    //    registry.addViewController("/data").setViewName("tables-data");
-    //    registry.addViewController("/profile").setViewName("users-profile");
-    //    registry.addViewController("/404").setViewName("pages-error-404");
-    //    registry.addViewController("/**").setViewName("pages-error-404");
+    //    registry.addViewController("/**").setViewName("redirect:/404");
     //}
 
     @Override
