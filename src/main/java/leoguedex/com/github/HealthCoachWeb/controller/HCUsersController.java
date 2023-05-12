@@ -10,13 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class HCUsersController {
 
     @Autowired
     private HCUserRepository userRepository;
 
-    @PostMapping("/login")
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
     public ResponseEntity<HCUserDTO> login(@RequestBody LoginDTO loginDTO) {
         HCUser savedUser = userRepository.findByEmail(loginDTO.getEmail());
         System.out.println("Login received. Email: " + loginDTO.getEmail() + " Password: " + loginDTO.getPassword());
