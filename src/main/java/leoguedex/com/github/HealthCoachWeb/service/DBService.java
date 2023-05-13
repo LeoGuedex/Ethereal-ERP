@@ -6,6 +6,7 @@ import leoguedex.com.github.HealthCoachWeb.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -38,10 +39,9 @@ public class DBService {
 
         Customer customer = new Customer();
         customer.setName("Cliente Teste");
-        customer.setAge(32);
         customer.setEmail("email@email.com");
         customer.setAddress("Rua das Flores, 123");
-        customer.setBirthDate("1990-05-12");
+        customer.setBirthDate(LocalDate.now().atStartOfDay().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         customer.setPhoneNumber("11 99999-9999");
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -52,9 +52,7 @@ public class DBService {
         customer.setHeight(1.75);
         customer.setWorksOrStudies(true);
         customer.setReferredBy("Amigo");
-        customer.setConsultationReason1("Perder peso");
-        customer.setConsultationReason2("Melhorar a alimentação");
-        customer.setConsultationReason3("Aumentar a disposição");
+        customer.setConsultationReason("Perder peso");
         customer.setExpectedOutcome("Perder 10 kg em 6 meses");
         customerRepository.save(customer);
 

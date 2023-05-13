@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
@@ -21,8 +20,6 @@ public class Customer {
     private Long id;
 
     private String name;
-
-    private Integer age;
 
     private String email;
 
@@ -40,11 +37,7 @@ public class Customer {
 
     private String referredBy;
 
-    private String consultationReason1;
-
-    private String consultationReason2;
-
-    private String consultationReason3;
+    private String consultationReason;
 
     private String expectedOutcome;
 
