@@ -27,11 +27,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/static/").setCachePeriod(31536000);
     }
 
-    //@Override
-    //public void addViewControllers(ViewControllerRegistry registry) {
-    //    registry.addViewController("/**").setViewName("redirect:/404");
-    //}
-
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
         AntPathMatcher matcher = new AntPathMatcher();
