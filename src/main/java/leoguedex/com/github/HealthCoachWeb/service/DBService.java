@@ -310,7 +310,7 @@ public class DBService {
         user.setUsername("admin");
         user.setPassword("admin");
         user.setEmail("email@email.com");
-        user.setName("Leonardo Guedes");
+        user.setName("Administrator");
         user.setPersonFunction("Developer Java");
         user.setAdmin(true);
         hcUserRepository.save(user);
