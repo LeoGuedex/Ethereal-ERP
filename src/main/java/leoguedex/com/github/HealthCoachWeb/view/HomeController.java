@@ -14,6 +14,7 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+    
     @Autowired
     private CustomerController customerController;
 
@@ -45,7 +46,8 @@ public class HomeController {
     @GetMapping("/showCustomers")
     public String showCustomers(Model model) throws GetAgeFromBirthDateException {
         List<Customer> customers = customerController.findAllCustomers().getBody();
-        model.addAttribute("customers",customers);
+        model.addAttribute("customers", customers);
+        
         return "tables-data";
     }
 
