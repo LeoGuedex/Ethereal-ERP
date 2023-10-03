@@ -33,23 +33,16 @@ public class DBService {
     private HCUserRepository hcUserRepository;
 
     public void createTestCustomer() {
-        int amountPeoplesFake = 10;
+        int amountPeopleFake = 20;
+        List<Customer> customerList = FakePeople.generateCustomer(amountPeopleFake);
 
-        FakePeople fakePeople = new FakePeople(amountPeoplesFake);
-        List<Customer> customerList = fakePeople.generateCustomer();
-        List<CustomerAlimentation> customerAlimentationList = fakePeople.generateCustomerAlimentation();
-        List<CustomerHealth> customerHealthList = fakePeople.generateCustomerHealt();
-        List<CustomerGym> customerGymList = fakePeople.generateCustomerGym();
-        List<CustomerNutritionistInformation> customerNutritionistInformationList = fakePeople.generateCustomerNutritionistInformation();
-        List<CustomerRotineTable> customerRotineTableList = fakePeople.generateCustomerRotineTable();
-
-        for(int i = 0 ; i < amountPeoplesFake; i++){
+        for(int i = 0 ; i < amountPeopleFake; i++){
             Customer customer = customerList.get(i);
-            CustomerAlimentation customerAlimentation = customerAlimentationList.get(i);
-            CustomerHealth customerHealth = customerHealthList.get(i);
-            CustomerGym customerGym = customerGymList.get(i);
-            CustomerNutritionistInformation customerNutritionistInformation = customerNutritionistInformationList.get(i);
-            CustomerRotineTable customerRotineTable = customerRotineTableList.get(i);
+            CustomerAlimentation customerAlimentation = new CustomerAlimentation();
+            CustomerHealth customerHealth = new CustomerHealth();
+            CustomerGym customerGym = new CustomerGym();
+            CustomerNutritionistInformation customerNutritionistInformation = new CustomerNutritionistInformation();
+            CustomerRotineTable customerRotineTable = new CustomerRotineTable();
 
             customerRepository.save(customer);
 
