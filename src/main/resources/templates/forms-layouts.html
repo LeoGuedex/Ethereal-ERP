@@ -13,7 +13,9 @@
   <link href="/static/template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <link href="/static/template/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="/static/template/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -35,48 +37,48 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
-  <div class="d-flex align-items-center justify-content-between">
-    <a href="home" class="logo d-flex align-items-center">
-      <img src="/static/imagens/HealthCoachIcon.png" alt="">
-    </a>
-    <i class="bi bi-list toggle-sidebar-btn"></i>
-  </div><!-- Icone da barra -->
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="home" class="logo d-flex align-items-center">
+        <img src="/static/imagens/HealthCoachIcon.png" alt="">
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- Icone da barra -->
 
-  <nav class="header-nav ms-auto">
-    <ul class="d-flex align-items-center">
-      <li class="nav-item dropdown pe-3">
-        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          <img src="/static/template/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-          <span id="user-name" class="d-none d-md-block dropdown-toggle ps-2">Usuário Desconhecido</span>
-        </a><!-- Foto e nome do Perfil -->
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-          <li class="dropdown-header">
-            <h6>Usuário Desconhecido</h6>
-            <span>Cargo desconhecido</span>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="/profile">
-              <i class="bi bi-gear"></i>
-              <span>Account Settings</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="/">
-              <i class="bi bi-box-arrow-right"></i>
-              <span>Sign Out</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-</header>
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="/static/template/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <span id="user-name" class="d-none d-md-block dropdown-toggle ps-2">Usuário Desconhecido</span>
+          </a><!-- Foto e nome do Perfil -->
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Usuário Desconhecido</h6>
+              <span>Cargo desconhecido</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/profile">
+                <i class="bi bi-gear"></i>
+                <span>Account Settings</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="/">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
@@ -151,19 +153,19 @@
                   </div>
 
                   <body>
-                  <div class="col-md-6">
-                    <label for="inputBirthDate" class="form-label">Birth Date</label>
-                    <input type="text" class="form-control" id="inputBirthDate" placeholder="dd/mm/yyyy">
-                  </div>
-                  <script>
-                    $(document).ready(function() {
-                      $("#inputBirthDate").datepicker({
-                        dateFormat: "dd/mm/yy",
-                        changeYear: true,
-                        yearRange: "c-100:c+0",
+                    <div class="col-md-6">
+                      <label for="inputBirthDate" class="form-label">Birth Date</label>
+                      <input type="text" class="form-control" id="inputBirthDate" placeholder="dd/mm/yyyy">
+                    </div>
+                    <script>
+                      $(document).ready(function () {
+                        $("#inputBirthDate").datepicker({
+                          dateFormat: "dd/mm/yy",
+                          changeYear: true,
+                          yearRange: "c-100:c+0",
+                        });
                       });
-                    });
-                  </script>
+                    </script>
                   </body>
 
                   <div class="col-md-6">
@@ -172,22 +174,22 @@
                   </div>
                   <script>
                     function formatPhoneNumberInput() {
-                        const phoneNumberInput = document.getElementById("inputPhoneNumber");
+                      const phoneNumberInput = document.getElementById("inputPhoneNumber");
 
-                        phoneNumberInput.addEventListener("input", function(e) {
-                            let value = e.target.value;
+                      phoneNumberInput.addEventListener("input", function (e) {
+                        let value = e.target.value;
 
-                            value = value.replace(/\D/g, '');
+                        value = value.replace(/\D/g, '');
 
-                            if (value.length > 0) {
-                                value = '(' + value.substring(0, 2) + ')' + ' ' + value.substring(2);
-                            }
-                            if (value.length > 10) {
-                                value = value.substring(0, 10) + '-' + value.substring(10, 14);
-                            }
+                        if (value.length > 0) {
+                          value = '(' + value.substring(0, 2) + ')' + ' ' + value.substring(2);
+                        }
+                        if (value.length > 10) {
+                          value = value.substring(0, 10) + '-' + value.substring(10, 14);
+                        }
 
-                            e.target.value = value;
-                        });
+                        e.target.value = value;
+                      });
                     }
 
                     formatPhoneNumberInput();
@@ -223,10 +225,10 @@
                     <textarea class="form-control" id="inputExpectedOutcome" rows="4"></textarea>
                   </div>
 
-                  <div class="text-center">
+                  <!-- <div class="text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
-                  </div>
+                  </div> -->
 
                 </form><!-- End Multi Columns Form -->
               </div>
@@ -246,53 +248,79 @@
                 <h5 class="card-title">Customer Alimentation Information</h5>
 
                 <form class="row g-3">
+
                   <div class="col-md-12">
-                    <label for="inputName5" class="form-label">Your Name</label>
-                    <input type="text" class="form-control" id="inputName5">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputEmail5" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail5">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputPassword5" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword5">
-                  </div>
-                  <div class="col-12">
-                    <label for="inputAddress5" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAddres5s" placeholder="1234 Main St">
-                  </div>
-                  <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="inputState" class="form-label">State</label>
-                    <select id="inputState" class="form-select">
-                      <option selected>Choose...</option>
-                      <option>...</option>
-                    </select>
-                  </div>
-                  <div class="col-md-2">
-                    <label for="inputZip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                  </div>
-                  <div class="col-12">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck">
-                      <label class="form-check-label" for="gridCheck">
-                        Check me out
-                      </label>
+                    
+                    <label data-bs-toggle="collapse" data-bs-target="#collapseText1" class="form-label">
+                      <input type="checkbox"> Eats upon wake up?
+                    </label>
+
+                    <div id="collapseText1" class="col-md-12, collapse">
+                      <input type="text" class="form-control" id="inputName5" placeholder="Breakfast...">
                     </div>
+
                   </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
+
+                  <div class="col-md-12">
+                    
+                    <label data-bs-toggle="collapse" data-bs-target="#collapseText2" class="form-label">
+                      <input type="checkbox"> Eats before lauch?
+                    </label>
+
+                    <div id="collapseText2" class="col-md-12, collapse">
+                      <input type="text" class="form-control" id="inputName5" placeholder="Lauch...">
+                    </div>
+
                   </div>
+
+                  <div class="col-md-12">
+                    
+                    <label data-bs-toggle="collapse" data-bs-target="#collapseText3" class="form-label">
+                      <input type="checkbox"> Eats lauch?
+                    </label>
+
+                    <div id="collapseText3" class="col-md-12, collapse">
+                      <input type="text" class="form-control" id="inputName5" placeholder="Lauch...">
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-12">
+                    
+                    <label data-bs-toggle="collapse" data-bs-target="#collapseText4" class="form-label">
+                      <input type="checkbox"> Eats afternoon snack?
+                    </label>
+
+                    <div id="collapseText4" class="col-md-12, collapse">
+                      <input type="text" class="form-control" id="inputName5" placeholder="Snack...">
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-12">
+                    
+                    <label data-bs-toggle="collapse" data-bs-target="#collapseText5" class="form-label">
+                      <input type="checkbox"> Eats dinner?
+                    </label>
+
+                    <div id="collapseText5" class="col-md-12, collapse">
+                      <input type="text" class="form-control" id="inputName5" placeholder="Dinner...">
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-12">
+                    
+                    <label data-bs-toggle="collapse" data-bs-target="#collapseText6" class="form-label">
+                      <input type="checkbox"> Eats before bed time?
+                    </label>
+
+                    <div id="collapseText6" class="col-md-12, collapse">
+                      <input type="text" class="form-control" id="inputName5" placeholder="Snack...">
+                    </div>
+
+                  </div>
+
                 </form><!-- End Multi Columns Form -->
               </div>
             </div>
@@ -329,7 +357,8 @@
                   </div>
                   <div class="col-12">
                     <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    <input type="text" class="form-control" id="inputAddress2"
+                      placeholder="Apartment, studio, or floor">
                   </div>
                   <div class="col-md-6">
                     <label for="inputCity" class="form-label">City</label>
@@ -394,7 +423,8 @@
                   </div>
                   <div class="col-12">
                     <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    <input type="text" class="form-control" id="inputAddress2"
+                      placeholder="Apartment, studio, or floor">
                   </div>
                   <div class="col-md-6">
                     <label for="inputCity" class="form-label">City</label>
@@ -459,7 +489,8 @@
                   </div>
                   <div class="col-12">
                     <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    <input type="text" class="form-control" id="inputAddress2"
+                      placeholder="Apartment, studio, or floor">
                   </div>
                   <div class="col-md-6">
                     <label for="inputCity" class="form-label">City</label>
@@ -524,7 +555,8 @@
                   </div>
                   <div class="col-12">
                     <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                    <input type="text" class="form-control" id="inputAddress2"
+                      placeholder="Apartment, studio, or floor">
                   </div>
                   <div class="col-md-6">
                     <label for="inputCity" class="form-label">City</label>
@@ -573,7 +605,8 @@
     </div>
   </footer>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
   <script src="/static/template/assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="/static/template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/static/template/assets/vendor/chart.js/chart.umd.js"></script>
@@ -584,4 +617,5 @@
   <script src="/static/template/assets/vendor/php-email-form/validate.js"></script>
   <script src="/static/template/assets/js/main.js"></script>
 </body>
+
 </html>

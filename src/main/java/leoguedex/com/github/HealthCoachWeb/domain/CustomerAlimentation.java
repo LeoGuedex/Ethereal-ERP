@@ -8,6 +8,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+//TODO: Fazer uma seleção e aparecer um texto para escrever
 public class CustomerAlimentation {
 
     @Id

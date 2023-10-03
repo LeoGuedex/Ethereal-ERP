@@ -55,6 +55,8 @@ public class CustomerHealth {
 
     private String healthDescription;
 
+    //TODO: Fazer um tipo de multipla escolha
+    
     private Boolean regularBowelMovement;
 
     private Boolean irritatedIntestine;

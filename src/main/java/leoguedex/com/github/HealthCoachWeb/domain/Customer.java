@@ -18,29 +18,29 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+//
     private String name;
-
+//
     private String email;
-
+//
     private String address;
-
+//
     private String birthDate;
-
+//
     private String phoneNumber;
-
+//
     private Double weight;
-
+//
     private Double height;
-
+//
     private Boolean worksOrStudies;
-
+//
     private String referredBy;
-
+//
     private String consultationReason;
-
+//
     private String expectedOutcome;
-
+// TODO:
     private LocalDateTime whenCreated;
 
     @OneToOne(mappedBy = "customer")
