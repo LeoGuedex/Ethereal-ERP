@@ -19,9 +19,11 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<Customer> create(@RequestBody Customer customer) {
-        Customer customerSaved = customerService.create(customer);
+        Customer savedCustomer = customerService.create(customer);
+        
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(customerSaved.getId()).toUri();
+                .buildAndExpand(savedCustomer.getId()).toUri();
+        
         return ResponseEntity.created(uri).build();
     }
 
@@ -33,6 +35,7 @@ public class CustomerController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         customerService.delete(id);
+        
         return ResponseEntity.ok().build();
     }
 
