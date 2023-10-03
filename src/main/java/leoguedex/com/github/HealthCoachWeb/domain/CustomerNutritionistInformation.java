@@ -29,6 +29,7 @@ public class CustomerNutritionistInformation {
     private String nutritionistRecommendations;
 
     private Integer mealsPerDay;
+    private String chewing;
 
     private Integer cupsOfWaterPerDay;
 

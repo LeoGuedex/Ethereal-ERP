@@ -32,8 +32,6 @@ public class CustomerGym {
 
     private TypeOfWeightEnum weightType;
 
-    private String chewing;
-
     private Boolean doesExercise;
 
     private String exerciseTypes;
@@ -81,5 +79,39 @@ public class CustomerGym {
     private Boolean improveLifeBalance;
 
     private Boolean jobSatisfaction;
+    @Override
+    public String toString() {
+        return "CustomerGym{" +
+                "id=" + id +
+                ", desiredWeight=" + desiredWeight +
+                ", weightOneYearAgo=" + weightOneYearAgo +
+                ", weightTenYearsAgo=" + weightTenYearsAgo +
+                ", weightType=" + weightType +
+                ", doesExercise=" + doesExercise +
+                ", exerciseTypes='" + exerciseTypes + '\'' +
+                ", trainingDaysPerWeek=" + trainingDaysPerWeek +
+                ", postExerciseFeeling='" + postExerciseFeeling + '\'' +
+                ", intendsToExercise=" + intendsToExercise +
+                ", isPhysicallyActive=" + isPhysicallyActive +
+                ", freeTimeActivities='" + freeTimeActivities + '\'' +
+                ", exerciseLimitations='" + exerciseLimitations + '\'' +
+                ", supplements='" + supplements + '\'' +
+                ", familyBalance=" + familyBalance +
+                ", desiredFreeTimeActivity='" + desiredFreeTimeActivity + '\'' +
+                ", lifeSituationToChange='" + lifeSituationToChange + '\'' +
+                ", determinationLevel=" + determinationLevel +
+                ", improveWellBeing=" + improveWellBeing +
+                ", increaseExercise=" + increaseExercise +
+                ", loseWeight=" + loseWeight +
+                ", improveSleep=" + improveSleep +
+                ", improveMentalHealth=" + improveMentalHealth +
+                ", improveDiet=" + improveDiet +
+                ", increaseEnergy=" + increaseEnergy +
+                ", increaseProductivity=" + increaseProductivity +
+                ", decreaseStress=" + decreaseStress +
+                ", improveLifeBalance=" + improveLifeBalance +
+                ", jobSatisfaction=" + jobSatisfaction +
+                '}';
+    }
 
 }
