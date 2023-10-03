@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 @Service
 public class CustomerService {
+    
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -22,6 +23,7 @@ public class CustomerService {
 
     public Customer update(Customer customer){
         customer.setId(customer.getId());
+        
         return customerRepository.save(customer);
     }
 
@@ -35,11 +37,11 @@ public class CustomerService {
 
     public List<Customer> findAllCustomers() throws GetAgeFromBirthDateException {
         List<Customer> customers = customerRepository.findAll();
+        
         for(Customer thisTime : customers){
             String age = String.valueOf(getAgeFromBirthDate(thisTime.getBirthDate()));
             thisTime.setBirthDate(age);
         }
-
 
         return customerRepository.findAll();
     }
@@ -65,6 +67,8 @@ public class CustomerService {
         if (currentMonth < birthmonth || (currentMonth == birthmonth && currentDay < birthDay)) {
             age--;
         }
+        
         return age;
     }
+    
 }
