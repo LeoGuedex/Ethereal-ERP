@@ -1,12 +1,14 @@
 package leoguedex.com.github.HealthCoachWeb.service;
 
 public class FoodOptions {
+
     public static final String[] INDICATED_BY = {
             "Amigos",
             "Anúncios",
             "Não fui indicado",
             "Pesquisa na Internet",
-            "Outros"};
+            "Outros"
+    };
 
     public static final String[] REASONS = {
             "Previnir doenças",
@@ -32,4 +34,5 @@ public class FoodOptions {
             "Gostaria de uma dieta para auxiliar a saída da pedra do meu rim",
             "Sou atleta e gostaria de me manter em alta performance"
     };
+
 }

@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 public class DBService {
 
-
     @Autowired
     private CustomerAlimentationRepository customerAlimentationRepository;
 
@@ -78,4 +77,5 @@ public class DBService {
         user.setAdmin(true);
         hcUserRepository.save(user);
     }
+
 }

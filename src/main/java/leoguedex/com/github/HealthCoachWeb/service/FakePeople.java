@@ -23,7 +23,6 @@ public class FakePeople {
     private static final double HEIGHT_MIN = 1.50;
     private static final double HEIGHT_MAX = 2.10;
     private static final String NOTHING = "No meal";
-    private int amountPeople;
 
     public static List<Customer> generateCustomer(int amountPeople) {
         List<Customer> customerList = new ArrayList<>();
