@@ -79,6 +79,7 @@ public class CustomerGym {
     private Boolean improveLifeBalance;
 
     private Boolean jobSatisfaction;
+
     @Override
     public String toString() {
         return "CustomerGym{" +

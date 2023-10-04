@@ -35,7 +35,7 @@ public class DBService {
         int amountPeopleFake = 20;
         List<Customer> customerList = FakePeople.generateCustomer(amountPeopleFake);
 
-        for(int i = 0 ; i < amountPeopleFake; i++){
+        for (int i = 0; i < amountPeopleFake; i++) {
             Customer customer = customerList.get(i);
             CustomerAlimentation customerAlimentation = new CustomerAlimentation();
             CustomerHealth customerHealth = new CustomerHealth();
@@ -67,7 +67,7 @@ public class DBService {
         }
     }
 
-    public void createLoginAdmin(){
+    public void createLoginAdmin() {
         HCUser user = new HCUser();
         user.setUsername("admin");
         user.setPassword("admin");

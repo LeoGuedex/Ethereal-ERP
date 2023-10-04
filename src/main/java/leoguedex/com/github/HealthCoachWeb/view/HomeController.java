@@ -4,7 +4,6 @@ import leoguedex.com.github.HealthCoachWeb.Exception.GetAgeFromBirthDateExceptio
 import leoguedex.com.github.HealthCoachWeb.controller.CustomerController;
 import leoguedex.com.github.HealthCoachWeb.domain.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -14,7 +13,7 @@ import java.util.List;
 
 @Controller
 public class HomeController {
-    
+
     @Autowired
     private CustomerController customerController;
 
@@ -47,7 +46,7 @@ public class HomeController {
     public String showCustomers(Model model) throws GetAgeFromBirthDateException {
         List<Customer> customers = customerController.findAllCustomers().getBody();
         model.addAttribute("customers", customers);
-        
+
         return "tables-data";
     }
 
@@ -56,7 +55,7 @@ public class HomeController {
         return "users-profile";
     }
 
-    @ExceptionHandler(value = { Exception.class })
+    @ExceptionHandler(value = {Exception.class})
     public String handleException() {
         return "pages-error-404";
     }
