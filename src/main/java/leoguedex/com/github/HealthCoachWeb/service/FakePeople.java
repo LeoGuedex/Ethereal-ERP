@@ -18,6 +18,7 @@ import static leoguedex.com.github.HealthCoachWeb.service.FoodOptions.*;
 @Getter
 @Setter
 public class FakePeople {
+    
     private static final double WEIGHT_MIN = 50.0;
     private static final double WEIGHT_MAX = 200.0;
     private static final double HEIGHT_MIN = 1.50;
@@ -25,6 +26,7 @@ public class FakePeople {
     private static final String NOTHING = "No meal";
 
     public static List<Customer> generateCustomer(int amountPeople) {
+        
         List<Customer> customerList = new ArrayList<>();
         Random random = new Random();
 
