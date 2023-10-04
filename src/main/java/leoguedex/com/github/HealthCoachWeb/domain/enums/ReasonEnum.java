@@ -3,9 +3,6 @@ package leoguedex.com.github.HealthCoachWeb.domain.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.EnumSet;
-import java.util.NoSuchElementException;
-
 @Getter
 @AllArgsConstructor
 public enum ReasonEnum {

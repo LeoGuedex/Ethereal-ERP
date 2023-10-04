@@ -3,8 +3,6 @@ package leoguedex.com.github.HealthCoachWeb.domain.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.EnumSet;
-
 @Getter
 @AllArgsConstructor
 public enum IndicatedByEnum {
