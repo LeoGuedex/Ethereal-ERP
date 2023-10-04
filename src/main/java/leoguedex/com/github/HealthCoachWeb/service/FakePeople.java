@@ -2,6 +2,9 @@ package leoguedex.com.github.HealthCoachWeb.service;
 
 import com.github.javafaker.Faker;
 import leoguedex.com.github.HealthCoachWeb.domain.Customer;
+import leoguedex.com.github.HealthCoachWeb.domain.enums.ExpectedEnum;
+import leoguedex.com.github.HealthCoachWeb.domain.enums.IndicatedByEnum;
+import leoguedex.com.github.HealthCoachWeb.domain.enums.ReasonEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,8 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-
-import static leoguedex.com.github.HealthCoachWeb.service.FoodOptions.*;
 
 @Getter
 @Setter
@@ -53,11 +54,11 @@ public class FakePeople {
             customer.setHeight(random.nextDouble(HEIGHT_MIN, HEIGHT_MAX));
             customer.setWorksOrStudies(random.nextBoolean());
 
-            customer.setReferredBy(INDICATED_BY[random.nextInt(0, INDICATED_BY.length)]);
+            customer.setReferredBy(IndicatedByEnum.codToDescription(random.nextInt(0,IndicatedByEnum.values().length)));
 
-            int option = random.nextInt(0, REASONS.length);
-            customer.setConsultationReason(REASONS[option]);
-            customer.setExpectedOutcome(EXPECTED[option]);
+            int option = random.nextInt(0, (ReasonEnum.values().length) - 1);
+            customer.setConsultationReason(ReasonEnum.codToDescription(option));
+            customer.setExpectedOutcome(ExpectedEnum.codToDescription(option));
 
             customerList.add(customer);
         }

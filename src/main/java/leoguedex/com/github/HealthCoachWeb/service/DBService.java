@@ -32,7 +32,7 @@ public class DBService {
     private HCUserRepository hcUserRepository;
 
     public void createTestCustomer() {
-        int amountPeopleFake = 20;
+        int amountPeopleFake = 30;
         List<Customer> customerList = FakePeople.generateCustomer(amountPeopleFake);
 
         for (int i = 0; i < amountPeopleFake; i++) {
