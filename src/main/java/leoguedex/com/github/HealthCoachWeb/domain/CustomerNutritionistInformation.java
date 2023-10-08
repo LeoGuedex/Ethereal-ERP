@@ -29,9 +29,8 @@ public class CustomerNutritionistInformation {
     private String nutritionistRecommendations;
 
     private Integer mealsPerDay;
-
     private Integer cupsOfWaterPerDay;
-
+    
     private String mostHungryTimeOfDay;
 
     private String goToSnack;
@@ -43,23 +42,15 @@ public class CustomerNutritionistInformation {
     private String weekendFoodChoice;
 
     private Boolean foodAllergy;
-
     private Boolean glutenOrGrainIntolerance;
-
     private Boolean drinksAlcohol;
-
     private Integer alcoholPerWeek;
 
-    private Boolean shortOnTimeForMeals;
-
+    private Boolean ShortOnTimeForMeals;
     private Boolean eatsOutMoreThanHalfTheTime;
-
     private Boolean unhealthyFoodAtHome;
-
     private Boolean unhealthyEatingAround;
-
     private Boolean creativeWithFood;
-
     private Boolean eatsSomethingRightAfterWakingUp;
 
     private TypePersonEnum groceryBuyer;
