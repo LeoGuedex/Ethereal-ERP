@@ -1,11 +1,22 @@
 package leoguedex.com.github.HealthCoachWeb.view;
 
+import leoguedex.com.github.HealthCoachWeb.Exception.GetAgeFromBirthDateException;
+import leoguedex.com.github.HealthCoachWeb.controller.CustomerController;
+import leoguedex.com.github.HealthCoachWeb.domain.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 @Controller
 public class HomeController {
+    
+    @Autowired
+    private CustomerController customerController;
 
     @GetMapping("/")
     public String login() {
@@ -33,7 +44,10 @@ public class HomeController {
     }
 
     @GetMapping("/showCustomers")
-    public String showCustomers() {
+    public String showCustomers(Model model) throws GetAgeFromBirthDateException {
+        List<Customer> customers = customerController.findAllCustomers().getBody();
+        model.addAttribute("customers", customers);
+        
         return "tables-data";
     }
 
