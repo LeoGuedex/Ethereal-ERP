@@ -26,6 +26,7 @@
   <link href="/static/template/assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <link href="/static/template/assets/css/style.css" rel="stylesheet">
 
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -250,7 +251,7 @@
                 <form class="row g-3">
 
                   <div class="col-md-12">
-                    
+
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText1" class="form-label">
                       <input type="checkbox"> Eats upon wake up?
                     </label>
@@ -262,7 +263,7 @@
                   </div>
 
                   <div class="col-md-12">
-                    
+
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText2" class="form-label">
                       <input type="checkbox"> Eats before lauch?
                     </label>
@@ -274,7 +275,7 @@
                   </div>
 
                   <div class="col-md-12">
-                    
+
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText3" class="form-label">
                       <input type="checkbox"> Eats lauch?
                     </label>
@@ -286,7 +287,7 @@
                   </div>
 
                   <div class="col-md-12">
-                    
+
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText4" class="form-label">
                       <input type="checkbox"> Eats afternoon snack?
                     </label>
@@ -298,7 +299,7 @@
                   </div>
 
                   <div class="col-md-12">
-                    
+
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText5" class="form-label">
                       <input type="checkbox"> Eats dinner?
                     </label>
@@ -310,7 +311,7 @@
                   </div>
 
                   <div class="col-md-12">
-                    
+
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText6" class="form-label">
                       <input type="checkbox"> Eats before bed time?
                     </label>
@@ -318,7 +319,6 @@
                     <div id="collapseText6" class="col-md-12, collapse">
                       <input type="text" class="form-control" id="inputName5" placeholder="Snack...">
                     </div>
-
                   </div>
 
                 </form><!-- End Multi Columns Form -->
@@ -339,60 +339,223 @@
                 <h5 class="card-title">Customer Gym Information</h5>
 
                 <form class="row g-3">
-                  <div class="col-md-12">
-                    <label for="inputName5" class="form-label">Your Name</label>
+                  <div class="col-md-2">
+                    <label for="inputName5" class="form-label">Desired weight</label>
                     <input type="text" class="form-control" id="inputName5">
                   </div>
-                  <div class="col-md-6">
-                    <label for="inputEmail5" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail5">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputPassword5" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword5">
-                  </div>
-                  <div class="col-12">
-                    <label for="inputAddress5" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAddres5s" placeholder="1234 Main St">
-                  </div>
-                  <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2"
-                      placeholder="Apartment, studio, or floor">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="inputState" class="form-label">State</label>
-                    <select id="inputState" class="form-select">
-                      <option selected>Choose...</option>
-                      <option>...</option>
-                    </select>
-                  </div>
-                  <div class="col-md-2">
-                    <label for="inputZip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                  </div>
-                  <div class="col-12">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck">
-                      <label class="form-check-label" for="gridCheck">
-                        Check me out
-                      </label>
+
+                  <div class="dropdown col-md-2">
+                    <div>
+                      <label for="inputState" class="form-label">Weight Type</label>
+                      <select class="form-select">
+                        <option selected>Yoyo</option>
+                        <option selected>Stable</option>
+                        <option selected>Gain</option>
+                        <option selected>Loss</option>
+                        <option selected>Rapid Gain</option>
+                        <option selected>Cant Maintain Weight</option>
+                        <option selected>Choose...</option>
+                      </select>
                     </div>
                   </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
+
+
+                  <div class="col-md-8">
+                    <label for="inputPassword5" class="form-label">What is your chewing pace?</label>
+                    <input type="text" class="form-control" id="inputPassword5">
                   </div>
-                </form><!-- End Multi Columns Form -->
+
+                  <div class="col-md-12 form-check ms-2">
+                    <label for="flexCheckDefault" data-bs-toggle="collapse" data-bs-target="#collapseText1"
+                      class="form-check-label">
+                      <input class="form-check-input" type="checkbox"> Do you exercises?
+                    </label>
+
+
+                    <div id="collapseText1" class="col-md-12, collapse">
+                      <br>
+                      <div>
+                        <label for="inputText">Days of exercise per week? </label>
+                        <select id="inputState" class="form-select">
+                          <option selected>1</option>
+                          <option selected>2</option>
+                          <option selected>3</option>
+                          <option selected>4</option>
+                          <option selected>5</option>
+                          <option selected>6</option>
+                          <option selected>7</option>
+                          <option selected>Choose...</option>
+                        </select><br>
+                      </div>
+                      <div>
+                        <label for="inputName">What types of exercises?</label>
+                        <textarea type="text" class="form-control " id="inputName5"
+                          placeholder="Exercises..."></textarea>
+                      </div><br>
+                      <div id="collapseText1" class="col-md-12, collapse">
+                        <label for="inputName">After exercising, do you feel anything?</label>
+                        <textarea type="text" class="form-control " id="inputName5"
+                          placeholder="Exercises..."></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-check ms-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Do you intends to exercise?
+                    </label>
+                  </div>
+
+                  <div class="form-check ms-2 mb-5">
+                    <input class="form-check-input" type="checkbox" value="">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Do you exercise regularly?
+                    </label>
+                  </div>
+
+                  <div>
+                    <label for="inputName5" class="form-label">Do you have any preferred fitness activities?</label>
+                    <textarea type="text" class="form-control " id="inputName5" placeholder="Exercises..."></textarea>
+                  </div>
+
+                  <div>
+                    <label for="inputName5" class="form-label">Do you have any exercises that limit you or cause
+                      discomfort?</label>
+                    <textarea type="text" class="form-control " id="inputName5" placeholder="Exercises..."></textarea>
+                  </div>
+
+                  <div>
+                    <label for="inputName5" class="form-label">Do you take any supplements?</label>
+                    <textarea type="text" class="form-control " id="inputName5" placeholder="Exercises..."></textarea>
+                  </div>
+
+                  <div>
+                    <label for="inputName5" class="form-label">Do you have any fitness goals or desired life changes
+                      related to exercise?</label>
+                    <textarea type="text" class="form-control " id="inputName5" placeholder="Exercises..."></textarea>
+                  </div>
+
+                  <div class="dropdown col-md-2">
+                    <div>
+                      <label for="inputState" class="form-label">Family Balance</label>
+                      <select class="form-select">
+                        <option selected>NONE</option>
+                        <option selected>LOW</option>
+                        <option selected>MEDIUM</option>
+                        <option selected>HIGH</option>
+                        <option selected>MAX</option>
+                        <option selected>Choose...</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-10">
+                    <label for="customRange2" class="form-label">What's your determination level?</label>
+                    <input type="range" class="form-range" min="0" max="10" id="customRange2">
+                    <div id="determinationLevel" class="d-flex justify-content-between ps-2">
+                      <p>0</p>
+                      <p>1</p>
+                      <p>2</p>
+                      <p>3</p>
+                      <p>4</p>
+                      <p>5</p>
+                      <p>6</p>
+                      <p>7</p>
+                      <p>8</p>
+                      <p>9</p>
+                      <p>10</p>
+                    </div>
+                  </div>
+                  
+                  <h4 class="mx-auto p-3 text-center">Goals</h4>
+                  <div class="flex-row d-flex text-center flex-wrap justify-content-around">
+                    
+
+                    <div class="form-check col-2 ">
+                      <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Improve Well-being
+                      </label>
+                    </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Increase Exercise
+                    </label>
+                  </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Lose Weight
+                    </label>
+                  </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Improve Sleep
+                    </label>
+                  </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Improve Mental Health
+                    </label>
+                  </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Improve Diet
+                    </label>
+                  </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Increase Energy
+                    </label>
+                  </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Increase Productivity
+                    </label>
+                  </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Decrease Stress
+                    </label>
+                  </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Improve Life Balance
+                    </label>
+                  </div>
+
+                  <div class="form-check col-2">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Job Satisfaction
+                    </label>
+                  </div>
               </div>
+
+              </form><!-- End Multi Columns Form -->
             </div>
           </div>
         </div>
-      </section>
+    </div>
+    </section>
     </div>
 
     <div class="container-fluid">
@@ -594,6 +757,7 @@
     </div>
 
   </main>
+
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">

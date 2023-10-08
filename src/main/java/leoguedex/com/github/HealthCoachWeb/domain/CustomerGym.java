@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @Entity
 @Builder
@@ -38,9 +37,9 @@ public class CustomerGym {
 
     private String exerciseTypes;
 
-    private Integer trainingDaysPerWeek;
-
     private String postExerciseFeeling;
+
+    private Integer trainingDaysPerWeek;
 
     private Boolean intendsToExercise;
 
