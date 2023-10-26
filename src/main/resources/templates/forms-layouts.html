@@ -26,10 +26,10 @@
   <link href="/static/template/assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <link href="/static/template/assets/css/style.css" rel="stylesheet">
 
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
 
 </head>
 
@@ -251,73 +251,62 @@
                 <form class="row g-3">
 
                   <div class="col-md-12">
-
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText1" class="form-label">
-                      <input type="checkbox"> Eats upon wake up?
+                      <input for="inputEatsUponWakeUp" type="checkbox"> Eats upon wake up?
                     </label>
 
                     <div id="collapseText1" class="col-md-12, collapse">
-                      <input type="text" class="form-control" id="inputName5" placeholder="Breakfast...">
+                      <input for="inputEatsUponWakeUpText" type="text" class="form-control" placeholder="Breakfast...">
                     </div>
-
                   </div>
 
                   <div class="col-md-12">
-
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText2" class="form-label">
-                      <input type="checkbox"> Eats before lauch?
+                      <input for="inputEatsBeforeLauch" type="checkbox"> Eats before lauch?
                     </label>
 
-                    <div id="collapseText2" class="col-md-12, collapse">
-                      <input type="text" class="form-control" id="inputName5" placeholder="Lauch...">
+                    <div id="collapseText2" class="col-md-12 collapse">
+                      <input for="inputEatsBeforeLauchText" type="text" class="form-control" placeholder="Lauch...">
                     </div>
-
                   </div>
 
                   <div class="col-md-12">
-
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText3" class="form-label">
-                      <input type="checkbox"> Eats lauch?
+                      <input for="inputEatsLauch" type="checkbox"> Eats lauch?
                     </label>
 
-                    <div id="collapseText3" class="col-md-12, collapse">
-                      <input type="text" class="form-control" id="inputName5" placeholder="Lauch...">
+                    <div id="collapseText3" class="col-md-12 collapse">
+                      <input for="inputEatsLauchText" type="text" class="form-control" placeholder="Lauch...">
                     </div>
-
                   </div>
 
                   <div class="col-md-12">
-
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText4" class="form-label">
-                      <input type="checkbox"> Eats afternoon snack?
+                      <input for="inputEatsAfternoonSnack" type="checkbox"> Eats afternoon snack?
                     </label>
 
-                    <div id="collapseText4" class="col-md-12, collapse">
-                      <input type="text" class="form-control" id="inputName5" placeholder="Snack...">
+                    <div id="collapseText4" class="col-md-12 collapse">
+                      <input for="inputEatsAfternoonSnackText" type="text" class="form-control"  placeholder="Snack...">
                     </div>
-
                   </div>
 
                   <div class="col-md-12">
-
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText5" class="form-label">
-                      <input type="checkbox"> Eats dinner?
+                      <input for="inputEatsDinner" type="checkbox"> Eats dinner?
                     </label>
 
                     <div id="collapseText5" class="col-md-12, collapse">
-                      <input type="text" class="form-control" id="inputName5" placeholder="Dinner...">
+                      <input for="inputEatsDinnerText" type="text" class="form-control" id="inputName5" placeholder="Dinner...">
                     </div>
-
                   </div>
 
                   <div class="col-md-12">
-
                     <label data-bs-toggle="collapse" data-bs-target="#collapseText6" class="form-label">
-                      <input type="checkbox"> Eats before bed time?
+                      <input for="inputEatsBeforeBedTime" type="checkbox"> Eats before bed time?
                     </label>
 
                     <div id="collapseText6" class="col-md-12, collapse">
-                      <input type="text" class="form-control" id="inputName5" placeholder="Snack...">
+                      <input for="inputEatsBeforeBedTimeText" type="text" class="form-control" id="inputName5" placeholder="Snack...">
                     </div>
                   </div>
 
@@ -333,71 +322,72 @@
       <section class="section">
         <div class="row">
           <div class="col-lg-12">
-
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Customer Gym Information</h5>
 
+                <h5 class="card-title">Customer Gym Information</h5>
                 <form class="row g-3">
+
                   <div class="col-md-2">
-                    <label for="inputName5" class="form-label">Desired weight</label>
-                    <input type="text" class="form-control" id="inputName5">
+                    <label for="inputDesiredWeight" class="form-label">Desired weight</label>
+                    <input id="inputDesiredWeight" type="text" class="form-control">
                   </div>
 
                   <div class="dropdown col-md-2">
                     <div>
-                      <label for="inputState" class="form-label">Weight Type</label>
-                      <select class="form-select">
-                        <option selected>Yoyo</option>
-                        <option selected>Stable</option>
-                        <option selected>Gain</option>
-                        <option selected>Loss</option>
-                        <option selected>Rapid Gain</option>
-                        <option selected>Cant Maintain Weight</option>
+                      <label for="inputWeightType" class="form-label">Weight Type</label>
+                      <select id="inputWeightType" class="form-select">
+                        <option>Yoyo</option>
+                        <option>Stable</option>
+                        <option>Gain</option>
+                        <option>Loss</option>
+                        <option>Rapid Gain</option>
+                        <option>Cant Maintain Weight</option>
                         <option selected>Choose...</option>
                       </select>
                     </div>
                   </div>
 
-
                   <div class="col-md-8">
-                    <label for="inputPassword5" class="form-label">What is your chewing pace?</label>
-                    <input type="text" class="form-control" id="inputPassword5">
+                    <label for="inputChewingPace" class="form-label">What is your chewing pace?</label>
+                    <input id="inputChewingPace" type="text" class="form-control">
                   </div>
 
                   <div class="col-md-12 form-check ms-2">
-                    <label for="flexCheckDefault" data-bs-toggle="collapse" data-bs-target="#collapseText1"
+                    <label for="inputDoExercises" data-bs-toggle="collapse" data-bs-target=".doExercises"
                       class="form-check-label">
-                      <input class="form-check-input" type="checkbox"> Do you exercises?
+                      <input id="inputDoExercises" class="form-check-input" type="checkbox"> Do you exercises?
                     </label>
 
-
-                    <div id="collapseText1" class="col-md-12, collapse">
+                    <div class="col-md-12 collapse doExercises">
                       <br>
                       <div>
-                        <label for="inputText">Days of exercise per week? </label>
-                        <select id="inputState" class="form-select">
-                          <option selected>1</option>
-                          <option selected>2</option>
-                          <option selected>3</option>
-                          <option selected>4</option>
-                          <option selected>5</option>
-                          <option selected>6</option>
-                          <option selected>7</option>
+                        <label for="inputDoExercisesPerWeek">Days of exercise per week? </label>
+                        <select id="inputDoExercisesPerWeek" class="form-select">
+                          <option >1</option>
+                          <option >2</option>
+                          <option >3</option>
+                          <option >4</option>
+                          <option >5</option>
+                          <option >6</option>
+                          <option >7</option>
                           <option selected>Choose...</option>
                         </select><br>
                       </div>
+
                       <div>
-                        <label for="inputName">What types of exercises?</label>
-                        <textarea type="text" class="form-control " id="inputName5"
+                        <label for="inputDoExercisesTypes">What types of exercises?</label>
+                        <textarea type="text" class="form-control " id="inputDoExercisesTypes"
                           placeholder="Exercises..."></textarea>
                       </div><br>
-                      <div id="collapseText1" class="col-md-12, collapse">
-                        <label for="inputName">After exercising, do you feel anything?</label>
-                        <textarea type="text" class="form-control " id="inputName5"
+
+                      <div class="col-md-12 collapse doExercises">
+                        <label for="inputFellAfterExercises">After exercising, do you feel anything?</label>
+                        <textarea type="text" class="form-control " id="inputFellAfterExercises"
                           placeholder="Exercises..."></textarea>
                       </div>
                     </div>
+
                   </div>
 
                   <div class="form-check ms-2">
@@ -415,14 +405,14 @@
                   </div>
 
                   <div>
-                    <label for="inputName5" class="form-label">Do you have any preferred fitness activities?</label>
-                    <textarea type="text" class="form-control " id="inputName5" placeholder="Exercises..."></textarea>
+                    <label for="inputFitnessActivities" class="form-label">Do you have any preferred fitness activities?</label>
+                    <textarea type="text" class="form-control " id="inputFitnessActivities" placeholder="Exercises..."></textarea>
                   </div>
 
                   <div>
-                    <label for="inputName5" class="form-label">Do you have any exercises that limit you or cause
+                    <label for="inputExercisesDescomfort" class="form-label">Do you have any exercises that limit you or cause
                       discomfort?</label>
-                    <textarea type="text" class="form-control " id="inputName5" placeholder="Exercises..."></textarea>
+                    <textarea type="text" class="form-control " id="inputExercisesDescomfort" placeholder="Exercises..."></textarea>
                   </div>
 
                   <div>
@@ -439,12 +429,12 @@
                   <div class="dropdown col-md-2">
                     <div>
                       <label for="inputState" class="form-label">Family Balance</label>
-                      <select class="form-select">
-                        <option selected>NONE</option>
-                        <option selected>LOW</option>
-                        <option selected>MEDIUM</option>
-                        <option selected>HIGH</option>
-                        <option selected>MAX</option>
+                      <select id="familyBalanceForm" class="form-select">
+                        <option value="NONE">NONE</option>
+                        <option value="LOW">LOW</option>
+                        <option value="MEDIUM">MEDIUM</option>
+                        <option value="HIGH">HIGH</option>
+                        <option value="MAX">MAX</option>
                         <option selected>Choose...</option>
                       </select>
                     </div>
@@ -470,6 +460,7 @@
 
                   <h4 class="mx-auto p-3 text-center">Goals</h4>
                   <div class="flex-row d-flex text-center flex-wrap justify-content-around">
+
 
                     <div class="form-check col-2 ">
                       <input class="form-check-input" type="checkbox" id="flexCheckDefault">
@@ -711,327 +702,77 @@
                     <textarea type="text" class="form-control" placeholder="Description..."></textarea>
                   </div>
 
-                  <h4 class="mx-auto p-3 text-center">Diseases</h4>
-
-                  <div class="flex-row d-flex text-center flex-wrap justify-content-around">
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Irritated Intestine
-                      </label>
+                  <div class="conteiner ">
+                    <h2 class=" pt-2 text-center ">Diseases</h2>
+                    <div class="row justify-content-md-center">
+                      <div class="dropdown col-md-4">
+                        <select id="diseaseSelect" class="form-select">
+                          <option value="acid_reflux">Acid Reflux</option>
+                          <option value="gastritis">Gastritis</option>
+                          <option value="ulcer">Ulcer</option>
+                          <option value="heart_attack">Heart Attack</option>
+                          <option value="hypertension">Hypertension</option>
+                          <option value="high_cholesterol">High Cholesterol</option>
+                          <option value="edema">Edema</option>
+                          <option value="hypothyroidism">Hypothyroidism</option>
+                          <option value="diabetes">Diabetes</option>
+                          <option value="infertility">Infertility</option>
+                          <option value="weight_gain">Weight Gain</option>
+                          <option value="anemia">Anemia</option>
+                          <option value="hyperthyroidism">Hyperthyroidism</option>
+                          <option value="metabolic_syndrome">Metabolic Syndrome</option>
+                          <option value="fatty_liver_disease">Fatty Liver Disease</option>
+                          <option value="weight_fluctuations">Weight Fluctuations</option>
+                          <option value="polycystic_ovary_syndrome">Polycystic Ovary Syndrome</option>
+                          <option value="gout">Gout</option>
+                          <option value="urinary_tract_infection">Urinary Tract Infection</option>
+                          <option value="fungal_infection">Fungal Infection</option>
+                          <option value="kidney_stones">Kidney Stones</option>
+                          <option value="osteoporosis">Osteoporosis</option>
+                          <option value="arthritis">Arthritis</option>
+                          <option value="muscle_pain">Muscle Pain</option>
+                          <option value="joint_pain">Joint Pain</option>
+                          <option value="muscle_flaccidity">Muscle Flaccidity</option>
+                          <option value="chronic_fatigue_syndrome">Chronic Fatigue Syndrome</option>
+                          <option value="rheumatoid_arthritis">Rheumatoid Arthritis</option>
+                          <option value="lupus">Lupus</option>
+                          <option value="environmental_allergies">Environmental Allergies</option>
+                          <option value="food_allergies">Food Allergies</option>
+                          <option value="asthma">Asthma</option>
+                          <option value="fatigue">Fatigue</option>
+                          <option value="low_immunity">Low Immunity</option>
+                          <option value="chemical_sensitivity">Chemical Sensitivity</option>
+                          <option value="cancer">Cancer</option>
+                          <option value="sleep_apnea">Sleep Apnea</option>
+                          <option value="depression">Depression</option>
+                          <option value="anxiety">Anxiety</option>
+                          <option value="headaches">Headaches</option>
+                          <option value="mood_swings">Mood Swings</option>
+                          <option value="premenstrual_syndrome">Premenstrual Syndrome</option>
+                          <option value="insomnia">Insomnia</option>
+                          <option value="smoking">Smoking</option>
+                          <option value="irritatedIntestine">Irritated Intestine</option>
+                          <option selected>Choose...</option>
+                        </select>
+                      </div>
+                      <button onclick= "diseases.add()" id="diseasesButton" type="button" class="btn btn-primary col-1">ADD</button>
                     </div>
 
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Acid Reflux
-                      </label>
+                    <div class="row justify-content-md-center pt-5">
+                      <table class="table-dark col-md-8">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Diseases</th>
+                            <th scope="col">X</th>
+                          </tr>
+                        </thead>
+                        <tbody id="diseasesTbody" class="table-group-divider">
+
+                        </tbody>
+                      </table>
                     </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Gastritis
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Ulcer
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Heart Attack
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Hypertension
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        High Cholesterol
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Edema
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Hypothyroidism
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Diabetes
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Infertility
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Weight Gain
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Anemia
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Hyperthyroidism
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Metabolic Syndrome
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Fatty Liver Disease
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Weight Fluctuations
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Polycystic Ovary Syndrome
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Gout
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Urinary Tract Infection
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Fungal Infection
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Kidney Stones
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Osteoporosis
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Arthritis
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Muscle Pain
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Joint Pain
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Muscle Flaccidity
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Chronic Fatigue Syndrome
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Rheumatoid Arthritis
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Lupus
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Environmental Allergies
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Food Allergies
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Asthma
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Fatigue
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Low Immunity
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Chemical Sensitivity
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Cancer
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Sleep Apnea
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Depression
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Anxiety
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Headaches
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Mood Swings
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Premenstrual Syndrome
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Insomnia
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Smoking
-                      </label>
-                    </div>
-
-
                   </div>
-
 
                 </form><!-- End Multi Columns Form -->
               </div>
@@ -1050,7 +791,7 @@
               <div class="card-body">
                 <h5 class="card-title">Customer Nutritionist Information</h5>
 
-                <form class="row g-3">
+                <div class="row g-3">
 
                   <div class="col-4">
                     <div class="form-check">
@@ -1133,46 +874,48 @@
                     <textarea type="text" class="form-control" placeholder="Description..."></textarea>
                   </div>
 
-                  <div class="form-check col-3 pt-5">
-                    <input class="form-check-input" type="checkbox">
-                    <label class="form-check-label">
-                      Short on Time for Meals
-                    </label>
-                  </div>
+                  <div>
+                    <div class="form-check col-3 pt-5">
+                      <input class="form-check-input" type="checkbox">
+                      <label class="form-check-label">
+                        Short on Time for Meals
+                      </label>
+                    </div>
 
-                  <div class="form-check col-3 pt-2">
-                    <input class="form-check-input" type="checkbox">
-                    <label class="form-check-label">
-                      Eats out more than Half the Time
-                    </label>
-                  </div>
+                    <div class="form-check col-3 pt-2">
+                      <input class="form-check-input" type="checkbox">
+                      <label class="form-check-label">
+                        Eats out more than Half the Time
+                      </label>
+                    </div>
 
-                  <div class="form-check col-3 pt-2">
-                    <input class="form-check-input" type="checkbox">
-                    <label class="form-check-label">
-                      Unhealthy Food at Home
-                    </label>
-                  </div>
+                    <div class="form-check col-3 pt-2">
+                      <input class="form-check-input" type="checkbox">
+                      <label class="form-check-label">
+                        Unhealthy Food at Home
+                      </label>
+                    </div>
 
-                  <div class="form-check col-3 pt-2">
-                    <input class="form-check-input" type="checkbox">
-                    <label class="form-check-label">
-                      Unhealthy Eating Around
-                    </label>
-                  </div>
+                    <div class="form-check col-3 pt-2">
+                      <input class="form-check-input" type="checkbox">
+                      <label class="form-check-label">
+                        Unhealthy Eating Around
+                      </label>
+                    </div>
 
-                  <div class="form-check col-3 pt-2">
-                    <input class="form-check-input" type="checkbox">
-                    <label class="form-check-label">
-                      Creative With Food
-                    </label>
-                  </div>
+                    <div class="form-check col-3 pt-2">
+                      <input class="form-check-input" type="checkbox">
+                      <label class="form-check-label">
+                        Creative With Food
+                      </label>
+                    </div>
 
-                  <div class="form-check col-3 pt-2">
-                    <input class="form-check-input" type="checkbox">
-                    <label class="form-check-label">
-                      Eats Something Right After Waking up
-                    </label>
+                    <div class="form-check col-3 pt-2">
+                      <input class="form-check-input" type="checkbox">
+                      <label class="form-check-label">
+                        Eats Something Right After Waking up
+                      </label>
+                    </div>
                   </div>
 
                   <div class="row pt-5 pb-3">
@@ -1210,11 +953,11 @@
                       </div>
                     </div>
                   </div>
-                </form><!-- End Multi Columns Form -->
+                  </form><!-- End Multi Columns Form -->
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </section>
     </div>
 
@@ -1284,6 +1027,8 @@
       </section>
     </div>
 
+
+
   </main>
 
 
@@ -1307,7 +1052,10 @@
   <script src="/static/template/assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="/static/template/assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="/static/template/assets/vendor/php-email-form/validate.js"></script>
-  <script src="/static/template/assets/js/main.js"></script>
+  <script src="../static/js/forms.js"></script>
+
+
+
 </body>
 
 </html>
