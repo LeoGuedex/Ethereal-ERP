@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ReasonEnum {
+    
     PREVENT_DISEASE(0, "Previnir doenças"),
     BODY_COMPOSITION(1, "Melhorar composição corporal"),
     FOOD_ALLERGY(2, "Tratar alergias alimentares"),
@@ -27,4 +28,5 @@ public enum ReasonEnum {
         }
         return null;
     }
+    
 }
