@@ -22,6 +22,8 @@ public class HandleErrorController implements ErrorController {
         return "pages-error-404";
       }
     }
+
     return "error";
   }
+  
 }

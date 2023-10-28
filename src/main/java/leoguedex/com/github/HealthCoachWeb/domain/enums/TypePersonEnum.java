@@ -9,13 +9,13 @@ import java.util.EnumSet;
 @AllArgsConstructor
 public enum TypePersonEnum {
 
-    SELF(0, "Self"),
-    FAMILY_MEMBERS(1, "Family Members"),
-    FRIENDS(2, "Friends"),
-    OTHERS(3, "Others");
+    SELF(0, "Sozinho"),
+    FAMILY_MEMBERS(1, "Família"),
+    FRIENDS(2, "Amigos"),
+    OTHERS(3, "Outros");
 
     private final int cod;
-    private final String descricao;
+    private final String description;
 
     public static TypePersonEnum toEnum(Integer cod) {
         return EnumSet.allOf(TypePersonEnum.class).stream()

@@ -23,128 +23,67 @@ public class CustomerHealth {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    private String moodDescription;
-
-    private SleepTypeEnum sleepTypeEnum;
-
-    private int weekdaySleepHours;
-
-    private int weekendSleepHours;
-
-    private QuantityPercentageEnum concentration;
-
-    private QuantityPercentageEnum recentMemory;
-
-    private QuantityPercentageEnum longTermMemory;
-
-    private QuantityPercentageEnum daytimeEnergy;
-
-    private QuantityPercentageEnum morningDisposition;
-
-    private QuantityPercentageEnum afternoonDisposition;
-
-    private QuantityPercentageEnum eveningDisposition;
-
-    private String sleepImprovementMethods;
-
-    private String energyReductionMethods;
-
-    private QuantityPercentageEnum stressLevel;
-
-    private String stressReductionMethods;
-
-    private String healthDescription;
-
-    private Boolean regularBowelMovement;
-
-    private Boolean irritatedIntestine;
-
-    private Boolean acidReflux;
-
-    private Boolean gastritis;
-
-    private Boolean ulcer;
-
-    private Boolean heartAttack;
-
-    private Boolean hypertension;
-
-    private Boolean highCholesterol;
-
-    private Boolean edema;
-
-    private Boolean hypothyroidism;
-
-    private Boolean diabetes;
-
-    private Boolean infertility;
-
-    private Boolean weightGain;
-
-    private Boolean anemia;
-
-    private Boolean hyperthyroidism;
-
-    private Boolean metabolicSyndrome;
-
-    private Boolean fattyLiverDisease;
-
-    private Boolean weightFluctuations;
-
-    private Boolean polycysticOvarySyndrome;
-
     private Boolean gout;
-
-    private Boolean urinaryTractInfection;
-
-    private Boolean fungalInfection;
-
-    private Boolean kidneyStones;
-
-    private Boolean osteoporosis;
-
-    private Boolean arthritis;
-
-    private Boolean musclePain;
-
-    private Boolean jointPain;
-
-    private Boolean muscleFlaccidity;
-
-    private Boolean chronicFatigueSyndrome;
-
-    private Boolean rheumatoidArthritis;
-
+    private Boolean ulcer;
+    private Boolean edema;
     private Boolean lupus;
-
-    private Boolean environmentalAllergies;
-
-    private Boolean foodAllergies;
-
-    private Boolean asthma;
-
-    private Boolean fatigue;
-
-    private Boolean lowImmunity;
-
-    private Boolean chemicalSensitivity;
-
+    private Boolean anemia;
     private Boolean cancer;
-
-    private Boolean sleepApnea;
-
-    private Boolean depression;
-
+    private Boolean asthma;
+    private Boolean fatigue;
     private Boolean anxiety;
-
-    private Boolean headaches;
-
-    private Boolean moodSwings;
-
-    private Boolean premenstrualSyndrome;
-
-    private Boolean insomnia;
-
     private Boolean smoking;
-
+    private Boolean diabetes;
+    private Boolean insomnia;
+    private Boolean gastritis;
+    private Boolean headaches;
+    private Boolean arthritis;
+    private Boolean jointPain;
+    private Boolean weightGain;
+    private Boolean sleepApnea;
+    private Boolean depression;
+    private Boolean moodSwings;
+    private Boolean musclePain;
+    private Boolean acidReflux;
+    private Boolean heartAttack;
+    private Boolean lowImmunity;
+    private Boolean infertility;
+    private Boolean hypertension;
+    private Boolean kidneyStones;
+    private Boolean osteoporosis;
+    private int weekdaySleepHours;
+    private int weekendSleepHours;
+    private Boolean foodAllergies;
+    private String moodDescription;
+    private Boolean hypothyroidism;
+    private Boolean hyperthyroidism;
+    private Boolean highCholesterol;
+    private Boolean fungalInfection;
+    private String healthDescription;
+    private Boolean muscleFlaccidity;
+    private Boolean metabolicSyndrome;
+    private Boolean fattyLiverDisease;
+    private Boolean irritatedIntestine;
+    private Boolean weightFluctuations;
+    private Boolean rheumatoidArthritis;
+    private SleepTypeEnum sleepTypeEnum;
+    private Boolean chemicalSensitivity;
+    private Boolean regularBowelMovement;
+    private Boolean premenstrualSyndrome;
+    private Boolean urinaryTractInfection;
+    private String energyReductionMethods;
+    private String stressReductionMethods;
+    private Boolean chronicFatigueSyndrome;
+    private Boolean environmentalAllergies;
+    private String sleepImprovementMethods;
+    private Boolean polycysticOvarySyndrome;
+    private QuantityPercentageEnum stressLevel;
+    private QuantityPercentageEnum recentMemory;
+    private QuantityPercentageEnum concentration;
+    private QuantityPercentageEnum daytimeEnergy;
+    private QuantityPercentageEnum longTermMemory;
+    private QuantityPercentageEnum morningDisposition;
+    private QuantityPercentageEnum eveningDisposition;
+    private QuantityPercentageEnum afternoonDisposition;
+    
 }

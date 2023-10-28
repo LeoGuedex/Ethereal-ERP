@@ -8,12 +8,13 @@ import java.util.EnumSet;
 @Getter
 @AllArgsConstructor
 public enum TypeDaysEnum {
-    DAY(0, "Day"),
-    WEEK(1, "Week"),
-    MONTH(2, "Month");
+
+    DAY(0, "Dia"),
+    WEEK(1, "Semana"),
+    MONTH(2, "Mês");
 
     private final int cod;
-    private final String descricao;
+    private final String description;
 
     public static TypeDaysEnum toEnum(Integer cod) {
         return EnumSet.allOf(TypeDaysEnum.class).stream()

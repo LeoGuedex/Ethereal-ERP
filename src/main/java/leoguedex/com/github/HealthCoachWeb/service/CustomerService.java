@@ -21,12 +21,6 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    public Customer update(Customer customer) {
-        customer.setId(customer.getId());
-
-        return customerRepository.save(customer);
-    }
-
     public void delete(Long id) {
         customerRepository.deleteById(id);
     }
@@ -35,18 +29,22 @@ public class CustomerService {
         return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
     }
 
-    public List<Customer> findAllCustomers() throws GetAgeFromBirthDateException {
+    public List<Customer> findAllCustomers() {
         List<Customer> customers = customerRepository.findAll();
 
-        for (Customer thisTime : customers) {
-            String age = String.valueOf(getAgeFromBirthDate(thisTime.getBirthDate()));
-            thisTime.setBirthDate(age);
-        }
+        customers.forEach(c -> {
+            try {
+                c.setAge(getAgeFromBirthDate(c.getBirthDate()));
+                customerRepository.save(c);
+            } catch (GetAgeFromBirthDateException e) {
+                e.printStackTrace();
+            }
+        });
 
-        return customerRepository.findAll();
+        return customers;
     }
 
-    public int getAgeFromBirthDate(String birthDate) throws GetAgeFromBirthDateException {
+    private Integer getAgeFromBirthDate(String birthDate) throws GetAgeFromBirthDateException {
         Pattern pattern = Pattern.compile("(\\d{2})/(\\d{2})/(\\d{4})");
         Matcher matcher = pattern.matcher(birthDate);
 

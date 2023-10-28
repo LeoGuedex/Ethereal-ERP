@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 import leoguedex.com.github.HealthCoachWeb.domain.Customer;
 import leoguedex.com.github.HealthCoachWeb.domain.enums.ExpectedEnum;
 import leoguedex.com.github.HealthCoachWeb.domain.enums.IndicatedByEnum;
-import leoguedex.com.github.HealthCoachWeb.domain.enums.ReasonEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,15 +18,9 @@ import java.util.Random;
 @Getter
 @Setter
 public class FakePeople {
-    
-    private static final double WEIGHT_MIN = 50.0;
-    private static final double WEIGHT_MAX = 200.0;
-    private static final double HEIGHT_MIN = 1.50;
-    private static final double HEIGHT_MAX = 2.10;
-    private static final String NOTHING = "No meal";
 
     public static List<Customer> generateCustomer(int amountPeople) {
-        
+
         List<Customer> customerList = new ArrayList<>();
         Random random = new Random();
 
@@ -50,15 +43,15 @@ public class FakePeople {
             String formattedDateTime = LocalDateTime.now().format(formatter);
             customer.setWhenCreated(LocalDateTime.parse(formattedDateTime, formatter));
 
-            customer.setWeight(random.nextDouble(WEIGHT_MIN, WEIGHT_MAX));
-            customer.setHeight(random.nextDouble(HEIGHT_MIN, HEIGHT_MAX));
+            customer.setWeight(random.nextDouble(50.0, 200.0));
+            customer.setHeight(random.nextDouble(1.50, 2.10));
             customer.setWorksOrStudies(random.nextBoolean());
 
-            customer.setReferredBy(IndicatedByEnum.codToDescription(random.nextInt(0,IndicatedByEnum.values().length)));
+            customer.setReferredBy(IndicatedByEnum.toEnum(random.nextInt(0, IndicatedByEnum.values().length)));
 
-            int option = random.nextInt(0, (ReasonEnum.values().length) - 1);
-            customer.setConsultationReason(ReasonEnum.codToDescription(option));
-            customer.setExpectedOutcome(ExpectedEnum.codToDescription(option));
+            int option = random.nextInt(0, (ExpectedEnum.values().length) - 1);
+            customer.setExpectedOutcome(ExpectedEnum.toEnum(option));
+            customer.setConsultationReason("Motivo desconhecido");
 
             customerList.add(customer);
         }
@@ -77,4 +70,5 @@ public class FakePeople {
                 .replaceAll(" ", "")
                 .toLowerCase();
     }
+
 }

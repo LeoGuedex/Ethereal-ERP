@@ -1,5 +1,7 @@
 package leoguedex.com.github.HealthCoachWeb.domain.enums;
 
+import java.util.EnumSet;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -7,26 +9,24 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ExpectedEnum {
     
-    PREVENT_DISEASE(0, "Evitar a longo prazo o aparecimento de doenças"),
-    BODY_COMPOSITION(1,  "Mudar meu corpo em 6 meses"),
-    FOOD_ALLERGY(2, "Reduzir meus problemas com amêndoas"),
-    NUTRITIONAL_DEFICIENCY(3, "No próximo exame de sangue normalizar minhas vitaminas"),
-    CONTROL_SUGAR(4,  "Reduzir minhas diabetes"),
-    LIQUID_RETENTION(5, "No próximos meses gostaria de reduzir o inchaço causado pela retenção"),
-    CIRCULATORY_SYSTEM(6, "Gostaria de desentupir minhas veias"),
-    KIDNEY_HEALTH(8, "Gostaria de uma dieta para auxiliar a saída da pedra do meu rim"),
-    PHYSICAL_CONDITIONING(9, "Sou atleta e gostaria de me manter em alta performance");
+    PREVENT_DISEASE(0, "Prevenir Doenças"),
+    BODY_COMPOSITION(1,  "Melhorar composição corporal"),
+    FOOD_ALLERGY(2, "Tratar doenças alimentares"),
+    NUTRITIONAL_DEFICIENCY(3, "Correção da nutrição"),
+    CONTROL_SUGAR(4,  "Controlar diabetes"),
+    LIQUID_RETENTION(5, "Desinchar pela retenção de líquidos"),
+    CIRCULATORY_SYSTEM(6, "Cardio e circulação"),
+    KIDNEY_HEALTH(7, "Alimentação saudavel"),
+    PHYSICAL_CONDITIONING(8, "Alta performance");
 
     private final int cod;
     private final String description;
 
-    public static String codToDescription(Integer cod) {
-        for (ExpectedEnum expectedEnum : values()) {
-            if (expectedEnum.cod == cod) {
-                return expectedEnum.getDescription();
-            }
-        }
-        return null;
+    public static ExpectedEnum toEnum(Integer cod) {
+        return EnumSet.allOf(ExpectedEnum.class).stream()
+                .filter(e -> e.getCod() == (cod))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + cod));
     }
     
 }
