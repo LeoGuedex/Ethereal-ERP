@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ExpectedEnum {
+    
     PREVENT_DISEASE(0, "Evitar a longo prazo o aparecimento de doenças"),
     BODY_COMPOSITION(1,  "Mudar meu corpo em 6 meses"),
     FOOD_ALLERGY(2, "Reduzir meus problemas com amêndoas"),
@@ -27,4 +28,5 @@ public enum ExpectedEnum {
         }
         return null;
     }
+    
 }
