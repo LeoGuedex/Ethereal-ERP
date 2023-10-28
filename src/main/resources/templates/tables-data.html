@@ -29,7 +29,6 @@
 
 <body>
 
-<!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
@@ -37,7 +36,7 @@
             <img src="/static/imagens/HealthCoachIcon.png" alt="">
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- Icone da barra -->
+    </div>
 
     <nav class="header-nav ms-auto">
         <ul class="d-flex align-items-center">
@@ -75,7 +74,6 @@
     </nav>
 </header>
 
-<!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
@@ -89,23 +87,22 @@
                 <i class="bi bi-person-plus-fill"></i>
                 <span>New Customer</span>
             </a>
-        </li><!-- Forms Register new Customer -->
+        </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="/showCustomers">
                 <i class="bi bi-people-fill"></i>
                 <span>Customers</span>
             </a>
-        </li><!-- Table to find Customer -->
+        </li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="/contact">
                 <i class="ri-customer-service-fill"></i>
                 <span>Contact Developer</span>
             </a>
-        </li><!-- End Contact Page Nav -->
+        </li>
     </ul>
 </aside>
 
-<!-- Editar Aqui o Main -->
 <main id="main" class="main">
 
     <div class="pagetitle">
@@ -116,45 +113,31 @@
                 <li class="breadcrumb-item active">Customers</li>
             </ol>
         </nav>
-    </div><!-- End Page Title -->
+    </div>
 
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
-
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Customers List</h5>
-                        <p>Add lightweight datatables to your project with using the <a
-                                href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple
-                            DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to
-                            conver to a datatable</p>
-
-                        <!-- Table with stripped rows -->
-                        <table class="table datatable">
-                            <thead>
-                            <tr>
-                                <th scope="col">id</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Start Date</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="customers : ${customers}">
-                                <td th:text="${customers.getId}"></td>
-                                <td th:text="${customers.getName}"></td>
-                                <td th:text="${customers.getBirthDate}"></td>
-                                <td th:text="${customers.getPhoneNumber}"></td>
-                                <td th:text="${customers.getWhenCreated}"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <!-- End Table with stripped rows -->
-
-                    </div>
-                </div>
+                <table class="table datatable">
+                    <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Start Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="customers : ${customers}">
+                        <td th:text="${customers.getId}"></td>
+                        <td th:text="${customers.getName}"></td>
+                        <td th:text="${customers.getBirthDate}"></td>
+                        <td th:text="${customers.getPhoneNumber}"></td>
+                        <td th:text="${customers.getWhenCreated}"></td>
+                    </tr>
+                    </tbody>
+                </table>
 
             </div>
         </div>
@@ -162,7 +145,6 @@
 
 </main>
 
-<!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
     <div class="copyright">
         &copy; Copyright <strong><span>Leo Guedes</span></strong>. All Rights Reserved
