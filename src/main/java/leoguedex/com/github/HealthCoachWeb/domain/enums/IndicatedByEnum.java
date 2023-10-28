@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum IndicatedByEnum {
+    
     FRIEND(0, "Amigos"),
     AD(1, "Anúncios"),
     NOT_INDICATED(2, "Não fui indicado"),
@@ -23,4 +24,5 @@ public enum IndicatedByEnum {
         }
         return null;
     }
+    
 }
