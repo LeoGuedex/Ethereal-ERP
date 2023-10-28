@@ -8,8 +8,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 public class HealthCoachWebApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HealthCoachWebApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(HealthCoachWebApplication.class, args);
+    }
 
 }

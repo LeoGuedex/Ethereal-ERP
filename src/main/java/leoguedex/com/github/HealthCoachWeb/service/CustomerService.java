@@ -13,32 +13,32 @@ import java.util.regex.Pattern;
 
 @Service
 public class CustomerService {
-    
+
     @Autowired
     private CustomerRepository customerRepository;
 
-    public Customer create(Customer customer){
+    public Customer create(Customer customer) {
         return customerRepository.save(customer);
     }
 
-    public Customer update(Customer customer){
+    public Customer update(Customer customer) {
         customer.setId(customer.getId());
-        
+
         return customerRepository.save(customer);
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         customerRepository.deleteById(id);
     }
 
-    public Customer findById(Long id){
+    public Customer findById(Long id) {
         return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
     }
 
     public List<Customer> findAllCustomers() throws GetAgeFromBirthDateException {
         List<Customer> customers = customerRepository.findAll();
-        
-        for(Customer thisTime : customers){
+
+        for (Customer thisTime : customers) {
             String age = String.valueOf(getAgeFromBirthDate(thisTime.getBirthDate()));
             thisTime.setBirthDate(age);
         }
@@ -67,8 +67,8 @@ public class CustomerService {
         if (currentMonth < birthmonth || (currentMonth == birthmonth && currentDay < birthDay)) {
             age--;
         }
-        
+
         return age;
     }
-    
+
 }

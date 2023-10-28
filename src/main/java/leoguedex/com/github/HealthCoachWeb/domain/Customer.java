@@ -58,4 +58,19 @@ public class Customer {
     @OneToOne(mappedBy = "customer")
     private CustomerRotineTable customerRotineTable;
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", referredBy='" + referredBy + '\'' +
+                ", consultationReason='" + consultationReason + '\'' +
+                ", expectedOutcome='" + expectedOutcome + '\'' +
+                '}';
+    }
+
 }

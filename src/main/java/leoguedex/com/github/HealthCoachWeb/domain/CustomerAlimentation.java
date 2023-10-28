@@ -1,7 +1,10 @@
 package leoguedex.com.github.HealthCoachWeb.domain;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
@@ -41,5 +44,24 @@ public class CustomerAlimentation {
     private Boolean eatsBeforeBedtime;
 
     private String beforeBedtimeSnack;
+
+    @Override
+    public String toString() {
+        return "CustomerAlimentation{" +
+                "id=" + id +
+                ", eatsUponWakingUp=" + eatsUponWakingUp +
+                ", breakfast='" + breakfast + '\'' +
+                ", eatsBeforeLunch=" + eatsBeforeLunch +
+                ", beforeLunchMeal='" + beforeLunchMeal + '\'' +
+                ", eatsLunch=" + eatsLunch +
+                ", lunch='" + lunch + '\'' +
+                ", eatsAfternoonSnack=" + eatsAfternoonSnack +
+                ", afternoonSnack='" + afternoonSnack + '\'' +
+                ", eatsDinner=" + eatsDinner +
+                ", dinner='" + dinner + '\'' +
+                ", eatsBeforeBedtime=" + eatsBeforeBedtime +
+                ", beforeBedtimeSnack='" + beforeBedtimeSnack + '\'' +
+                '}';
+    }
 
 }

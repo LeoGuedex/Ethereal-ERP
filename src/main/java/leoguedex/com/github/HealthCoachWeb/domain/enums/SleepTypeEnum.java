@@ -19,7 +19,7 @@ public enum SleepTypeEnum {
     NIGHT_AGGITATION(8, "Night Agitation");
 
     private final int cod;
-    private final String descricao;
+    private final String SleepTypeEnum;
 
     public static SleepTypeEnum toEnum(Integer cod) {
         return EnumSet.allOf(SleepTypeEnum.class).stream()
