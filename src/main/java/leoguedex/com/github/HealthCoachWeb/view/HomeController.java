@@ -37,11 +37,6 @@ public class HomeController {
         return "pages-contact";
     }
 
-    @GetMapping("/404")
-    public String error404() {
-        return "pages-error-404";
-    }
-
     @GetMapping("/showCustomers")
     public String showCustomers(Model model) throws GetAgeFromBirthDateException {
         List<Customer> customers = customerController.findAllCustomers().getBody();
