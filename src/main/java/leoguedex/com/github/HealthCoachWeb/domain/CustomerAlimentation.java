@@ -21,47 +21,17 @@ public class CustomerAlimentation {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    private Boolean eatsUponWakingUp;
-
-    private String breakfast;
-
-    private Boolean eatsBeforeLunch;
-
-    private String beforeLunchMeal;
-
-    private Boolean eatsLunch;
-
     private String lunch;
-
-    private Boolean eatsAfternoonSnack;
-
-    private String afternoonSnack;
-
-    private Boolean eatsDinner;
-
     private String dinner;
-
+    private String breakfast;
+    private Boolean eatsLunch;
+    private Boolean eatsDinner;
+    private String afternoonSnack;
+    private String beforeLunchMeal;
+    private Boolean eatsBeforeLunch;
+    private Boolean eatsUponWakingUp;
+    private Boolean eatsAfternoonSnack;
     private Boolean eatsBeforeBedtime;
-
     private String beforeBedtimeSnack;
-
-    @Override
-    public String toString() {
-        return "CustomerAlimentation{" +
-                "id=" + id +
-                ", eatsUponWakingUp=" + eatsUponWakingUp +
-                ", breakfast='" + breakfast + '\'' +
-                ", eatsBeforeLunch=" + eatsBeforeLunch +
-                ", beforeLunchMeal='" + beforeLunchMeal + '\'' +
-                ", eatsLunch=" + eatsLunch +
-                ", lunch='" + lunch + '\'' +
-                ", eatsAfternoonSnack=" + eatsAfternoonSnack +
-                ", afternoonSnack='" + afternoonSnack + '\'' +
-                ", eatsDinner=" + eatsDinner +
-                ", dinner='" + dinner + '\'' +
-                ", eatsBeforeBedtime=" + eatsBeforeBedtime +
-                ", beforeBedtimeSnack='" + beforeBedtimeSnack + '\'' +
-                '}';
-    }
 
 }

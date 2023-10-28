@@ -1,6 +1,8 @@
 package leoguedex.com.github.HealthCoachWeb.domain;
 
 import jakarta.persistence.*;
+import leoguedex.com.github.HealthCoachWeb.domain.enums.ExpectedEnum;
+import leoguedex.com.github.HealthCoachWeb.domain.enums.IndicatedByEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,28 +22,18 @@ public class Customer {
     private Long id;
 
     private String name;
-
+    private Integer age;
     private String email;
-
-    private String address;
-
-    private String birthDate;
-
-    private String phoneNumber;
-
     private Double weight;
-
     private Double height;
-
+    private String address;
+    private String birthDate;
+    private String phoneNumber;
     private Boolean worksOrStudies;
-
-    private String referredBy;
-
     private String consultationReason;
-
-    private String expectedOutcome;
-
     private LocalDateTime whenCreated;
+    private IndicatedByEnum referredBy;
+    private ExpectedEnum expectedOutcome;
 
     @OneToOne(mappedBy = "customer")
     private CustomerAlimentation customerAlimentation;
@@ -57,20 +49,5 @@ public class Customer {
 
     @OneToOne(mappedBy = "customer")
     private CustomerRotineTable customerRotineTable;
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", birthDate='" + birthDate + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", referredBy='" + referredBy + '\'' +
-                ", consultationReason='" + consultationReason + '\'' +
-                ", expectedOutcome='" + expectedOutcome + '\'' +
-                '}';
-    }
 
 }

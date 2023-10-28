@@ -8,18 +8,18 @@ import java.util.EnumSet;
 @Getter
 @AllArgsConstructor
 public enum SleepTypeEnum {
-    EXCELLENT(0, "Excellent"),
-    GOOD(1, "Good"),
-    POOR(2, "Poor"),
-    DIFFICULTY_FALLING_ASLEEP(3, "Difficulty Falling Asleep"),
-    RESTORATIVE(4, "Restorative"),
-    DAYTIME_SLEEPINESS(5, "Day time Sleepiness"),
-    SNORING(6, "Snoring"),
-    APNEA(7, "Apnea"),
-    NIGHT_AGGITATION(8, "Night Agitation");
+
+    EXCELLENT(0, "Excelente"),
+    GOOD(1, "Bom"),
+    POOR(2, "Ruim"),
+    DIFFICULTY_FALLING_ASLEEP(3, "Dificuldade para dormir"),
+    RESTORATIVE(4, "Restaurativo"),
+    DAYTIME_SLEEPINESS(5, "Dia sonolento"),
+    APNEA(6, "Apneia do sono"),
+    NIGHT_AGGITATION(7, "Agitação noturna");
 
     private final int cod;
-    private final String SleepTypeEnum;
+    private final String description;
 
     public static SleepTypeEnum toEnum(Integer cod) {
         return EnumSet.allOf(SleepTypeEnum.class).stream()

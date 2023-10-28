@@ -24,49 +24,28 @@ public class CustomerNutritionistInformation {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    private Boolean visitedNutritionist;
-
-    private String nutritionistRecommendations;
-
-    private Integer mealsPerDay;
     private String chewing;
-
-    private Integer cupsOfWaterPerDay;
-
-    private String mostHungryTimeOfDay;
-
     private String goToSnack;
-
+    private Integer mealsPerDay;
     private String favoriteFood;
-
     private String dislikedFood;
-
-    private String weekendFoodChoice;
-
     private Boolean foodAllergy;
-
-    private Boolean glutenOrGrainIntolerance;
-
     private Boolean drinksAlcohol;
-
     private Integer alcoholPerWeek;
-
-    private Boolean shortOnTimeForMeals;
-
-    private Boolean eatsOutMoreThanHalfTheTime;
-
-    private Boolean unhealthyFoodAtHome;
-
-    private Boolean unhealthyEatingAround;
-
+    private String weekendFoodChoice;
     private Boolean creativeWithFood;
-
-    private Boolean eatsSomethingRightAfterWakingUp;
-
+    private Integer cupsOfWaterPerDay;
+    private String mostHungryTimeOfDay;
+    private Boolean shortOnTimeForMeals;
     private TypePersonEnum groceryBuyer;
-
+    private Boolean unhealthyFoodAtHome;
+    private Boolean visitedNutritionist;
+    private Boolean unhealthyEatingAround;
+    private Boolean glutenOrGrainIntolerance;
     private QuantityPercentageEnum planMeals;
-
+    private Boolean eatsOutMoreThanHalfTheTime;
+    private String nutritionistRecommendations;
     private QuantityPercentageEnum prepareMeals;
+    private Boolean eatsSomethingRightAfterWakingUp;
 
 }

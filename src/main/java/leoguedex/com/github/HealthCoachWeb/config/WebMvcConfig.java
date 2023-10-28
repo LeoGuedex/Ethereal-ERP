@@ -18,6 +18,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/templates/");
         resolver.setSuffix(".html");
+        
         return resolver;
     }
 

@@ -22,7 +22,6 @@ public class HCUsersController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public ResponseEntity<HCUserDTO> login(@RequestBody LoginDTO loginDTO) {
         HCUser savedUser = userRepository.findByEmail(loginDTO.getEmail());
-        System.out.println("Login received. Email: " + loginDTO.getEmail() + " Password: " + loginDTO.getPassword());
 
         if (savedUser != null && savedUser.getPassword().equals(loginDTO.getPassword())) {
             HCUserDTO userResponse = new HCUserDTO(savedUser.getId(), savedUser.getName(), savedUser.getUsername(),
