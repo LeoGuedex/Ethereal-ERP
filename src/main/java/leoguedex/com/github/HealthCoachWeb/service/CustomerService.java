@@ -1,6 +1,6 @@
 package leoguedex.com.github.HealthCoachWeb.service;
 
-import leoguedex.com.github.HealthCoachWeb.Exception.GetAgeFromBirthDateException;
+import leoguedex.com.github.HealthCoachWeb.exception.GetAgeFromBirthDateException;
 import leoguedex.com.github.HealthCoachWeb.domain.Customer;
 import leoguedex.com.github.HealthCoachWeb.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

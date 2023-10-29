@@ -1,4 +1,4 @@
-package leoguedex.com.github.HealthCoachWeb.Exception;
+package leoguedex.com.github.HealthCoachWeb.exception;
 
 public class GetAgeFromBirthDateException extends Exception {
 
