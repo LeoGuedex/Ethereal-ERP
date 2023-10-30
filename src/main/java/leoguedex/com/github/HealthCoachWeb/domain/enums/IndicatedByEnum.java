@@ -1,27 +1,28 @@
 package leoguedex.com.github.HealthCoachWeb.domain.enums;
 
+import java.util.EnumSet;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import java.util.EnumSet;
-
 @Getter
 @AllArgsConstructor
-public enum TypePersonEnum {
-
-    SELF(0, "Sozinho"),
-    FAMILY_MEMBERS(1, "Família"),
-    FRIENDS(2, "Amigos"),
-    OTHERS(3, "Outros");
+public enum IndicatedByEnum {
+    
+    FRIEND(0, "Amigos"),
+    AD(1, "Anúncios"),
+    NOT_INDICATED(2, "Não fui indicado"),
+    SEARCH_INTERNET(3, "Pesquisei na internet"),
+    OTHERS(4, "Outros");
 
     private final int cod;
     private final String description;
 
-    public static TypePersonEnum toEnum(Integer cod) {
-        return EnumSet.allOf(TypePersonEnum.class).stream()
+    public static IndicatedByEnum toEnum(Integer cod) {
+        return EnumSet.allOf(IndicatedByEnum.class).stream()
                 .filter(e -> e.getCod() == (cod))
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + cod));
     }
-
+    
 }

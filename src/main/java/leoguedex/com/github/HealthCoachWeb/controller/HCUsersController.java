@@ -7,7 +7,10 @@ import leoguedex.com.github.HealthCoachWeb.repository.HCUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/users")
@@ -19,7 +22,6 @@ public class HCUsersController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public ResponseEntity<HCUserDTO> login(@RequestBody LoginDTO loginDTO) {
         HCUser savedUser = userRepository.findByEmail(loginDTO.getEmail());
-        System.out.println("Login received. Email: " + loginDTO.getEmail() + " Password: " + loginDTO.getPassword());
 
         if (savedUser != null && savedUser.getPassword().equals(loginDTO.getPassword())) {
             HCUserDTO userResponse = new HCUserDTO(savedUser.getId(), savedUser.getName(), savedUser.getUsername(),

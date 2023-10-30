@@ -1,12 +1,18 @@
 package leoguedex.com.github.HealthCoachWeb.domain;
 
-import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import leoguedex.com.github.HealthCoachWeb.domain.enums.ExpectedEnum;
+import leoguedex.com.github.HealthCoachWeb.domain.enums.IndicatedByEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -20,28 +26,18 @@ public class Customer {
     private Long id;
 //
     private String name;
-//
+    private Integer age;
     private String email;
-//
-    private String address;
-//
-    private String birthDate;
-//
-    private String phoneNumber;
-//
     private Double weight;
-//
     private Double height;
-//
+    private String address;
+    private String birthDate;
+    private String phoneNumber;
     private Boolean worksOrStudies;
-//
-    private String referredBy;
-//
     private String consultationReason;
-//
-    private String expectedOutcome;
-// TODO:
     private LocalDateTime whenCreated;
+    private IndicatedByEnum referredBy;
+    private ExpectedEnum expectedOutcome;
 
     @OneToOne(mappedBy = "customer")
     private CustomerAlimentation customerAlimentation;

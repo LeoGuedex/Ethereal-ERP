@@ -13,40 +13,38 @@ import java.util.regex.Pattern;
 
 @Service
 public class CustomerService {
-    
+
     @Autowired
     private CustomerRepository customerRepository;
 
-    public Customer create(Customer customer){
+    public Customer create(Customer customer) {
         return customerRepository.save(customer);
     }
 
-    public Customer update(Customer customer){
-        customer.setId(customer.getId());
-        
-        return customerRepository.save(customer);
-    }
-
-    public void delete(Long id){
+    public void delete(Long id) {
         customerRepository.deleteById(id);
     }
 
-    public Customer findById(Long id){
+    public Customer findById(Long id) {
         return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
     }
 
-    public List<Customer> findAllCustomers() throws GetAgeFromBirthDateException {
+    public List<Customer> findAllCustomers() {
         List<Customer> customers = customerRepository.findAll();
-        
-        for(Customer thisTime : customers){
-            String age = String.valueOf(getAgeFromBirthDate(thisTime.getBirthDate()));
-            thisTime.setBirthDate(age);
-        }
 
-        return customerRepository.findAll();
+        customers.forEach(c -> {
+            try {
+                c.setAge(getAgeFromBirthDate(c.getBirthDate()));
+                customerRepository.save(c);
+            } catch (GetAgeFromBirthDateException e) {
+                e.printStackTrace();
+            }
+        });
+
+        return customers;
     }
 
-    public int getAgeFromBirthDate(String birthDate) throws GetAgeFromBirthDateException {
+    private Integer getAgeFromBirthDate(String birthDate) throws GetAgeFromBirthDateException {
         Pattern pattern = Pattern.compile("(\\d{2})/(\\d{2})/(\\d{4})");
         Matcher matcher = pattern.matcher(birthDate);
 
@@ -67,8 +65,8 @@ public class CustomerService {
         if (currentMonth < birthmonth || (currentMonth == birthmonth && currentDay < birthDay)) {
             age--;
         }
-        
+
         return age;
     }
-    
+
 }

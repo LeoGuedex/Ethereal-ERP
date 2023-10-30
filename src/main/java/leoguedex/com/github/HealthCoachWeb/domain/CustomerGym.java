@@ -23,62 +23,33 @@ public class CustomerGym {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    private Double desiredWeight;
-
-    private Double weightOneYearAgo;
-
-    private Double weightTenYearsAgo;
-
-    private TypeOfWeightEnum weightType;
-
-    private String chewing;
-
-    private Boolean doesExercise;
-
-    private String exerciseTypes;
-
-    private String postExerciseFeeling;
-
-    private Integer trainingDaysPerWeek;
-
-    private Boolean intendsToExercise;
-
-    private Boolean isPhysicallyActive;
-
-    private String freeTimeActivities;
-
-    private String exerciseLimitations;
-
     private String supplements;
-
-    private QuantityPercentageEnum familyBalance;
-
-    private String desiredFreeTimeActivity;
-
-    private String lifeSituationToChange;
-
-    private Integer determinationLevel;
-
-    private Boolean improveWellBeing;
-
-    private Boolean increaseExercise;
-
     private Boolean loseWeight;
-
-    private Boolean improveSleep;
-
-    private Boolean improveMentalHealth;
-
     private Boolean improveDiet;
-
+    private Boolean doesExercise;
+    private Double desiredWeight;
+    private Boolean improveSleep;
+    private String exerciseTypes;
     private Boolean increaseEnergy;
-
-    private Boolean increaseProductivity;
-
     private Boolean decreaseStress;
-
-    private Boolean improveLifeBalance;
-
+    private Double weightOneYearAgo;
     private Boolean jobSatisfaction;
+    private Double weightTenYearsAgo;
+    private Boolean improveWellBeing;
+    private Boolean increaseExercise;
+    private Boolean intendsToExercise;
+    private String freeTimeActivities;
+    private Boolean isPhysicallyActive;
+    private String postExerciseFeeling;
+    private String exerciseLimitations;
+    private Integer determinationLevel;
+    private Boolean improveLifeBalance;
+    private Integer trainingDaysPerWeek;
+    private Boolean improveMentalHealth;
+    private TypeOfWeightEnum weightType;
+    private String lifeSituationToChange;
+    private Boolean increaseProductivity;
+    private String desiredFreeTimeActivity;
+    private QuantityPercentageEnum familyBalance;
 
 }
