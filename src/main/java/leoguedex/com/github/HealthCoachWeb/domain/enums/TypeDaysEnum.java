@@ -1,17 +1,18 @@
 package leoguedex.com.github.HealthCoachWeb.domain.enums;
 
+import java.util.EnumSet;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
-import java.util.EnumSet;
 
 @Getter
 @AllArgsConstructor
 public enum TypeDaysEnum {
 
-    DAY(0, "Dia"),
-    WEEK(1, "Semana"),
-    MONTH(2, "Mês");
+    DAILY(0, "Daily"),
+    WEEKLY(1, "Weekly"),
+    MONTHLY(2, "Monthly"),
+    ALWAYS(3, "Always");
 
     private final int cod;
     private final String description;

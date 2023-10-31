@@ -286,7 +286,7 @@
                     </label>
 
                     <div id="collapseText4" class="col-md-12 collapse">
-                      <input for="inputEatsAfternoonSnackText" type="text" class="form-control"  placeholder="Snack...">
+                      <input for="inputEatsAfternoonSnackText" type="text" class="form-control" placeholder="Snack...">
                     </div>
                   </div>
 
@@ -296,7 +296,8 @@
                     </label>
 
                     <div id="collapseText5" class="col-md-12, collapse">
-                      <input for="inputEatsDinnerText" type="text" class="form-control" id="inputName5" placeholder="Dinner...">
+                      <input for="inputEatsDinnerText" type="text" class="form-control" id="inputName5"
+                        placeholder="Dinner...">
                     </div>
                   </div>
 
@@ -306,7 +307,8 @@
                     </label>
 
                     <div id="collapseText6" class="col-md-12, collapse">
-                      <input for="inputEatsBeforeBedTimeText" type="text" class="form-control" id="inputName5" placeholder="Snack...">
+                      <input for="inputEatsBeforeBedTimeText" type="text" class="form-control" id="inputName5"
+                        placeholder="Snack...">
                     </div>
                   </div>
 
@@ -364,13 +366,13 @@
                       <div>
                         <label for="inputDoExercisesPerWeek">Days of exercise per week? </label>
                         <select id="inputDoExercisesPerWeek" class="form-select">
-                          <option >1</option>
-                          <option >2</option>
-                          <option >3</option>
-                          <option >4</option>
-                          <option >5</option>
-                          <option >6</option>
-                          <option >7</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
                           <option selected>Choose...</option>
                         </select><br>
                       </div>
@@ -405,14 +407,18 @@
                   </div>
 
                   <div>
-                    <label for="inputFitnessActivities" class="form-label">Do you have any preferred fitness activities?</label>
-                    <textarea type="text" class="form-control " id="inputFitnessActivities" placeholder="Exercises..."></textarea>
+                    <label for="inputFitnessActivities" class="form-label">Do you have any preferred fitness
+                      activities?</label>
+                    <textarea type="text" class="form-control " id="inputFitnessActivities"
+                      placeholder="Exercises..."></textarea>
                   </div>
 
                   <div>
-                    <label for="inputExercisesDescomfort" class="form-label">Do you have any exercises that limit you or cause
+                    <label for="inputExercisesDescomfort" class="form-label">Do you have any exercises that limit you or
+                      cause
                       discomfort?</label>
-                    <textarea type="text" class="form-control " id="inputExercisesDescomfort" placeholder="Exercises..."></textarea>
+                    <textarea type="text" class="form-control " id="inputExercisesDescomfort"
+                      placeholder="Exercises..."></textarea>
                   </div>
 
                   <div>
@@ -703,9 +709,9 @@
                   </div>
 
                   <div class="conteiner ">
-                    <h2 class=" pt-2 text-center ">Diseases</h2>
-                    <div class="row justify-content-md-center">
-                      <div class="dropdown col-md-4">
+                    <div class="row">
+                      <div class="dropdown col-4">
+                        <label class="form-label">Do you have any comorbidities?</label>
                         <select id="diseaseSelect" class="form-select">
                           <option value="acid_reflux">Acid Reflux</option>
                           <option value="gastritis">Gastritis</option>
@@ -755,23 +761,26 @@
                           <option selected>Choose...</option>
                         </select>
                       </div>
-                      <button onclick= "diseases.add()" id="diseasesButton" type="button" class="btn btn-primary col-1">ADD</button>
+                      <div class="col mt-4 pt-2">
+                          <button onclick=" diseases.add()" id="diseasesButton" type="button"
+                            class="btn btn-primary ">ADD</button>
+                      </div>
+
+                      <div class=" col-6">
+                        <table class="table table-dark">
+                          <thead class="table-secondary">
+                            <tr class="text-center">
+                              <th scope="col">Diseases</th>
+                              <th scope="col-1">X</th>
+                            </tr>
+                          </thead>
+                          <tbody id="diseasesTbody" class="table-group-divider text-center table-striped-columns">
+
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
 
-                    <div class="row justify-content-md-center pt-5">
-                      <table class="table-dark col-md-8">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Diseases</th>
-                            <th scope="col">X</th>
-                          </tr>
-                        </thead>
-                        <tbody id="diseasesTbody" class="table-group-divider">
-
-                        </tbody>
-                      </table>
-                    </div>
                   </div>
 
                 </form><!-- End Multi Columns Form -->
@@ -922,10 +931,10 @@
                     <div class="dropdown col-2 ">
                       <label for="inputState" class="form-label">Grocery Buyer</label>
                       <select class="form-select">
-                        <option selected>Self</option>
-                        <option selected>Family Members</option>
-                        <option selected>Friends</option>
-                        <option selected>Others</option>
+                        <option>Self</option>
+                        <option>Family Members</option>
+                        <option>Friends</option>
+                        <option>Others</option>
                         <option selected>Choose...</option>
                       </select>
                     </div>
@@ -971,50 +980,91 @@
                 <h5 class="card-title">Customer Rotine Information</h5>
 
                 <form class="row g-3">
-                  <div class="col-md-12">
-                    <label for="inputName5" class="form-label">Your Name</label>
-                    <input type="text" class="form-control" id="inputName5">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputEmail5" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail5">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputPassword5" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword5">
-                  </div>
-                  <div class="col-12">
-                    <label for="inputAddress5" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAddres5s" placeholder="1234 Main St">
-                  </div>
-                  <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2"
-                      placeholder="Apartment, studio, or floor">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="inputCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                  </div>
-                  <div class="col-md-4">
-                    <label for="inputState" class="form-label">State</label>
-                    <select id="inputState" class="form-select">
-                      <option selected>Choose...</option>
-                      <option>...</option>
-                    </select>
-                  </div>
-                  <div class="col-md-2">
-                    <label for="inputZip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                  </div>
-                  <div class="col-12">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck">
-                      <label class="form-check-label" for="gridCheck">
-                        Check me out
-                      </label>
+
+                  <div class="conteiner">
+                    <div class="row">
+                      <div class="col-5 ms-4">
+                        <label for="foodsSelect" class="form-label">How often do you usually eat</label>
+                        <div class="dropdown">
+                          <select id="foodsSelect" class="form-select">
+                            <option value="rice">Rice</option>
+                            <option value="potato">Potato</option>
+                            <option value="pasta">Pasta</option>
+                            <option value="brownRice">Brown Rice</option>
+                            <option value="wholeWheatPasta">Whole Wheat Pasta</option>
+                            <option value="quinoa">Quinoa</option>
+                            <option value="beans">Beans</option>
+                            <option value="lentils">Lentils</option>
+                            <option value="chickpeas">Chickpeas</option>
+                            <option value="fish">Fish</option>
+                            <option value="redMeat">Red Meat</option>
+                            <option value="poultry">Poultry</option>
+                            <option value="eggs">Eggs</option>
+                            <option value="sweetPotato">Sweet Potato</option>
+                            <option value="cassava">Cassava</option>
+                            <option value="pumpkin">Pumpkin</option>
+                            <option value="yam">Yam</option>
+                            <option value="kale">Kale</option>
+                            <option value="spinach">Spinach</option>
+                            <option value="arugula">Arugula</option>
+                            <option value="lettuce">Lettuce</option>
+                            <option value="cauliflower">Cauliflower</option>
+                            <option value="broccoli">Broccoli</option>
+                            <option value="zucchini">Zucchini</option>
+                            <option value="soups">Soups</option>
+                            <option value="salads">Salads</option>
+                            <option value="nuts">Nuts</option>
+                            <option value="seeds">Seeds</option>
+                            <option value="fruits">Fruits</option>
+                            <option value="flour">Flour</option>
+                            <option value="milk">Milk</option>
+                            <option value="yogurt">Yogurt</option>
+                            <option value="cheese">Cheese</option>
+                            <option value="slicedBread">Sliced Bread</option>
+                            <option value="frenchBread">French Bread</option>
+                            <option value="wholeWheatBread">Whole Wheat Bread</option>
+                            <option value="processedMeats">Processed Meats</option>
+                            <option value="biscuits">Biscuits</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="soda">Soda</option>
+                            <option value="boxedJuice">Boxed Juice</option>
+                            <option value="frozenFoods">Frozen Foods</option>
+                            <option selected>Choose...</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="dropdown col-5 ms-5">
+                        <label for="" class="form-label">How often do you eat this particular food?</label>
+                        <select id="frequencySelect" class="form-select">
+                          <option>Daily</option>
+                          <option>Weekly</option>
+                          <option>Monthly</option>
+                          <option>Always</option>
+                          <option selected>Choose...</option>
+                        </select>
+                      </div>
+                      <div class="col-1 align-self-end">
+                        <button onclick="foods.add()" id="foodButton" type="button" class="btn btn-primary">ADD</button>
+                      </div>
+                    </div>
+
+                    <div class="row px-2 py-5">
+                      <table class="table table-dark ms-1">
+                        <thead class="table-secondary">
+                          <tr class="text-center">
+                            <th scope="col">#</th>
+                            <th scope="col">Foods</th>
+                            <th scope="col">Frequency</th>
+                            <th scope="col">X</th>
+                          </tr>
+                        </thead>
+                        <tbody id="foodsTbody" class="table-group-divider text-center table-striped-columns">
+
+                        </tbody>
+                      </table>
                     </div>
                   </div>
+
                   <div class="text-center">
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="reset" class="btn btn-secondary">Reset</button>
