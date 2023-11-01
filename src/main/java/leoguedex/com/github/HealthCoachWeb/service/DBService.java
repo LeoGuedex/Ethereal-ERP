@@ -3,6 +3,7 @@ package leoguedex.com.github.HealthCoachWeb.service;
 import leoguedex.com.github.HealthCoachWeb.domain.*;
 import leoguedex.com.github.HealthCoachWeb.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,7 +30,10 @@ public class DBService {
     private CustomerRotineTableRepository customerRotineTableRepository;
 
     @Autowired
-    private HCUserRepository hcUserRepository;
+    private HCUserService hcUserRepository;
+
+    @Autowired
+    private PasswordEncoder encoder;
 
     public void createTestCustomer() {
         int amountPeopleFake = 30;
@@ -69,13 +73,14 @@ public class DBService {
 
     public void createLoginAdmin() {
         HCUser user = new HCUser();
-        user.setUsername("admin");
-        user.setPassword("admin");
+
+        user.setPassword(encoder.encode("admin"));
         user.setEmail("email@email.com");
-        user.setName("Administrator");
-        user.setPersonFunction("Developer Java");
         user.setAdmin(true);
-        hcUserRepository.save(user);
+        user.setName("Admin User");
+        user.setPersonFunction("Trainee");
+
+        hcUserRepository.createUser(user);
     }
 
 }
