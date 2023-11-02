@@ -27,9 +27,9 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/forms")
+    @GetMapping("/newCustomer")
     public String forms() {
-        return "forms-layouts";
+        return "newCustumer-layouts";
     }
 
     @GetMapping("/contact")
