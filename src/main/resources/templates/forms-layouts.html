@@ -114,231 +114,251 @@
   <!-- Editar Aqui o Main -->
   <main id="main" class="main">
 
-    <div class="container-fluid">
-      <div class="pagetitle">
-        <h1>Customer Registration</h1>
-        <nav>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/home">Home</a></li>
-            <li class="breadcrumb-item active">NewCustomer</li>
-          </ol>
-        </nav>
-      </div><!-- End Page Title -->
-      <section class="section">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Customer Informations</h5>
+    <form action="">
+      <div class="container-fluid">
+        <div class="pagetitle">
+          <h1>Customer Registration</h1>
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active">NewCustomer</li>
+            </ol>
+          </nav>
+        </div><!-- End Page Title -->
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Customer Informations</h5>
 
-                <form class="row g-3">
+                  <div class="row g-3">
 
-                  <div class="col-md-12">
-                    <label for="inputName" class="form-label">Your Name</label>
-                    <input type="text" class="form-control" id="inputName">
-                  </div>
+                    <div class="col-md-10">
+                      <label for="name" class="form-label">Your Name</label>
+                      <input type="text" class="form-control" id="name" name="name">
+                    </div>
 
-                  <div class="col-md-6">
-                    <label for="inputEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail">
-                  </div>
+                    <div class="col-md-2">
+                      <label for="age" class="form-label">Age</label>
+                      <input type="number" placeholder="max 150"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1'); if (parseFloat(this.value) > 150) this.value = '150';"
+                        class="form-control" id="age" name="age">
+                    </div>
 
-                  <div class="col-md-6">
-                    <label for="inputReferredBy" class="form-label">Referred By</label>
-                    <input type="text" class="form-control" id="inputReferredBy">
-                  </div>
-
-                  <div class="col-md-12">
-                    <label for="inputAddress" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                  </div>
-
-                  <body>
                     <div class="col-md-6">
-                      <label for="inputBirthDate" class="form-label">Birth Date</label>
-                      <input type="text" class="form-control" id="inputBirthDate" placeholder="dd/mm/yyyy">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email" name="email">
                     </div>
-                    <script>
-                      $(document).ready(function () {
-                        $("#inputBirthDate").datepicker({
-                          dateFormat: "dd/mm/yy",
-                          changeYear: true,
-                          yearRange: "c-100:c+0",
-                        });
-                      });
-                    </script>
-                  </body>
 
-                  <div class="col-md-6">
-                    <label for="inputPhoneNumber" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="inputPhoneNumber" placeholder="(99) 99999-9999">
-                  </div>
-                  <script>
-                    function formatPhoneNumberInput() {
-                      const phoneNumberInput = document.getElementById("inputPhoneNumber");
+                    <div class="col-md-6">
+                      <label for="referredBy" class="form-label">Referred By</label>
+                      <input type="text" class="form-control" id="referredBy" name="referredBy">
+                    </div>
 
-                      phoneNumberInput.addEventListener("input", function (e) {
-                        let value = e.target.value;
+                    <div class="col-md-12">
+                      <label for="address" class="form-label">Address</label>
+                      <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address">
+                    </div>
 
-                        value = value.replace(/\D/g, '');
+                    <div class="col-md-6">
+                      <label for="birthDate" class="form-label">Birth Date</label>
+                      <input type="text" class="form-control" id="birthDate" placeholder="dd/mm/yyyy" name="birthDate">
+                    </div>
 
-                        if (value.length > 0) {
-                          value = '(' + value.substring(0, 2) + ')' + ' ' + value.substring(2);
-                        }
-                        if (value.length > 10) {
-                          value = value.substring(0, 10) + '-' + value.substring(10, 14);
-                        }
+                    <div class="col-md-6">
+                      <label for="phoneNumber" class="form-label">Phone Number</label>
+                      <input type="tel" class="form-control" id="phoneNumber" placeholder="(99) 99999-9999"
+                        name="phoneNumber">
+                    </div>
 
-                        e.target.value = value;
-                      });
-                    }
+                    <div class="col-md-6">
+                      <label for="weight" class="form-label">Weight</label>
+                      <input type="number" class="form-control" id="weight" placeholder="kg" name="weight">
+                    </div>
 
-                    formatPhoneNumberInput();
-                  </script>
+                    <div class="col-md-6">
+                      <label for="height" class="form-label">Height</label>
+                      <input type="number" class="form-control" id="height" placeholder="cm" name="height">
+                    </div>
 
-                  <div class="col-md-6">
-                    <label for="inputWeight" class="form-label">Weight</label>
-                    <input type="number" class="form-control" id="inputWeight" placeholder="kg">
-                  </div>
+                    <div class="col-md-6">
+                      <label for="worksOrStudies" class="form-label">Works or Studies</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="worksOrStudies"
+                          name="worksOrStudies">
+                        <label class="form-check-label" for="worksOrStudies">
+                          Yes, I work or study.
+                        </label>
+                      </div>
+                    </div>
 
-                  <div class="col-md-6">
-                    <label for="inputHeight" class="form-label">Height</label>
-                    <input type="number" class="form-control" id="inputHeight" placeholder="cm">
-                  </div>
+                    <div class="col-md-12">
+                      <label for="consultationReason" class="form-label">Consultation Reason 1</label>
+                      <textarea class="form-control" id="consultationReason" rows="4"
+                        name="consultationReason"></textarea>
+                    </div>
 
-                  <div class="col-md-6">
-                    <label for="inputWorksOrStudies" class="form-label">Works or Studies</label>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="inputWorksOrStudies">
-                      <label class="form-check-label" for="inputWorksOrStudies">
-                        Yes, I work or study.
+                    <div class="col-md-12">
+                      <label for="expectedOutcome" class="form-label">Expected Outcome</label>
+                      <textarea class="form-control" id="expectedOutcome" rows="4" name="expectedOutcome"></textarea>
+                    </div>
+
+                  </div><!-- End Multi Columns Form -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="container-fluid">
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Customer Alimentation Information</h5>
+
+                  <div class="row g-3">
+                    <div class="col-md-12">
+                      <label data-bs-toggle="collapse" data-bs-target="#collapseEatsUponWakingUp" class="form-label">
+                        <input id="eatsUponWakingUp" type="checkbox" name="eatsUponWakingUp"> Eats upon wake up?</label>
+                      <div id="collapseEatsUponWakingUp" class="col-md-12 collapse">
+                        <input id="eatsUponWakingUpText" type="text" class="form-control" placeholder="Breakfast..."
+                          name="eatsUponWakingUpText">
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <label for="eatsBeforeLunch" data-bs-toggle="collapse" data-bs-target="#collapseEatsBeforeLauch"
+                        class="form-label">
+                        <input id="eatsBeforeLunch" type="checkbox" name="eatsBeforeLunch"> Eats before lunch?
                       </label>
+
+                      <div id="collapseEatsBeforeLauch" class="col-md-12 collapse">
+                        <input id="beforeLunchMeal" type="text" class="form-control" placeholder="Lunch..."
+                          name="beforeLunchMeal">
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-md-12">
-                    <label for="inputConsultationReason1" class="form-label">Consultation Reason 1</label>
-                    <textarea class="form-control" id="inputConsultationReason1" rows="4"></textarea>
-                  </div>
+                    <div class="col-md-12">
+                      <label for="eatsLunch" data-bs-toggle="collapse" data-bs-target="#collapseEatsLunch"
+                        class="form-label">
+                        <input id="eatsLunch" type="checkbox" name="eatsLunch"> Eats lunch?
+                      </label>
 
-                  <div class="col-md-12">
-                    <label for="inputExpectedOutcome" class="form-label">Expected Outcome</label>
-                    <textarea class="form-control" id="inputExpectedOutcome" rows="4"></textarea>
-                  </div>
+                      <div id="collapseEatsLunch" class="col-md-12 collapse">
+                        <input id="eatsLunchText" type="text" class="form-control" placeholder="Lunch..." name="lunch">
+                      </div>
+                    </div>
 
-                  <!-- <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
-                  </div> -->
+                    <div class="col-md-12">
+                      <label for="eatsAfternoonSnack" data-bs-toggle="collapse"
+                        data-bs-target="#collapseEatsAfternoonSnack" class="form-label">
+                        <input id="eatsAfternoonSnack" type="checkbox" name="eatsAfternoonSnack"> Eats afternoon snack?
+                      </label>
 
-                </form><!-- End Multi Columns Form -->
+                      <div id="collapseEatsAfternoonSnack" class="col-md-12 collapse">
+                        <input id="afternoonSnack" type="text" class="form-control" placeholder="Snack..."
+                          name="afternoonSnack">
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <label for="eatsDinner" data-bs-toggle="collapse" data-bs-target="#collapseEatsDinner"
+                        class="form-label">
+                        <input id="eatsDinner" type="checkbox" name="eatsDinner"> Eats dinner?
+                      </label>
+
+                      <div id="collapseEatsDinner" class="col-md-12 collapse">
+                        <input id="dinner" type="text" class="form-control" placeholder="Dinner..." name="dinner">
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <label for="eatsBeforeBedtime" data-bs-toggle="collapse"
+                        data-bs-target="#collapseEatsBeforeBedTime" class="form-label">
+                        <input id="eatsBeforeBedtime" type="checkbox" name="eatsBeforeBedtime"> Eats before bed time?
+                      </label>
+
+                      <div id="collapseEatsBeforeBedTime" class="col-md-12 collapse">
+                        <input id="beforeBedtimeSnack" type="text" class="form-control" placeholder="Snack..."
+                          name="beforeBedtimeSnack">
+                      </div>
+                    </div>
+                  </div><!-- End Multi Columns Form -->
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
 
-    <div class="container-fluid">
-      <section class="section">
-        <div class="row">
-          <div class="col-lg-12">
+      <div class="container-fluid">
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
 
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Customer Alimentation Information</h5>
+                  <h5 class="card-title">Customer Gym Information</h5>
+                  <div class="row g-3">
 
-                <form class="row g-3">
+                    <div class="col-md-5">
+                      <div class="form-check ms-2">
+                        <label for="doesExercise" data-bs-toggle="collapse" data-bs-target=".doesExercises"
+                          class="form-check-label">
+                          <input id="doesExercise" class="form-check-input" type="checkbox" name="doesExercise"> Do you
+                          exercise?
+                        </label>
 
-                  <div class="col-md-12">
-                    <label data-bs-toggle="collapse" data-bs-target="#collapseText1" class="form-label">
-                      <input for="inputEatsUponWakeUp" type="checkbox"> Eats upon wake up?
-                    </label>
+                        <div class="col-md-12 collapse doesExercises">
+                          <div class="mt-4">
+                            <label for="trainingDaysPerWeek" class="form-label">Days of exercise per week?</label>
+                            <select id="trainingDaysPerWeek" class="form-select" name="trainingDaysPerWeek">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option selected>Choose...</option>
+                            </select>
+                          </div>
 
-                    <div id="collapseText1" class="col-md-12, collapse">
-                      <input for="inputEatsUponWakeUpText" type="text" class="form-control" placeholder="Breakfast...">
+                          <div class="my-4">
+                            <label for="exerciseTypes" class="form-label">What types of exercises?</label>
+                            <textarea id="exerciseTypes" class="form-control" placeholder="Exercises..."
+                              name="exerciseTypes"></textarea>
+                          </div>
+
+                          <div class="col-md-12">
+                            <label for="postExerciseFeeling" class="form-label">After exercising, do you feel
+                              anything?</label>
+                            <textarea id="postExerciseFeeling" class="form-control" placeholder="Exercises..."
+                              name="postExerciseFeeling"></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-check ms-2">
+                        <label for="intendsToExercise" class="form-check-label">Do you intend to exercise?</label>
+                        <input id="intendsToExercise" class="form-check-input" type="checkbox" name="intendsToExercise">
+                      </div>
+
+                      <div class="form-check ms-2 mb-5">
+                        <label for="isPhysicallyActive" class="form-check-label">Do you exercise regularly?</label>
+                        <input id="isPhysicallyActive" class="form-check-input" type="checkbox"
+                          name="isPhysicallyActive">
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-md-12">
-                    <label data-bs-toggle="collapse" data-bs-target="#collapseText2" class="form-label">
-                      <input for="inputEatsBeforeLauch" type="checkbox"> Eats before lauch?
-                    </label>
-
-                    <div id="collapseText2" class="col-md-12 collapse">
-                      <input for="inputEatsBeforeLauchText" type="text" class="form-control" placeholder="Lauch...">
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <label data-bs-toggle="collapse" data-bs-target="#collapseText3" class="form-label">
-                      <input for="inputEatsLauch" type="checkbox"> Eats lauch?
-                    </label>
-
-                    <div id="collapseText3" class="col-md-12 collapse">
-                      <input for="inputEatsLauchText" type="text" class="form-control" placeholder="Lauch...">
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <label data-bs-toggle="collapse" data-bs-target="#collapseText4" class="form-label">
-                      <input for="inputEatsAfternoonSnack" type="checkbox"> Eats afternoon snack?
-                    </label>
-
-                    <div id="collapseText4" class="col-md-12 collapse">
-                      <input for="inputEatsAfternoonSnackText" type="text" class="form-control" placeholder="Snack...">
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <label data-bs-toggle="collapse" data-bs-target="#collapseText5" class="form-label">
-                      <input for="inputEatsDinner" type="checkbox"> Eats dinner?
-                    </label>
-
-                    <div id="collapseText5" class="col-md-12, collapse">
-                      <input for="inputEatsDinnerText" type="text" class="form-control" id="inputName5"
-                        placeholder="Dinner...">
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <label data-bs-toggle="collapse" data-bs-target="#collapseText6" class="form-label">
-                      <input for="inputEatsBeforeBedTime" type="checkbox"> Eats before bed time?
-                    </label>
-
-                    <div id="collapseText6" class="col-md-12, collapse">
-                      <input for="inputEatsBeforeBedTimeText" type="text" class="form-control" id="inputName5"
-                        placeholder="Snack...">
-                    </div>
-                  </div>
-
-                </form><!-- End Multi Columns Form -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div class="container-fluid">
-      <section class="section">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card">
-              <div class="card-body">
-
-                <h5 class="card-title">Customer Gym Information</h5>
-                <form class="row g-3">
-
-                  <div class="col-md-2">
-                    <label for="inputDesiredWeight" class="form-label">Desired weight</label>
-                    <input id="inputDesiredWeight" type="text" class="form-control">
-                  </div>
-
-                  <div class="dropdown col-md-2">
-                    <div>
-                      <label for="inputWeightType" class="form-label">Weight Type</label>
-                      <select id="inputWeightType" class="form-select">
+                    <div class="dropdown col-md-3">
+                      <label for="weightType" class="form-label">Weight Type</label>
+                      <select id="weightType" class="form-select" name="weightType">
                         <option>Yoyo</option>
                         <option>Stable</option>
                         <option>Gain</option>
@@ -348,737 +368,656 @@
                         <option selected>Choose...</option>
                       </select>
                     </div>
-                  </div>
 
-                  <div class="col-md-8">
-                    <label for="inputChewingPace" class="form-label">What is your chewing pace?</label>
-                    <input id="inputChewingPace" type="text" class="form-control">
-                  </div>
+                    <div class="col-md-3">
+                      <label for="desiredWeight" class="form-label">Desired weight</label>
+                      <input id="desiredWeight" type="text" class="form-control" name="desiredWeight">
+                    </div>
 
-                  <div class="col-md-12 form-check ms-2">
-                    <label for="inputDoExercises" data-bs-toggle="collapse" data-bs-target=".doExercises"
-                      class="form-check-label">
-                      <input id="inputDoExercises" class="form-check-input" type="checkbox"> Do you exercises?
-                    </label>
+                    <div>
+                      <label for="desiredFreeTimeActivity" class="form-label">What are your favorite leisure
+                        activities?</label>
+                      <textarea id="desiredFreeTimeActivity" class="form-control" placeholder="Exercises..."
+                        name="desiredFreeTimeActivity"></textarea>
+                    </div>
 
-                    <div class="col-md-12 collapse doExercises">
-                      <br>
+                    <div>
+                      <label for="exerciseLimitations" class="form-label">Do you have any exercises that limit you or
+                        cause discomfort?</label>
+                      <textarea id="exerciseLimitations" class="form-control" placeholder="Exercises..."
+                        name="exerciseLimitations"></textarea>
+                    </div>
+
+                    <div>
+                      <label for="supplements" class="form-label">Do you take any supplements?</label>
+                      <textarea id="supplements" class="form-control" placeholder="Supplements..."
+                        name="supplements"></textarea>
+                    </div>
+
+                    <div>
+                      <label for="lifeSituationToChange" class="form-label">Do you have any fitness goals or desired
+                        life
+                        changes related to exercise?</label>
+                      <textarea id="lifeSituationToChange" class="form-control" placeholder="Exercises..."
+                        name="lifeSituationToChange"></textarea>
+                    </div>
+
+                    <div class="dropdown col-md-2">
                       <div>
-                        <label for="inputDoExercisesPerWeek">Days of exercise per week? </label>
-                        <select id="inputDoExercisesPerWeek" class="form-select">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                          <option>6</option>
-                          <option>7</option>
+                        <label for="familyBalance" class="form-label">Family Balance</label>
+                        <select id="familyBalance" class="form-select" name="familyBalance">
+                          <option value="NONE">NONE</option>
+                          <option value="LOW">LOW</option>
+                          <option value="MEDIUM">MEDIUM</option>
+                          <option value="HIGH">HIGH</option>
+                          <option value="MAX">MAX</option>
                           <option selected>Choose...</option>
-                        </select><br>
-                      </div>
-
-                      <div>
-                        <label for="inputDoExercisesTypes">What types of exercises?</label>
-                        <textarea type="text" class="form-control " id="inputDoExercisesTypes"
-                          placeholder="Exercises..."></textarea>
-                      </div><br>
-
-                      <div class="col-md-12 collapse doExercises">
-                        <label for="inputFellAfterExercises">After exercising, do you feel anything?</label>
-                        <textarea type="text" class="form-control " id="inputFellAfterExercises"
-                          placeholder="Exercises..."></textarea>
+                        </select>
                       </div>
                     </div>
 
-                  </div>
+                    <div class="col-md-10">
+                      <label for="determinationLevel" class="form-label">What's your determination level?</label>
+                      <input id="determinationLevel" type="range" class="form-range" min="0" max="10"
+                        name="determinationLevel">
+                      <div class="d-flex justify-content-between ps-2">
+                        <p>0</p>
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                      </div>
+                    </div>
 
-                  <div class="form-check ms-2">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Do you intends to exercise?
-                    </label>
-                  </div>
+                    <h4 class="mx-auto p-3 text-center">Goals</h4>
+                    <div class="flex-row d-flex text-center flex-wrap justify-content-around">
 
-                  <div class="form-check ms-2 mb-5">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Do you exercise regularly?
-                    </label>
-                  </div>
+                      <div class="form-check col-2">
+                        <label for="improveWellBeing" class="form-check-label">Improve Well-being</label>
+                        <input id="improveWellBeing" class="form-check-input" type="checkbox" name="improveWellBeing">
+                      </div>
 
-                  <div>
-                    <label for="inputFitnessActivities" class="form-label">Do you have any preferred fitness
-                      activities?</label>
-                    <textarea type="text" class="form-control " id="inputFitnessActivities"
-                      placeholder="Exercises..."></textarea>
-                  </div>
+                      <div class="form-check col-2">
+                        <label for="increaseExercise" class="form-check-label">Increase Exercise</label>
+                        <input id="increaseExercise" class="form-check-input" type="checkbox" name="increaseExercise">
+                      </div>
 
-                  <div>
-                    <label for="inputExercisesDescomfort" class="form-label">Do you have any exercises that limit you or
-                      cause
-                      discomfort?</label>
-                    <textarea type="text" class="form-control " id="inputExercisesDescomfort"
-                      placeholder="Exercises..."></textarea>
-                  </div>
+                      <div class="form-check col-2">
+                        <label for="loseWeight" class="form-check-label">Lose Weight</label>
+                        <input id="loseWeight" class="form-check-input" type="checkbox" name="loseWeight">
+                      </div>
 
-                  <div>
-                    <label for="inputName5" class="form-label">Do you take any supplements?</label>
-                    <textarea type="text" class="form-control " id="inputName5" placeholder="Supplements..."></textarea>
-                  </div>
+                      <div class="form-check col-2">
+                        <label for="improveSleep" class="form-check-label">Improve Sleep</label>
+                        <input id="improveSleep" class="form-check-input" type="checkbox" name="improveSleep">
+                      </div>
 
-                  <div>
-                    <label for="inputName5" class="form-label">Do you have any fitness goals or desired life changes
-                      related to exercise?</label>
-                    <textarea type="text" class="form-control " id="inputName5" placeholder="Exercises..."></textarea>
-                  </div>
+                      <div class="form-check col-2">
+                        <label for="improveMentalHealth" class="form-check-label">Improve Mental Health</label>
+                        <input id="improveMentalHealth" class="form-check-input" type="checkbox"
+                          name="improveMentalHealth">
+                      </div>
 
-                  <div class="dropdown col-md-2">
+                      <div class="form-check col-2">
+                        <label for="improveDiet" class="form-check-label">Improve Diet</label>
+                        <input id="improveDiet" class="form-check-input" type="checkbox" name="improveDiet">
+                      </div>
+
+                      <div class="form-check col-2">
+                        <label for="increaseEnergy" class="form-check-label">Increase Energy</label>
+                        <input id="increaseEnergy" class="form-check-input" type="checkbox" name="increaseEnergy">
+                      </div>
+
+                      <div class="form-check col-2">
+                        <label for="increaseProductivity" class="form-check-label">Increase Productivity</label>
+                        <input id="increaseProductivity" class="form-check-input" type="checkbox"
+                          name="increaseProductivity">
+                      </div>
+
+                      <div class="form-check col-2">
+                        <label for="decreaseStress" class="form-check-label">Decrease Stress</label>
+                        <input id="decreaseStress" class="form-check-input" type="checkbox" name="decreaseStress">
+                      </div>
+
+                      <div class="form-check col-2">
+                        <label for="improveLifeBalance" class="form-check-label">Improve Life Balance</label>
+                        <input id="improveLifeBalance" class="form-check-input" type="checkbox"
+                          name="improveLifeBalance">
+                      </div>
+
+                      <div class="form-check col-2">
+                        <label for="jobSatisfaction" class="form-check-label">Job Satisfaction</label>
+                        <input id="jobSatisfaction" class="form-check-input" type="checkbox" name="jobSatisfaction">
+                      </div>
+
+                    </div><!-- End Multi Columns Form -->
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+      </div>
+
+      <div class="container-fluid">
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Customer Health Information</h5>
+
+                  <div class="row g-3">
+
                     <div>
-                      <label for="inputState" class="form-label">Family Balance</label>
-                      <select id="familyBalanceForm" class="form-select">
-                        <option value="NONE">NONE</option>
-                        <option value="LOW">LOW</option>
-                        <option value="MEDIUM">MEDIUM</option>
-                        <option value="HIGH">HIGH</option>
-                        <option value="MAX">MAX</option>
+                      <label for="moodDescription" class="form-label">How would you describe your mood recently?</label>
+                      <textarea id="moodDescription" class="form-control" placeholder="Description..."
+                        name="moodDescription"></textarea>
+                    </div>
+
+                    <div class="dropdown col-4">
+                      <label for="sleepTypeEnum" class="form-label">Sleep quality</label>
+                      <select id="sleepTypeEnum" class="form-select" name="sleepTypeEnum">
+                        <option>EXCELLENT</option>
+                        <option>GOOD</option>
+                        <option>POOR</option>
+                        <option>DIFFICULTY_FALLING_ASLEEP</option>
+                        <option>RESTORATIVE</option>
+                        <option>DAYTIME_SLEEPINESS</option>
+                        <option>SNORING</option>
+                        <option>APNEA</option>
+                        <option>NIGHT_AGGITATION</option>
                         <option selected>Choose...</option>
                       </select>
                     </div>
-                  </div>
 
-                  <div class="col-md-10">
-                    <label for="customRange2" class="form-label">What's your determination level?</label>
-                    <input type="range" class="form-range" min="0" max="10" id="customRange2">
-                    <div id="determinationLevel" class="d-flex justify-content-between ps-2">
-                      <p>0</p>
-                      <p>1</p>
-                      <p>2</p>
-                      <p>3</p>
-                      <p>4</p>
-                      <p>5</p>
-                      <p>6</p>
-                      <p>7</p>
-                      <p>8</p>
-                      <p>9</p>
-                      <p>10</p>
-                    </div>
-                  </div>
-
-                  <h4 class="mx-auto p-3 text-center">Goals</h4>
-                  <div class="flex-row d-flex text-center flex-wrap justify-content-around">
-
-
-                    <div class="form-check col-2 ">
-                      <input class="form-check-input" type="checkbox" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Improve Well-being
-                      </label>
+                    <div class="col-4">
+                      <label for="weekdaySleepHours" class="form-label">Sleep hours during the day</label>
+                      <input id="weekdaySleepHours" type="time" class="form-control" placeholder="Time..."
+                        name="weekdaySleepHours"></input>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Increase Exercise
-                      </label>
+                    <div class="col-4">
+                      <label for="weekendSleepHours" class="form-label">Sleep hours during the week</label>
+                      <input id="weekendSleepHours" type="time" class="form-control" placeholder="Time..."
+                        name="weekendSleepHours"></input>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Lose Weight
-                      </label>
+                    <div class="col-md-12 pt-5">
+                      <label for="concentration" class="form-label">What's your current level of concentration?</label>
+                      <input id="concentration" type="range" class="form-range" min="1" max="5" name="concentration">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Improve Sleep
-                      </label>
+                    <div class="col-md-12 pt-5">
+                      <label for="recentMemory" class="form-label">How would you describe your recent memory?</label>
+                      <input id="recentMemory" type="range" class="form-range" min="1" max="5" name="recentMemory">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Improve Mental Health
-                      </label>
+                    <div class="col-md-12 pt-5">
+                      <label for="longTermMemory" class="form-label">How would you describe your long-term
+                        memory?</label>
+                      <input id="longTermMemory" type="range" class="form-range" min="1" max="5" name="longTermMemory">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Improve Diet
-                      </label>
+                    <div class="col-md-12 pt-5">
+                      <label for="morningDisposition" class="form-label">How would you describe your morning
+                        disposition?</label>
+                      <input id="morningDisposition" type="range" class="form-range" min="1" max="5"
+                        name="morningDisposition">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Increase Energy
-                      </label>
+                    <div class="col-md-12 pt-5">
+                      <label for="afternoonDisposition" class="form-label">How would you describe your afternoon
+                        disposition?</label>
+                      <input id="afternoonDisposition" type="range" class="form-range" min="1" max="5"
+                        name="afternoonDisposition">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Increase Productivity
-                      </label>
+                    <div class="col-md-12 pt-5">
+                      <label for="eveningDisposition" class="form-label">How would you describe your evening
+                        disposition?</label>
+                      <input id="eveningDisposition" type="range" class="form-range" min="1" max="5"
+                        name="eveningDisposition">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Decrease Stress
-                      </label>
+                    <div class="col-md-12 pt-5">
+                      <label for="daytimeEnergy" class="form-label">How would you describe your day time
+                        energy?</label>
+                      <input id="daytimeEnergy" type="range" class="form-range" min="1" max="5"
+                        name="daytimeEnergy">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Improve Life Balance
-                      </label>
+                    <div class="col-md-12 pt-5">
+                      <label for="stressLevel" class="form-label">What is your evening stress level?</label>
+                      <input id="stressLevel" type="range" class="form-range" min="1" max="5" name="stressLevel">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
                     </div>
 
-                    <div class="form-check col-2">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Job Satisfaction
-                      </label>
+                    <div class="pt-2">
+                      <label for="sleepImprovementMethods" class="form-label">Sleep Improvement Methods</label>
+                      <textarea id="sleepImprovementMethods" type="text" class="form-control"
+                        placeholder="Description..." name="sleepImprovementMethods"></textarea>
                     </div>
-                  </div>
 
-                </form><!-- End Multi Columns Form -->
+                    <div>
+                      <label for="energyReductionMethods" class="form-label">Energy Reduction Methods</label>
+                      <textarea id="energyReductionMethods" type="text" class="form-control"
+                        placeholder="Description..." name="energyReductionMethods"></textarea>
+                    </div>
+
+                    <div>
+                      <label for="stressReductionMethods" class="form-label">Stress Reduction Methods</label>
+                      <textarea id="stressReductionMethods" type="text" class="form-control"
+                        placeholder="Description..." name="stressReductionMethods"></textarea>
+                    </div>
+
+                    <div>
+                      <label for="healthDescription" class="form-label">Health Description</label>
+                      <textarea id="healthDescription" type="text" class="form-control" placeholder="Description..."
+                        name="healthDescription"></textarea>
+                    </div>
+
+                    <div class="conteiner ">
+                      <div class="row">
+                        <div class="dropdown col-4">
+                          <label class="form-label">Do you have any comorbidities?</label>
+                          <select id="diseaseSelect" class="form-select">
+                            <option value="acidReflux">Acid Reflux</option>
+                            <option value="anemia">Anemia</option>
+                            <option value="anxiety">Anxiety</option>
+                            <option value="arthritis">Arthritis</option>
+                            <option value="asthma">Asthma</option>
+                            <option value="cancer">Cancer</option>
+                            <option value="chemicalSensitivity">Chemical Sensitivity</option>
+                            <option value="chronicFatigueSyndrome">Chronic Fatigue Syndrome</option>
+                            <option value="depression">Depression</option>
+                            <option value="diabetes">Diabetes</option>
+                            <option value="edema">Edema</option>
+                            <option value="environmentalAllergies">Environmental Allergies</option>
+                            <option value="fattyLiverDisease">Fatty Liver Disease</option>
+                            <option value="foodAllergies">Food Allergies</option>
+                            <option value="fungalInfection">Fungal Infection</option>
+                            <option value="gout">Gout</option>
+                            <option value="headaches">Headaches</option>
+                            <option value="heartAttack">Heart Attack</option>
+                            <option value="highCholesterol">High Cholesterol</option>
+                            <option value="hypertension">Hypertension</option>
+                            <option value="hyperthyroidism">Hyperthyroidism</option>
+                            <option value="hypothyroidism">Hypothyroidism</option>
+                            <option value="infertility">Infertility</option>
+                            <option value="insomnia">Insomnia</option>
+                            <option value="irritatedIntestine">Irritated Intestine</option>
+                            <option value="jointPain">Joint Pain</option>
+                            <option value="kidneyStones">Kidney Stones</option>
+                            <option value="lupus">Lupus</option>
+                            <option value="lowImmunity">Low Immunity</option>
+                            <option value="metabolicSyndrome">Metabolic Syndrome</option>
+                            <option value="moodSwings">Mood Swings</option>
+                            <option value="muscleFlaccidity">Muscle Flaccidity</option>
+                            <option value="musclePain">Muscle Pain</option>
+                            <option value="osteoporosis">Osteoporosis</option>
+                            <option value="polycysticOvarySyndrome">Polycystic Ovary Syndrome</option>
+                            <option value="premenstrualSyndrome">Premenstrual Syndrome</option>
+                            <option value="rheumatoidArthritis">Rheumatoid Arthritis</option>
+                            <option value="sleepApnea">Sleep Apnea</option>
+                            <option value="smoking">Smoking</option>
+                            <option value="urinaryTractInfection">Urinary Tract Infection</option>
+                            <option value="weightGain">Weight Gain</option>
+                            <option value="regularBowelMovement">Regular Bowel Movement</option>
+                            <option selected>Choose...</option>
+                          </select>
+                        </div>
+                        <div class="col mt-4 pt-2">
+                          <button onclick=" diseases.add()" id="diseasesButton" type="button"
+                            class="btn btn-primary ">ADD</button>
+                        </div>
+
+                        <div class=" col-6">
+                          <table class="table table-dark">
+                            <thead class="table-secondary">
+                              <tr class="text-center">
+                                <th scope="col">Diseases</th>
+                                <th scope="col-1">X</th>
+                              </tr>
+                            </thead>
+                            <tbody id="diseasesTbody" class="table-group-divider text-center table-striped-columns">
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!-- End Multi Columns Form -->
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
 
-    <div class="container-fluid">
-      <section class="section">
-        <div class="row">
-          <div class="col-lg-12">
+      <div class="container-fluid">
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
 
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Customer Health Information</h5>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Customer Nutritionist Information</h5>
 
-                <form class="row g-3">
+                  <div class="row g-3">
+                    <div class="col-5 pt-4">
+                      <div class="form-check">
+                        <label for="visitedNutritionist" class="form-check-label">Have you visited a nutritionist?</label>
+                        <input id="visitedNutritionist" class="form-check-input" type="checkbox"
+                          name="visitedNutritionist">
+                      </div>
 
-                  <div>
-                    <label for="inputName5" class="form-label">How would you describe your mood recently?</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
-                  </div>
+                      <div class="form-check">
+                        <label for="shortOnTimeForMeals" class="form-check-label">Short on Time for Meals</label>
+                        <input id="shortOnTimeForMeals" class="form-check-input" type="checkbox"
+                          name="shortOnTimeForMeals">
+                      </div>
 
-                  <div class="dropdown col-4">
-                    <label for="inputState" class="form-label">Sleep quality</label>
-                    <select class="form-select">
-                      <option selected>EXCELLENT</option>
-                      <option selected>GOOD</option>
-                      <option selected>POOR</option>
-                      <option selected>DIFFICULTY_FALLING_ASLEEP</option>
-                      <option selected>RESTORATIVE</option>
-                      <option selected>DAYTIME_SLEEPINESS</option>
-                      <option selected>SNORING</option>
-                      <option selected>APNEA</option>
-                      <option selected>NIGHT_AGGITATION</option>
-                      <option selected>Choose...</option>
-                    </select>
-                  </div>
+                      <div class="form-check">
+                        <label for="eatsOutMoreThanHalfTheTime" class="form-check-label">Eats out more than Half the
+                          Time</label>
+                        <input id="eatsOutMoreThanHalfTheTime" class="form-check-input" type="checkbox"
+                          name="eatsOutMoreThanHalfTheTime">
+                      </div>
 
-                  <div class="col-4">
-                    <label for="inputName" class="form-label">Sleep hours during the day</label>
-                    <input type="time" class="form-control" placeholder="Time..."></input>
-                  </div>
+                      <div class="form-check">
+                        <label for="unhealthyFoodAtHome" class="form-check-label">Unhealthy Food at Home</label>
+                        <input id="unhealthyFoodAtHome" class="form-check-input" type="checkbox"
+                          name="unhealthyFoodAtHome">
+                      </div>
 
-                  <div class="col-4">
-                    <label for="inputName" class="form-label">Sleep hours during the week</label>
-                    <input type="time" class="form-control" placeholder="Time..."></input>
-                  </div>
+                      <div class="form-check">
+                        <label for="unhealthyEatingAround" class="form-check-label">Unhealthy Eating Around</label>
+                        <input id="unhealthyEatingAround" class="form-check-input" type="checkbox"
+                          name="unhealthyEatingAround">
+                      </div>
 
-                  <div class="col-md-12 pt-5">
-                    <label for="customRange2" class="form-label">What's your current level of concentration?</label>
-                    <input type="range" class="form-range" min="1" max="5" id="customRange2">
-                    <div id="determinationLevel" class="d-flex justify-content-between pr-2">
-                      <p>NONE</p>
-                      <p>LOW</p>
-                      <p>MEDIUM</p>
-                      <p>HIGH</p>
-                      <p>MAX</p>
+                      <div class="form-check">
+                        <label for="creativeWithFood" class="form-check-label">Creative With Food</label>
+                        <input id="creativeWithFood" class="form-check-input" type="checkbox" name="creativeWithFood">
+                      </div>
+
+                      <div class="form-check">
+                        <label for="eatsSomethingRightAfterWakingUp" class="form-check-label">Eats Something Right After
+                          Waking up</label>
+                        <input id="eatsSomethingRightAfterWakingUp" class="form-check-input" type="checkbox"
+                          name="eatsSomethingRightAfterWakingUp">
+                      </div>
                     </div>
-                  </div>
 
+                    <div class="col-7">
+                      <div class="col">
+                        <label for="chewingPace" class="form-label">What is your chewing pace?</label>
+                        <input id="chewingPace" type="text" class="form-control" name="chewingPace">
+                      </div>
 
-                  <div class="col-md-12 pt-5">
-                    <label for="customRange2" class="form-label">How would you describe your recent memory?</label>
-                    <input type="range" class="form-range" min="1" max="5" id="customRange2">
-                    <div id="determinationLevel" class="d-flex justify-content-between pr-2">
-                      <p>NONE</p>
-                      <p>LOW</p>
-                      <p>MEDIUM</p>
-                      <p>HIGH</p>
-                      <p>MAX</p>
+                      <div class="col pt-3">
+                        <label for="mealsPerDay" class="form-label">How many daily meals?</label>
+                        <input id="mealsPerDay" type="number" class="form-control" placeholder="Quantity..."
+                          name="mealsPerDay">
+                      </div>
+
+                      <div class="col pt-3">
+                        <label for="cupsOfWaterPerDay" class="form-label">How many cups of water do you drink per
+                          day?</label>
+                        <input id="cupsOfWaterPerDay" type="number" class="form-control" placeholder="Quantity..."
+                          name="cupsOfWaterPerDay">
+                      </div>
                     </div>
-                  </div>
 
-
-                  <div class="col-md-12 pt-5">
-                    <label for="customRange2" class="form-label">How would you describe your long-term memory?</label>
-                    <input type="range" class="form-range" min="1" max="5" id="customRange2">
-                    <div id="determinationLevel" class="d-flex justify-content-between pr-2">
-                      <p>NONE</p>
-                      <p>LOW</p>
-                      <p>MEDIUM</p>
-                      <p>HIGH</p>
-                      <p>MAX</p>
-                    </div>
-                  </div>
-
-
-                  <div class="col-md-12 pt-5">
-                    <label for="customRange2" class="form-label">How would you describe your morning
-                      disposition?</label>
-                    <input type="range" class="form-range" min="1" max="5" id="customRange2">
-                    <div id="determinationLevel" class="d-flex justify-content-between pr-2">
-                      <p>NONE</p>
-                      <p>LOW</p>
-                      <p>MEDIUM</p>
-                      <p>HIGH</p>
-                      <p>MAX</p>
-                    </div>
-                  </div>
-
-
-                  <div class="col-md-12 pt-5">
-                    <label for="customRange2" class="form-label">How would you describe your afternoon
-                      disposition?</label>
-                    <input type="range" class="form-range" min="1" max="5" id="customRange2">
-                    <div id="determinationLevel" class="d-flex justify-content-between pr-2">
-                      <p>NONE</p>
-                      <p>LOW</p>
-                      <p>MEDIUM</p>
-                      <p>HIGH</p>
-                      <p>MAX</p>
-                    </div>
-                  </div>
-
-
-                  <div class="col-md-12 pt-5">
-                    <label for="customRange2" class="form-label">How would you describe your evening
-                      disposition?</label>
-                    <input type="range" class="form-range" min="1" max="5" id="customRange2">
-                    <div id="determinationLevel" class="d-flex justify-content-between pr-2">
-                      <p>NONE</p>
-                      <p>LOW</p>
-                      <p>MEDIUM</p>
-                      <p>HIGH</p>
-                      <p>MAX</p>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12 pt-5">
-                    <label for="customRange2" class="form-label">What is your evening stress level?</label>
-                    <input type="range" class="form-range" min="1" max="5" id="customRange2">
-                    <div id="determinationLevel" class="d-flex justify-content-between pr-2">
-                      <p>NONE</p>
-                      <p>LOW</p>
-                      <p>MEDIUM</p>
-                      <p>HIGH</p>
-                      <p>MAX</p>
+                    <div class="pt-2">
+                      <label for="mostHungryTimeOfDay" class="form-label">What is your most hungry time of day?</label>
+                      <textarea id="mostHungryTimeOfDay" type="text" class="form-control" placeholder="Description..."
+                        name="mostHungryTimeOfDay"></textarea>
                     </div>
                   </div>
 
                   <div class="pt-2">
-                    <label for="inputName5" class="form-label">Sleep Improvement Methods</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
+                    <label for="goToSnack" class="form-label">Do you have a go-to snack?</label>
+                    <textarea id="goToSnack" type="text" class="form-control" placeholder="Description..."
+                      name="goToSnack"></textarea>
                   </div>
 
-                  <div>
-                    <label for="inputName5" class="form-label">Energy Reduction Methods</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
+                  <div class="pt-2">
+                    <label for="favoriteFood" class="form-label">What is your favorite food?</label>
+                    <textarea id="favoriteFood" type="text" class="form-control" placeholder="Description..."
+                      name="favoriteFood"></textarea>
                   </div>
 
-                  <div>
-                    <label for="inputName5" class="form-label">Stress Reduction Methods</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
+                  <div class="pt-2">
+                    <label for="dislikedFood" class="form-label">What is a food you dislike?</label>
+                    <textarea id="dislikedFood" type="text" class="form-control" placeholder="Description..."
+                      name="dislikedFood"></textarea>
                   </div>
 
-                  <div>
-                    <label for="inputName5" class="form-label">Health Description</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
+                  <div class="pt-2">
+                    <label for="weekendFoodChoice" class="form-label">What are your preferred food choices during the
+                      weekend?</label>
+                    <textarea id="weekendFoodChoice" type="text" class="form-control" placeholder="Description..."
+                      name="weekendFoodChoice"></textarea>
                   </div>
 
-                  <div class="conteiner ">
-                    <div class="row">
-                      <div class="dropdown col-4">
-                        <label class="form-label">Do you have any comorbidities?</label>
-                        <select id="diseaseSelect" class="form-select">
-                          <option value="acid_reflux">Acid Reflux</option>
-                          <option value="gastritis">Gastritis</option>
-                          <option value="ulcer">Ulcer</option>
-                          <option value="heart_attack">Heart Attack</option>
-                          <option value="hypertension">Hypertension</option>
-                          <option value="high_cholesterol">High Cholesterol</option>
-                          <option value="edema">Edema</option>
-                          <option value="hypothyroidism">Hypothyroidism</option>
-                          <option value="diabetes">Diabetes</option>
-                          <option value="infertility">Infertility</option>
-                          <option value="weight_gain">Weight Gain</option>
-                          <option value="anemia">Anemia</option>
-                          <option value="hyperthyroidism">Hyperthyroidism</option>
-                          <option value="metabolic_syndrome">Metabolic Syndrome</option>
-                          <option value="fatty_liver_disease">Fatty Liver Disease</option>
-                          <option value="weight_fluctuations">Weight Fluctuations</option>
-                          <option value="polycystic_ovary_syndrome">Polycystic Ovary Syndrome</option>
-                          <option value="gout">Gout</option>
-                          <option value="urinary_tract_infection">Urinary Tract Infection</option>
-                          <option value="fungal_infection">Fungal Infection</option>
-                          <option value="kidney_stones">Kidney Stones</option>
-                          <option value="osteoporosis">Osteoporosis</option>
-                          <option value="arthritis">Arthritis</option>
-                          <option value="muscle_pain">Muscle Pain</option>
-                          <option value="joint_pain">Joint Pain</option>
-                          <option value="muscle_flaccidity">Muscle Flaccidity</option>
-                          <option value="chronic_fatigue_syndrome">Chronic Fatigue Syndrome</option>
-                          <option value="rheumatoid_arthritis">Rheumatoid Arthritis</option>
-                          <option value="lupus">Lupus</option>
-                          <option value="environmental_allergies">Environmental Allergies</option>
-                          <option value="food_allergies">Food Allergies</option>
-                          <option value="asthma">Asthma</option>
-                          <option value="fatigue">Fatigue</option>
-                          <option value="low_immunity">Low Immunity</option>
-                          <option value="chemical_sensitivity">Chemical Sensitivity</option>
-                          <option value="cancer">Cancer</option>
-                          <option value="sleep_apnea">Sleep Apnea</option>
-                          <option value="depression">Depression</option>
-                          <option value="anxiety">Anxiety</option>
-                          <option value="headaches">Headaches</option>
-                          <option value="mood_swings">Mood Swings</option>
-                          <option value="premenstrual_syndrome">Premenstrual Syndrome</option>
-                          <option value="insomnia">Insomnia</option>
-                          <option value="smoking">Smoking</option>
-                          <option value="irritatedIntestine">Irritated Intestine</option>
+                  <div class="row pt-5">
+                    <div class="col-2 pb-3">
+                      <div class="dropdown">
+                        <label for="groceryBuyer" class="form-label">Grocery Buyer</label>
+                        <select id="groceryBuyer" class="form-select" name="groceryBuyer">
+                          <option>Self</option>
+                          <option>Family Members</option>
+                          <option>Friends</option>
+                          <option>Others</option>
                           <option selected>Choose...</option>
                         </select>
                       </div>
-                      <div class="col mt-4 pt-2">
-                          <button onclick=" diseases.add()" id="diseasesButton" type="button"
-                            class="btn btn-primary ">ADD</button>
+                    </div>
+
+                    <div class="col-5 ">
+                      <label for="prepareMeals" class="form-label">How often do you prepare meals?</label>
+                      <input id="prepareMeals" type="range" class="form-range" min="1" max="5" name="prepareMeals">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
+                    </div>
+                    <div class="col-5 ">
+                      <label for="eveningStressLevel" class="form-label">What is your evening stress level?</label>
+                      <input id="eveningStressLevel" type="range" class="form-range" min="1" max="5"
+                        name="eveningStressLevel">
+                      <div class="d-flex justify-content-between pr-2">
+                        <p>NONE</p>
+                        <p>LOW</p>
+                        <p>MEDIUM</p>
+                        <p>HIGH</p>
+                        <p>MAX</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- End Multi Columns Form -->
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="container-fluid">
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Customer Rotine Information</h5>
+
+                  <div class="row g-3">
+
+                    <div class="conteiner">
+                      <div class="row">
+                        <div class="col-5 ms-4">
+                          <label for="foodsSelect" class="form-label">How often do you usually eat</label>
+                          <div class="dropdown">
+                            <select id="foodsSelect" class="form-select">
+                              <option value="rice">Rice</option>
+                              <option value="potato">Potato</option>
+                              <option value="pasta">Pasta</option>
+                              <option value="brownRice">Brown Rice</option>
+                              <option value="wholeWheatPasta">Whole Wheat Pasta</option>
+                              <option value="quinoa">Quinoa</option>
+                              <option value="beans">Beans</option>
+                              <option value="lentils">Lentils</option>
+                              <option value="chickpeas">Chickpeas</option>
+                              <option value="fish">Fish</option>
+                              <option value="redMeat">Red Meat</option>
+                              <option value="poultry">Poultry</option>
+                              <option value="eggs">Eggs</option>
+                              <option value="sweetPotato">Sweet Potato</option>
+                              <option value="cassava">Cassava</option>
+                              <option value="pumpkin">Pumpkin</option>
+                              <option value="yam">Yam</option>
+                              <option value="kale">Kale</option>
+                              <option value="spinach">Spinach</option>
+                              <option value="arugula">Arugula</option>
+                              <option value="lettuce">Lettuce</option>
+                              <option value="cauliflower">Cauliflower</option>
+                              <option value="broccoli">Broccoli</option>
+                              <option value="zucchini">Zucchini</option>
+                              <option value="soups">Soups</option>
+                              <option value="salads">Salads</option>
+                              <option value="nuts">Nuts</option>
+                              <option value="seeds">Seeds</option>
+                              <option value="fruits">Fruits</option>
+                              <option value="flour">Flour</option>
+                              <option value="milk">Milk</option>
+                              <option value="yogurt">Yogurt</option>
+                              <option value="cheese">Cheese</option>
+                              <option value="slicedBread">Sliced Bread</option>
+                              <option value="frenchBread">French Bread</option>
+                              <option value="wholeWheatBread">Whole Wheat Bread</option>
+                              <option value="processedMeats">Processed Meats</option>
+                              <option value="biscuits">Biscuits</option>
+                              <option value="dessert">Dessert</option>
+                              <option value="soda">Soda</option>
+                              <option value="boxedJuice">Boxed Juice</option>
+                              <option value="frozenFoods">Frozen Foods</option>
+                              <option selected>Choose...</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="dropdown col-5 ms-5">
+                          <label for="" class="form-label">How often do you eat this particular food?</label>
+                          <select id="frequencySelect" class="form-select">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                            <option>Always</option>
+                            <option selected>Choose...</option>
+                          </select>
+                        </div>
+                        <div class="col-1 align-self-end">
+                          <button onclick="foods.add()" id="foodButton" type="button"
+                            class="btn btn-primary">ADD</button>
+                        </div>
                       </div>
 
-                      <div class=" col-6">
-                        <table class="table table-dark">
+                      <div class="row px-2 py-5">
+                        <table class="table table-dark ms-1">
                           <thead class="table-secondary">
                             <tr class="text-center">
-                              <th scope="col">Diseases</th>
-                              <th scope="col-1">X</th>
+                              <th scope="col">#</th>
+                              <th scope="col">Foods</th>
+                              <th scope="col">Frequency</th>
+                              <th scope="col">X</th>
                             </tr>
                           </thead>
-                          <tbody id="diseasesTbody" class="table-group-divider text-center table-striped-columns">
+                          <tbody id="foodsTbody" class="table-group-divider text-center table-striped-columns">
 
                           </tbody>
                         </table>
                       </div>
                     </div>
 
-                  </div>
-
-                </form><!-- End Multi Columns Form -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div class="container-fluid">
-      <section class="section">
-        <div class="row">
-          <div class="col-lg-12">
-
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Customer Nutritionist Information</h5>
-
-                <div class="row g-3">
-
-                  <div class="col-4">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Do you have any food allergies?
-                      </label>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="reset" class="btn btn-secondary">Reset</button>
                     </div>
-
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        Do you have gluten or grain intolerance?
-                      </label>
-                    </div>
-
-                    <div class="form-check">
-                      <label for="flexCheckDefault" data-bs-toggle="collapse" data-bs-target="#collapseText1"
-                        class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Do you consume alcohol?
-                      </label>
-
-                      <div id="collapseText1" class="col-md-12 collapse pt-4">
-                        <label class="form-label" for="inputName">Describe the recommendations from the
-                          nutritionist</label>
-                        <textarea type="number" class="form-control " id="inputName5"
-                          placeholder="Description..."></textarea>
-                      </div>
-                    </div>
-
-                    <div class=" form-check ">
-                      <label for="flexCheckDefault" data-bs-toggle="collapse" data-bs-target="#collapseText2"
-                        class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Have you visited a nutritionist before?
-                      </label>
-
-                      <div id="collapseText2" class="col-md-12 collapse pt-4">
-                        <label class="form-label" for="inputName">Describe the recommendations from the
-                          nutritionist</label>
-                        <textarea type="text" class="form-control " id="inputName5"
-                          placeholder="Description..."></textarea>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-4">
-                    <label for="inputName" class="form-label">How many daily meals?</label>
-                    <input type="number" class="form-control" placeholder="Quantity..."></input>
-                  </div>
-
-                  <div class="col-4">
-                    <label for="inputName" class="form-label">How many cups of water do you drink per day?</label>
-                    <input type="number" class="form-control" placeholder="Quantity..."></input>
-                  </div>
-
-
-                  <div class="pt-2">
-                    <label for="inputName5" class="form-label">What is your most hungry time of day?</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
-                  </div>
-
-                  <div class="pt-2">
-                    <label for="inputName5" class="form-label">Do you have a go-to snack?</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
-                  </div>
-
-                  <div class="pt-2">
-                    <label for="inputName5" class="form-label">What is your favorite food?</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
-                  </div>
-
-                  <div class="pt-2">
-                    <label for="inputName5" class="form-label">What is a food you dislike?</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
-                  </div>
-
-                  <div class="pt-2">
-                    <label for="inputName5" class="form-label">What are your preferred food choices during the
-                      weekend?</label>
-                    <textarea type="text" class="form-control" placeholder="Description..."></textarea>
-                  </div>
-
-                  <div>
-                    <div class="form-check col-3 pt-5">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Short on Time for Meals
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Eats out more than Half the Time
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Unhealthy Food at Home
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Unhealthy Eating Around
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Creative With Food
-                      </label>
-                    </div>
-
-                    <div class="form-check col-3 pt-2">
-                      <input class="form-check-input" type="checkbox">
-                      <label class="form-check-label">
-                        Eats Something Right After Waking up
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="row pt-5 pb-3">
-                    <div class="dropdown col-2 ">
-                      <label for="inputState" class="form-label">Grocery Buyer</label>
-                      <select class="form-select">
-                        <option>Self</option>
-                        <option>Family Members</option>
-                        <option>Friends</option>
-                        <option>Others</option>
-                        <option selected>Choose...</option>
-                      </select>
-                    </div>
-
-                    <div class="col-5 ">
-                      <label for="customRange2" class="form-label">What is your evening stress level?</label>
-                      <input type="range" class="form-range" min="1" max="5" id="customRange2">
-                      <div id="determinationLevel" class="d-flex justify-content-between pr-2">
-                        <p>NONE</p>
-                        <p>LOW</p>
-                        <p>MEDIUM</p>
-                        <p>HIGH</p>
-                        <p>MAX</p>
-                      </div>
-                    </div>
-                    <div class="col-5">
-                      <label for="customRange2" class="form-label">What is your evening stress level?</label>
-                      <input type="range" class="form-range" min="1" max="5" id="customRange2">
-                      <div id="determinationLevel" class="d-flex justify-content-between pr-2">
-                        <p>NONE</p>
-                        <p>LOW</p>
-                        <p>MEDIUM</p>
-                        <p>HIGH</p>
-                        <p>MAX</p>
-                      </div>
-                    </div>
-                  </div>
-                  </form><!-- End Multi Columns Form -->
+                  </div><!-- End Multi Columns Form -->
                 </div>
               </div>
             </div>
           </div>
-      </section>
-    </div>
-
-    <div class="container-fluid">
-      <section class="section">
-        <div class="row">
-          <div class="col-lg-12">
-
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Customer Rotine Information</h5>
-
-                <form class="row g-3">
-
-                  <div class="conteiner">
-                    <div class="row">
-                      <div class="col-5 ms-4">
-                        <label for="foodsSelect" class="form-label">How often do you usually eat</label>
-                        <div class="dropdown">
-                          <select id="foodsSelect" class="form-select">
-                            <option value="rice">Rice</option>
-                            <option value="potato">Potato</option>
-                            <option value="pasta">Pasta</option>
-                            <option value="brownRice">Brown Rice</option>
-                            <option value="wholeWheatPasta">Whole Wheat Pasta</option>
-                            <option value="quinoa">Quinoa</option>
-                            <option value="beans">Beans</option>
-                            <option value="lentils">Lentils</option>
-                            <option value="chickpeas">Chickpeas</option>
-                            <option value="fish">Fish</option>
-                            <option value="redMeat">Red Meat</option>
-                            <option value="poultry">Poultry</option>
-                            <option value="eggs">Eggs</option>
-                            <option value="sweetPotato">Sweet Potato</option>
-                            <option value="cassava">Cassava</option>
-                            <option value="pumpkin">Pumpkin</option>
-                            <option value="yam">Yam</option>
-                            <option value="kale">Kale</option>
-                            <option value="spinach">Spinach</option>
-                            <option value="arugula">Arugula</option>
-                            <option value="lettuce">Lettuce</option>
-                            <option value="cauliflower">Cauliflower</option>
-                            <option value="broccoli">Broccoli</option>
-                            <option value="zucchini">Zucchini</option>
-                            <option value="soups">Soups</option>
-                            <option value="salads">Salads</option>
-                            <option value="nuts">Nuts</option>
-                            <option value="seeds">Seeds</option>
-                            <option value="fruits">Fruits</option>
-                            <option value="flour">Flour</option>
-                            <option value="milk">Milk</option>
-                            <option value="yogurt">Yogurt</option>
-                            <option value="cheese">Cheese</option>
-                            <option value="slicedBread">Sliced Bread</option>
-                            <option value="frenchBread">French Bread</option>
-                            <option value="wholeWheatBread">Whole Wheat Bread</option>
-                            <option value="processedMeats">Processed Meats</option>
-                            <option value="biscuits">Biscuits</option>
-                            <option value="dessert">Dessert</option>
-                            <option value="soda">Soda</option>
-                            <option value="boxedJuice">Boxed Juice</option>
-                            <option value="frozenFoods">Frozen Foods</option>
-                            <option selected>Choose...</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="dropdown col-5 ms-5">
-                        <label for="" class="form-label">How often do you eat this particular food?</label>
-                        <select id="frequencySelect" class="form-select">
-                          <option>Daily</option>
-                          <option>Weekly</option>
-                          <option>Monthly</option>
-                          <option>Always</option>
-                          <option selected>Choose...</option>
-                        </select>
-                      </div>
-                      <div class="col-1 align-self-end">
-                        <button onclick="foods.add()" id="foodButton" type="button" class="btn btn-primary">ADD</button>
-                      </div>
-                    </div>
-
-                    <div class="row px-2 py-5">
-                      <table class="table table-dark ms-1">
-                        <thead class="table-secondary">
-                          <tr class="text-center">
-                            <th scope="col">#</th>
-                            <th scope="col">Foods</th>
-                            <th scope="col">Frequency</th>
-                            <th scope="col">X</th>
-                          </tr>
-                        </thead>
-                        <tbody id="foodsTbody" class="table-group-divider text-center table-striped-columns">
-
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-secondary">Reset</button>
-                  </div>
-                </form><!-- End Multi Columns Form -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
 
 
-
+    </form>
   </main>
 
 

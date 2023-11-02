@@ -32,9 +32,10 @@ public class CustomerGym {
     private String exerciseTypes;
     private Boolean increaseEnergy;
     private Boolean decreaseStress;
+    // TODO:
     private Double weightOneYearAgo;
-    private Boolean jobSatisfaction;
     private Double weightTenYearsAgo;
+    private Boolean jobSatisfaction;
     private Boolean improveWellBeing;
     private Boolean increaseExercise;
     private Boolean intendsToExercise;
