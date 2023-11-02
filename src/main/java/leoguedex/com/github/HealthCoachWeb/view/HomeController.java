@@ -29,7 +29,7 @@ public class HomeController {
 
     @GetMapping("/newCustomer")
     public String forms() {
-        return "newCustumer-layouts";
+        return "new-custumer-layouts";
     }
 
     @GetMapping("/contact")

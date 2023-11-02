@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AllCustomer {
+public class AllCustomerDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -218,7 +218,7 @@ public class AllCustomer {
     private TypeDaysEnum boxedJuice;
     private TypeDaysEnum frozenFoods;
 
-    public static Customer toCustomer(AllCustomer customer) {
+    public static Customer toCustomer(AllCustomerDTO customer) {
         return Customer.builder()
                 .name(customer.getName())
                 .age(customer.getAge())
@@ -235,7 +235,7 @@ public class AllCustomer {
                 .build();
     }
 
-    public static CustomerAlimentation toCustomerAlimentation(AllCustomer customer) {
+    public static CustomerAlimentation toCustomerAlimentation(AllCustomerDTO customer) {
         return CustomerAlimentation.builder()
                 .lunch(customer.getLunch())
                 .dinner(customer.getDinner())
@@ -251,7 +251,7 @@ public class AllCustomer {
                 .build();
     }
 
-    public static CustomerGym toCustomerGym(AllCustomer customer) {
+    public static CustomerGym toCustomerGym(AllCustomerDTO customer) {
         return CustomerGym.builder()
                 .supplements(customer.getSupplements())
                 .loseWeight(customer.getLoseWeight())
@@ -284,7 +284,7 @@ public class AllCustomer {
                 .build();
     }
 
-    public static CustomerHealth toCustomerHealth(AllCustomer customer) {
+    public static CustomerHealth toCustomerHealth(AllCustomerDTO customer) {
         return CustomerHealth.builder()
                 .gout(customer.getGout())
                 .ulcer(customer.getUlcer())
@@ -351,7 +351,7 @@ public class AllCustomer {
                 .build();
     }
 
-    public static CustomerNutritionistInformation toCustomerNutritionistInformation(AllCustomer customer) {
+    public static CustomerNutritionistInformation toCustomerNutritionistInformation(AllCustomerDTO customer) {
         return CustomerNutritionistInformation.builder()
                 .chewing(customer.getChewing())
                 .goToSnack(customer.getGoToSnack())
@@ -379,7 +379,7 @@ public class AllCustomer {
                 .build();
     }
 
-    public static CustomerRotineTable toCustomerRotineTable(AllCustomer customer) {
+    public static CustomerRotineTable toCustomerRotineTable(AllCustomerDTO customer) {
         return CustomerRotineTable.builder()
                 .rice(customer.getRice())
                 .potato(customer.getPotato())
