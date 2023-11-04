@@ -1,3 +1,4 @@
+
 class SelectConstructor {
   constructor(config) {
     this.errorMessages = config.errorMessages;
@@ -70,9 +71,6 @@ class SelectConstructor {
     return invalidValues.includes(value);
   }
 }
-
-
-
 
 class SelectConstructorD {
   constructor(config) {
@@ -165,8 +163,6 @@ const diseasesConfig = {
   tbodyElementId: "diseasesTbody"
 };
 
-var diseases = new SelectConstructor(diseasesConfig);
-
 const foodsConfig = {
   errorMessages: {
     invalidOption: "Choose a valid option.",
@@ -178,5 +174,48 @@ const foodsConfig = {
   tbodyElementId: "foodsTbody"
 
 };
-
+var diseases = new SelectConstructor(diseasesConfig);
 var foods = new SelectConstructorD(foodsConfig);
+
+function create() {
+  const customerCreate = document.getElementById("customerCreate");
+  const url = "http://127.0.0.1:8080/api/customer/create";
+
+  document.getElementById("submit").addEventListener('click', e => {
+    const customerName = customerCreate.name.value;
+    const customerAge = customerCreate.age.value;
+    const customerEmail = customerCreate.email.value;
+    const customerReferredBy = customerCreate.referredBy.value;
+    const customerAddress =   customerCreate.address.value;
+    const customerBirthDate = customerCreate.birthDate.value;
+    const customerPhoneNumber = customerCreate.phoneNumber.value;
+    const customerWeight = customerCreate.weight.value;
+    const customerHeight = customerCreate.height.value;
+    const customerWorksOrStudies = customerCreate.worksOrStudies.value;
+
+    e.preventDefault();
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      },
+      body: JSON.stringify({
+        "id": null,
+        customerName: customerName,
+        customerAge: customerAge,
+        customerEmail: customerEmail,
+        customerReferredBy: customerReferredBy,
+        customerAddress: customerAddress,
+        customerBirthDate: customerBirthDate,
+        customerPhoneNumber: customerPhoneNumber,
+        customerWeight: customerWeight,
+        customerHeight: customerHeight,
+        customerWorksOrStudies: customerWorksOrStudies
+      })
+    }).then(response => response.json())
+      .then(data => console.log(data))
+
+  });
+}
+create()
