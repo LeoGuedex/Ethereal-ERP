@@ -31,7 +31,7 @@ public class Customer {
     private String phoneNumber;
     private Boolean worksOrStudies;
     private String consultationReason;
-    private LocalDateTime whenCreated;
+    private String whenCreated;
     private IndicatedByEnum referredBy;
     private ExpectedEnum expectedOutcome;
 
