@@ -21,4 +21,5 @@ public class HCUserService {
   public HCUser createUser(HCUser user) {
     return repository.save(user);
   }
+
 }

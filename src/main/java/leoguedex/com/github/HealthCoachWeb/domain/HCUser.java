@@ -26,52 +26,54 @@ import lombok.Setter;
 @EqualsAndHashCode(of = "id")
 public class HCUser implements UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String personFunction;
-    @Column(unique = true)
-    private String email;
-    private String password;
-    private Boolean admin;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  private String name;
+  private String personFunction;
+  @Column(unique = true)
+  private String email;
+  private String password;
+  private Boolean admin;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (this.admin) {
-            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
-        } else {
-            return List.of(new SimpleGrantedAuthority("ROLE_USER"));
-        }
+  @Override
+  public Collection<? extends GrantedAuthority> getAuthorities() {
+    if (this.admin) {
+      return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"),
+          new SimpleGrantedAuthority("ROLE_USER"));
+    } else {
+      return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
+  }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
+  @Override
+  public String getPassword() {
+    return password;
+  }
 
-    @Override
-    public String getUsername() {
-        return email;
-    }
+  @Override
+  public String getUsername() {
+    return email;
+  }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+  @Override
+  public boolean isAccountNonExpired() {
+    return true;
+  }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
 
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+  @Override
+  public boolean isEnabled() {
+    return true;
+  }
+
 }

@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class HCUserDTO {
 
-    private Long id;
-    private String name;
-    private String username;
-    private String email;
-    private String personFunction;
-    private Boolean admin;
+  private Long id;
+  private String name;
+  private String username;
+  private String email;
+  private String personFunction;
+  private Boolean admin;
 
 }

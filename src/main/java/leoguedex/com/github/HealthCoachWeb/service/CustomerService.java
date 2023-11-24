@@ -14,59 +14,60 @@ import java.util.regex.Pattern;
 @Service
 public class CustomerService {
 
-    @Autowired
-    private CustomerRepository customerRepository;
+  @Autowired
+  private CustomerRepository customerRepository;
 
-    public Customer create(Customer customer) {
-        return customerRepository.save(customer);
+  public Customer create(Customer customer) {
+    return customerRepository.save(customer);
+  }
+
+  public void delete(Long id) {
+    customerRepository.deleteById(id);
+  }
+
+  public Customer findById(Long id) {
+    return customerRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Customer not found"));
+  }
+
+  public List<Customer> findAllCustomers() {
+    List<Customer> customers = customerRepository.findAll();
+
+    customers.forEach(c -> {
+      try {
+        c.setAge(getAgeFromBirthDate(c.getBirthDate()));
+        customerRepository.save(c);
+      } catch (GetAgeFromBirthDateException e) {
+        e.printStackTrace();
+      }
+    });
+
+    return customers;
+  }
+
+  private Integer getAgeFromBirthDate(String birthDate) throws GetAgeFromBirthDateException {
+    Pattern pattern = Pattern.compile("(\\d{2})/(\\d{2})/(\\d{4})");
+    Matcher matcher = pattern.matcher(birthDate);
+
+    if (!matcher.matches()) {
+      throw new GetAgeFromBirthDateException("Unable to get date from passed parameters.");
     }
 
-    public void delete(Long id) {
-        customerRepository.deleteById(id);
+    int birthDay = Integer.parseInt(matcher.group(1));
+    int birthmonth = Integer.parseInt(matcher.group(2));
+    int birthyear = Integer.parseInt(matcher.group(3));
+
+    int currentDay = LocalDateTime.now().getDayOfMonth();
+    int currentMonth = LocalDateTime.now().getMonth().getValue();
+    int currentYear = LocalDateTime.now().getYear();
+
+    int age = currentYear - birthyear;
+
+    if (currentMonth < birthmonth || (currentMonth == birthmonth && currentDay < birthDay)) {
+      age--;
     }
 
-    public Customer findById(Long id) {
-        return customerRepository.findById(id).orElseThrow(() -> new RuntimeException("Customer not found"));
-    }
-
-    public List<Customer> findAllCustomers() {
-        List<Customer> customers = customerRepository.findAll();
-
-        customers.forEach(c -> {
-            try {
-                c.setAge(getAgeFromBirthDate(c.getBirthDate()));
-                customerRepository.save(c);
-            } catch (GetAgeFromBirthDateException e) {
-                e.printStackTrace();
-            }
-        });
-
-        return customers;
-    }
-
-    private Integer getAgeFromBirthDate(String birthDate) throws GetAgeFromBirthDateException {
-        Pattern pattern = Pattern.compile("(\\d{2})/(\\d{2})/(\\d{4})");
-        Matcher matcher = pattern.matcher(birthDate);
-
-        if (!matcher.matches()) {
-            throw new GetAgeFromBirthDateException("Unable to get date from passed parameters.");
-        }
-
-        int birthDay = Integer.parseInt(matcher.group(1));
-        int birthmonth = Integer.parseInt(matcher.group(2));
-        int birthyear = Integer.parseInt(matcher.group(3));
-
-        int currentDay = LocalDateTime.now().getDayOfMonth();
-        int currentMonth = LocalDateTime.now().getMonth().getValue();
-        int currentYear = LocalDateTime.now().getYear();
-
-        int age = currentYear - birthyear;
-
-        if (currentMonth < birthmonth || (currentMonth == birthmonth && currentDay < birthDay)) {
-            age--;
-        }
-
-        return age;
-    }
+    return age;
+  }
 
 }

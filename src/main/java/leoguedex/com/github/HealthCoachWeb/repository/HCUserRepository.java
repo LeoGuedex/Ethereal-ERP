@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface HCUserRepository extends JpaRepository<HCUser, Long> {
 
-    Optional<HCUser> findByEmail(String username);
+  Optional<HCUser> findByEmail(String username);
+
 }

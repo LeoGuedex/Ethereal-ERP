@@ -13,7 +13,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-  private static final String[] STATIC_RECOURSES = { "/static/**", "/error" };
+  private static final String[] STATIC_RECOURSES = {"/static/**", "/error"};
 
   @Bean
   SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -42,4 +42,5 @@ public class WebSecurityConfig {
   PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }
+
 }

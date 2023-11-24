@@ -13,25 +13,25 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CustomerAlimentation {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+  @OneToOne
+  @JoinColumn(name = "customer_id")
+  private Customer customer;
 
-    private String lunch;
-    private String dinner;
-    private String breakfast;
-    private Boolean eatsLunch;
-    private Boolean eatsDinner;
-    private String afternoonSnack;
-    private String beforeLunchMeal;
-    private Boolean eatsBeforeLunch;
-    private Boolean eatsUponWakingUp;
-    private Boolean eatsAfternoonSnack;
-    private Boolean eatsBeforeBedtime;
-    private String beforeBedtimeSnack;
+  private String lunch;
+  private String dinner;
+  private String breakfast;
+  private Boolean eatsLunch;
+  private Boolean eatsDinner;
+  private String afternoonSnack;
+  private String beforeLunchMeal;
+  private Boolean eatsBeforeLunch;
+  private Boolean eatsUponWakingUp;
+  private Boolean eatsAfternoonSnack;
+  private Boolean eatsBeforeBedtime;
+  private String beforeBedtimeSnack;
 
 }

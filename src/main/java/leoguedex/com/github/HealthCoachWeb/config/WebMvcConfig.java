@@ -13,28 +13,28 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
-    @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/templates/");
-        resolver.setSuffix(".html");
-        
-        return resolver;
-    }
+  @Bean
+  public InternalResourceViewResolver viewResolver() {
+    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+    resolver.setPrefix("/templates/");
+    resolver.setSuffix(".html");
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**")
-                .addResourceLocations("classpath:/static/").setCachePeriod(31536000);
-    }
+    return resolver;
+  }
 
-    @Override
-    public void configurePathMatch(PathMatchConfigurer configurer) {
-        AntPathMatcher matcher = new AntPathMatcher();
-        matcher.setCaseSensitive(false);
-        configurer.setPathMatcher(matcher);
-        configurer.addPathPrefix("/api",
-                HandlerTypePredicate.forAnnotation(RestController.class));
-    }
+  @Override
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("/static/**")
+        .addResourceLocations("classpath:/static/").setCachePeriod(31536000);
+  }
+
+  @Override
+  public void configurePathMatch(PathMatchConfigurer configurer) {
+    AntPathMatcher matcher = new AntPathMatcher();
+    matcher.setCaseSensitive(false);
+    configurer.setPathMatcher(matcher);
+    configurer.addPathPrefix("/api",
+        HandlerTypePredicate.forAnnotation(RestController.class));
+  }
 
 }

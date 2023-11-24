@@ -12,15 +12,15 @@ import java.text.ParseException;
 @Profile("test")
 public class TestConfig {
 
-    @Autowired
-    private DBService dbService;
+  @Autowired
+  private DBService dbService;
 
-    @Bean
-    public boolean instantiateDatabase() throws ParseException {
-        dbService.createTestCustomer();
-        dbService.createLoginAdmin();
-        
-        return true;
-    }
+  @Bean
+  public boolean instantiateDatabase() throws ParseException {
+    dbService.createTestCustomer();
+    dbService.createLoginAdmin();
+
+    return true;
+  }
 
 }
