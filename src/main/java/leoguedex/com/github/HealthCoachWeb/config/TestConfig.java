@@ -6,17 +6,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import java.text.ParseException;
-
 @Configuration
-@Profile("test")
+@Profile("local")
 public class TestConfig {
 
   @Autowired
   private DBService dbService;
 
   @Bean
-  public boolean instantiateDatabase() throws ParseException {
+  public boolean instantiateDatabase() {
     dbService.createTestCustomer();
     dbService.createLoginAdmin();
 

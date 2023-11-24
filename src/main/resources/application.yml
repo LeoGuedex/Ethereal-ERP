@@ -1,8 +1,14 @@
 spring:
+
   profiles:
     active: local
   thymeleaf:
-    prefix: classpath:/templates/
+      mode: HTML
+      cache: false
+      enabled: true
+      prefix: classpath:/templates/
+      suffix: .html
+      encoding: UTF-8
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/healthCoach

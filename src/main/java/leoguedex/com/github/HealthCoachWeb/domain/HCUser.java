@@ -53,7 +53,7 @@ public class HCUser implements UserDetails {
 
   @Override
   public String getUsername() {
-    return email;
+    return name;
   }
 
   @Override

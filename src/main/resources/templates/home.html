@@ -9,9 +9,6 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <link href="/static/template/assets/img/favicon.png" rel="icon">
-  <link href="/static/template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -34,7 +31,7 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
   <div class="row">
-    <a href="home" class="logo d-flex align-items-center col">
+    <a href="/home" class="logo d-flex align-items-center col">
       <img src="/static/imagens/HealthCoachIcon.png" alt="">
     </a>
     <div class="col">
@@ -49,13 +46,17 @@
            data-bs-toggle="dropdown">
           <img src="/static/template/assets/img/profile-img.jpg" alt="Profile"
                class="rounded-circle">
-          <span id="user-name"
-                class="d-none d-md-block dropdown-toggle ps-2">Usuário Desconhecido</span>
+          <span id="user-name" class="d-none d-md-block dropdown-toggle ps-2"
+                th:text="${principal != null ? principal.getUsername() : 'Usuário Desconhecido'}"></span>
         </a><!-- Foto e nome do Perfil -->
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">
-            <h6>Usuário Desconhecido</h6>
-            <span>Cargo desconhecido</span>
+            <h6>
+              <span
+                  th:text="${principal != null ? principal.getUsername() : 'Desconhecido'}"></span>
+            </h6>
+            <span
+                th:text="${principal != null ? principal.getAuthorities() : 'Desconhecido'}"></span>
           </li>
           <li>
             <hr class="dropdown-divider">
@@ -70,7 +71,7 @@
             <hr class="dropdown-divider">
           </li>
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="/">
+            <a class="dropdown-item d-flex align-items-center" href="/login">
               <i class="bi bi-box-arrow-right"></i>
               <span>Sign Out</span>
             </a>
@@ -118,7 +119,7 @@
     <h1>Dashboard</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="home">Home</a></li>
+        <li class="breadcrumb-item"><a href="/home">Home</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
       </ol>
     </nav>
@@ -435,7 +436,7 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <th scope="row"><a href="#"><img src="/static/template/assets/img/product-1.jpg"
+                    <th scope="row"><a href="#"><img src="/static/template/assets/img/profile-img.jpg"
                                                      alt=""></a>
                     </th>
                     <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas
@@ -445,7 +446,7 @@
                     <td>$5,828</td>
                   </tr>
                   <tr>
-                    <th scope="row"><a href="#"><img src="/static/template/assets/img/product-2.jpg"
+                    <th scope="row"><a href="#"><img src="/static/template/assets/img/profile-img.jpg"
                                                      alt=""></a>
                     </th>
                     <td><a href="#" class="text-primary fw-bold">Exercitationem similique
@@ -455,7 +456,7 @@
                     <td>$4,508</td>
                   </tr>
                   <tr>
-                    <th scope="row"><a href="#"><img src="/static/template/assets/img/product-3.jpg"
+                    <th scope="row"><a href="#"><img src="/static/template/assets/img/profile-img.jpg"
                                                      alt=""></a>
                     </th>
                     <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a>
@@ -465,7 +466,7 @@
                     <td>$4,366</td>
                   </tr>
                   <tr>
-                    <th scope="row"><a href="#"><img src="/static/template/assets/img/product-4.jpg"
+                    <th scope="row"><a href="#"><img src="/static/template/assets/img/profile-img.jpg"
                                                      alt=""></a>
                     </th>
                     <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum
@@ -475,7 +476,7 @@
                     <td>$2,016</td>
                   </tr>
                   <tr>
-                    <th scope="row"><a href="#"><img src="/static/template/assets/img/product-5.jpg"
+                    <th scope="row"><a href="#"><img src="/static/template/assets/img/profile-img.jpg"
                                                      alt=""></a>
                     </th>
                     <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus
@@ -593,57 +594,6 @@
 
             <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
 
-            <script>
-              document.addEventListener("DOMContentLoaded", () => {
-                var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
-                  legend: {
-                    data: ['Allocated Budget', 'Actual Spending']
-                  },
-                  radar: {
-                    // shape: 'circle',
-                    indicator: [{
-                      name: 'Sales',
-                      max: 6500
-                    },
-                      {
-                        name: 'Administration',
-                        max: 16000
-                      },
-                      {
-                        name: 'Information Technology',
-                        max: 30000
-                      },
-                      {
-                        name: 'Customer Support',
-                        max: 38000
-                      },
-                      {
-                        name: 'Development',
-                        max: 52000
-                      },
-                      {
-                        name: 'Marketing',
-                        max: 25000
-                      }
-                    ]
-                  },
-                  series: [{
-                    name: 'Budget vs spending',
-                    type: 'radar',
-                    data: [{
-                      value: [4200, 3000, 20000, 35000, 50000, 18000],
-                      name: 'Allocated Budget'
-                    },
-                      {
-                        value: [5000, 14000, 28000, 26000, 42000, 21000],
-                        name: 'Actual Spending'
-                      }
-                    ]
-                  }]
-                });
-              });
-            </script>
-
           </div>
         </div><!-- End Budget Report -->
 
@@ -745,34 +695,34 @@
 
             <div class="news">
               <div class="post-item clearfix">
-                <img src="/static/template/assets/img/news-1.jpg" alt="">
+                <img src="/static/template/assets/img/profile-img.jpg" alt="">
                 <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
                 <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
               </div>
 
               <div class="post-item clearfix">
-                <img src="/static/template/assets/img/news-2.jpg" alt="">
+                <img src="/static/template/assets/img/profile-img.jpg" alt="">
                 <h4><a href="#">Quidem autem et impedit</a></h4>
                 <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona
                   nande...</p>
               </div>
 
               <div class="post-item clearfix">
-                <img src="/static/template/assets/img/news-3.jpg" alt="">
+                <img src="/static/template/assets/img/profile-img.jpg" alt="">
                 <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
                 <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et
                   totam...</p>
               </div>
 
               <div class="post-item clearfix">
-                <img src="/static/template/assets/img/news-4.jpg" alt="">
+                <img src="/static/template/assets/img/profile-img.jpg" alt="">
                 <h4><a href="#">Laborum corporis quo dara net para</a></h4>
                 <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum
                   cuder...</p>
               </div>
 
               <div class="post-item clearfix">
-                <img src="/static/template/assets/img/news-5.jpg" alt="">
+                <img src="/static/template/assets/img/profile-img.jpg" alt="">
                 <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
                 <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos
                   eius...</p>
@@ -809,7 +759,6 @@
 <script src="/static/template/assets/vendor/quill/quill.min.js"></script>
 <script src="/static/template/assets/vendor/simple-datatables/simple-datatables.js"></script>
 <script src="/static/template/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="/static/template/assets/vendor/php-email-form/validate.js"></script>
 <script src="/static/template/assets/js/main.js"></script>
 </body>
 
