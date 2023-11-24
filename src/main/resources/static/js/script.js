@@ -17,7 +17,7 @@ function login() {
       .then(response => {
         if (response.ok) {
           console.log(response);
-          window.location.href = 'index';
+          window.location.href = 'home';
         } else if (response.status === 401) {
           alert('Login não autorizado!');
         } else {
