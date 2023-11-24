@@ -1,19 +1,16 @@
 spring:
+  profiles:
+    active: local
   thymeleaf:
     prefix: classpath:/templates/
   datasource:
-    driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password:
-
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/healthCoach
+    username: root
+    password: admin
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MySQLDialect
     properties:
       hibernate:
         format_sql: true
@@ -25,4 +22,3 @@ server:
       enabled: false
     include-message: always
   port: 8080
-
