@@ -53,10 +53,10 @@
           <li class="dropdown-header">
             <h6>
               <span
-                  th:text="${principal != null ? principal.getUsername() : 'Desconhecido'}"></span>
+                  th:text="${principal != null ? principal.generateFullName() : 'Desconhecido'}"></span>
             </h6>
             <span
-                th:text="${principal != null ? principal.getAuthorities() : 'Desconhecido'}"></span>
+                th:text="${principal != null ? principal.getPersonFunction() : 'Desconhecido'}"></span>
           </li>
           <li>
             <hr class="dropdown-divider">
@@ -136,10 +136,10 @@
             <img src="/static/template/assets/img/profile-img.jpg" alt="Profile"
                  class="rounded-circle">
             <h2><span
-                th:text="${principal != null ? principal.getUsername() : 'Desconhecido'}"></span>
+                th:text="${principal != null ? principal.generateFullName() : 'Desconhecido'}"></span>
             </h2>
             <h3><span
-                th:text="${principal != null ? principal.getAuthorities() : 'Desconhecido'}"></span>
+                th:text="${principal != null ? principal.getPersonFunction() : 'Desconhecido'}"></span>
             </h3>
           </div>
         </div>
@@ -183,10 +183,18 @@
                   </div>
 
                   <div class="row mb-3">
-                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
+                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="fullName" type="text" class="form-control" id="fullName"
-                             value="Kevin Anderson">
+                      <input name="fullName" type="text" class="form-control" id="firstName"
+                              th:value="${principal != null ? principal.getUserData().getFirstName() : 'Desconhecido'}">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="fullName" type="text" class="form-control" id="lastName"
+                              th:value="${principal != null ? principal.getUserData().getLastName() : 'Desconhecido'}">
                     </div>
                   </div>
 
@@ -194,7 +202,7 @@
                     <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                     <div class="col-md-8 col-lg-9">
                       <input name="address" type="text" class="form-control" id="Address"
-                             value="A108 Adam Street, New York, NY 535022">
+                              th:value="${principal != null ? principal.getUserData().getAddress() : 'Desconhecido'}">
                     </div>
                   </div>
 
@@ -202,7 +210,7 @@
                     <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                     <div class="col-md-8 col-lg-9">
                       <input name="phone" type="text" class="form-control" id="Phone"
-                             value="(436) 486-3538 x29071">
+                      th:value="${principal != null ? principal.getUserData().getPhoneNumber() : 'Desconhecido'}">
                     </div>
                   </div>
 
@@ -210,7 +218,7 @@
                     <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                     <div class="col-md-8 col-lg-9">
                       <input name="email" type="email" class="form-control" id="Email"
-                             value="k.anderson@example.com">
+                      th:value="${principal != null ? principal.getEmail() : 'Desconhecido'}">
                     </div>
                   </div>
 
