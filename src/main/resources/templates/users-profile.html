@@ -6,6 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Health Coach - Profile</title>
+  <link href="/static/template/assets/img/favicon.png" rel="icon"/>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -23,7 +24,7 @@
   <link href="/static/template/assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <link href="/static/template/assets/css/style.css" rel="stylesheet">
 
-</head>
+  </head>
 
 <body>
 
@@ -153,8 +154,7 @@
             <ul class="nav nav-tabs nav-tabs-bordered">
               <li class="nav-item">
                 <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">
-                  Edit
-                  Profile
+                  Edit Profile
                 </button>
               </li>
               <li class="nav-item">
@@ -167,57 +167,60 @@
             <div class="tab-content pt-2">
               <div class="tab-pane fade active show profile-edit pt-3" id="profile-edit">
                 <!-- Profile Edit Form -->
-                <form>
+                <form th:action="@{/hcuser}" th:object="${userDataDTO}" method="post" enctype="multipart/form-data">
+
                   <div class="row mb-3">
-                    <label class="col-md-4 col-lg-3 col-form-label">Profile
-                      Image</label>
+                    <label class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                     <div class="col-md-8 col-lg-9">
-                      <img src="/static/template/assets/img/profile-img.jpg" alt="Profile">
+                      <img height="120px" width="120px" class="rounded" id="hcUserPic" src="/static/imagens/profile/default-user-profile.jpg" alt="Profile">
+                      <input type="file" id="hcUserPicInput" th:field="*{hcUserPic}" style="display: none;"/>
                       <div class="pt-2">
-                        <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i
-                            class="bi bi-upload"></i></a>
-                        <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i
-                            class="bi bi-trash"></i></a>
+                        <a class="btn btn-primary btn-sm" id="addHcUserPicBtn" title="Upload new profile image">
+                          <i class="bi bi-upload"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" id="removeHcUserPicBtn" title="Remove my profile image">
+                          <i class="bi bi-trash"></i>
+                        </a>
                       </div>
                     </div>
                   </div>
 
                   <div class="row mb-3">
-                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+                    <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="fullName" type="text" class="form-control" id="firstName"
+                      <input name="firstName" type="text" class="form-control" id="firstName" th:field="*{firstName}"
                               th:value="${principal != null ? principal.getUserData().getFirstName() : 'Desconhecido'}">
                     </div>
                   </div>
 
                   <div class="row mb-3">
-                    <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
+                    <label for="lastName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="fullName" type="text" class="form-control" id="lastName"
+                      <input name="lastName" type="text" class="form-control" id="lastName" th:field="*{lastName}"
                               th:value="${principal != null ? principal.getUserData().getLastName() : 'Desconhecido'}">
                     </div>
                   </div>
 
                   <div class="row mb-3">
-                    <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
+                    <label for="address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="address" type="text" class="form-control" id="Address"
+                      <input name="address" type="text" class="form-control" id="address" th:field="*{address}"
                               th:value="${principal != null ? principal.getUserData().getAddress() : 'Desconhecido'}">
                     </div>
                   </div>
 
                   <div class="row mb-3">
-                    <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                    <label for="phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="phone" type="text" class="form-control" id="Phone"
+                      <input name="phone" type="text" class="form-control" id="phone" th:field="*{phone}"
                       th:value="${principal != null ? principal.getUserData().getPhoneNumber() : 'Desconhecido'}">
                     </div>
                   </div>
 
                   <div class="row mb-3">
-                    <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                    <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="email" type="email" class="form-control" id="Email"
+                      <input name="email" type="email" class="form-control" id="email" th:field="*{email}"
                       th:value="${principal != null ? principal.getEmail() : 'Desconhecido'}">
                     </div>
                   </div>
@@ -225,7 +228,8 @@
                   <div class="text-center">
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                   </div>
-                </form><!-- End Profile Edit Form -->
+                </form>
+                <!-- End Profile Edit Form -->
 
               </div>
 
@@ -274,6 +278,38 @@
       </div>
     </div>
   </section>
+
+  <script>
+    const hcUserPic = document.querySelector("#hcUserPic");
+    const hcUserPicInput = document.querySelector("#hcUserPicInput");
+    const addHcUserPicBtn = document.querySelector("#addHcUserPicBtn");
+    const removeHcUserPicBtn = document.querySelector("#removeHcUserPicBtn");
+    
+    function previewImage(input) {
+      const file = input.files[0];
+      if (file) {
+        
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          hcUserPic.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // hcUserPic.addEventListener("click", () => {})
+    hcUserPicInput.addEventListener("change", (e) => {
+      input = e.target;
+      previewImage(input)
+    })
+    addHcUserPicBtn.addEventListener("click", () => {
+      hcUserPicInput.click();
+    })
+    removeHcUserPicBtn.addEventListener("click", () => {
+      hcUserPic.src = "/static/imagens/profile/default-user-profile.jpg";
+    })
+    
+  </script>
 
 </main>
 
