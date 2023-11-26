@@ -5,16 +5,14 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Health Coach - Customers</title>
+    <title>Ethereal IT- Customers</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <link href="/static/template/assets/img/favicon.png" rel="icon">
-    <link href="/static/template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
     <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-          rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet">
 
     <link href="/static/template/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/template/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -31,24 +29,33 @@
 
 <header id="header" class="header fixed-top d-flex align-items-center">
 
-    <div class="d-flex align-items-center justify-content-between">
-        <a href="home" class="logo d-flex align-items-center">
-            <img src="/static/imagens/HealthCoachIcon.png" alt="">
+    <div class="row">
+        <a href="/home" class="logo d-flex align-items-center col">
+            <img src="/static/imagens/EtherealIcon.png" alt="">
         </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div>
+        <div class="col">
+            <i class="bi bi-list toggle-sidebar-btn ms-4"></i>
+        </div>
+    </div><!-- Icone da barra -->
 
     <nav class="header-nav ms-auto">
         <ul class="d-flex align-items-center">
             <li class="nav-item dropdown pe-3">
-                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="/static/template/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <span id="user-name" class="d-none d-md-block dropdown-toggle ps-2">Usuário Desconhecido</span>
+                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+                   data-bs-toggle="dropdown">
+                    <img src="/static/template/assets/img/profile-img.jpg" alt="Profile"
+                         class="rounded-circle">
+                    <span id="user-name" class="d-none d-md-block dropdown-toggle ps-2"
+                          th:text="${principal != null ? principal.getUsername() : 'Usuário Desconhecido'}"></span>
                 </a><!-- Foto e nome do Perfil -->
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
-                        <h6>Usuário Desconhecido</h6>
-                        <span>Cargo desconhecido</span>
+                        <h6>
+              <span
+                      th:text="${principal != null ? principal.getUsername() : 'Desconhecido'}"></span>
+                        </h6>
+                        <span
+                                th:text="${principal != null ? principal.getAuthorities() : 'Desconhecido'}"></span>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
@@ -63,7 +70,7 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="/">
+                        <a class="dropdown-item d-flex align-items-center" href="/login">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sign Out</span>
                         </a>
@@ -109,7 +116,7 @@
         <h1>Customers</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="home">Home</a></li>
+                <li class="breadcrumb-item"><a href="/home">Home</a></li>
                 <li class="breadcrumb-item active">Customers</li>
             </ol>
         </nav>
@@ -132,7 +139,7 @@
                     <tr th:each="customers : ${customers}">
                         <td th:text="${customers.getId}"></td>
                         <td th:text="${customers.getName}"></td>
-                        <td th:text="${customers.getBirthDate}"></td>
+                        <td th:text="${customers.getAge}"></td>
                         <td th:text="${customers.getPhoneNumber}"></td>
                         <td th:text="${customers.getWhenCreated}"></td>
                     </tr>
@@ -147,10 +154,10 @@
 
 <footer id="footer" class="footer">
     <div class="copyright">
-        &copy; Copyright <strong><span>Leo Guedes</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Ethereal IT</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-        Designed by <a href="https://www.linkedin.com/in/leonardo-correa-guedes/">Leo Guedes</a>
+        Designed by <a href="https://www.linkedin.com/in/leonardo-correa-guedes/">Ethereal IT</a>
     </div>
 </footer>
 
@@ -163,7 +170,6 @@
 <script src="/static/template/assets/vendor/quill/quill.min.js"></script>
 <script src="/static/template/assets/vendor/simple-datatables/simple-datatables.js"></script>
 <script src="/static/template/assets/vendor/tinymce/tinymce.min.js"></script>
-<script src="/static/template/assets/vendor/php-email-form/validate.js"></script>
 <script src="/static/template/assets/js/main.js"></script>
 </body>
 </html>

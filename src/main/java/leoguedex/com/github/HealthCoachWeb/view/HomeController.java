@@ -1,15 +1,16 @@
 package leoguedex.com.github.HealthCoachWeb.view;
 
-import leoguedex.com.github.HealthCoachWeb.Exception.GetAgeFromBirthDateException;
-import leoguedex.com.github.HealthCoachWeb.controller.CustomerController;
-import leoguedex.com.github.HealthCoachWeb.domain.Customer;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
+import leoguedex.com.github.EtherealERP.controller.CustomerController;
+import leoguedex.com.github.EtherealERP.domain.Customer;
+import leoguedex.com.github.EtherealERP.exception.GetAgeFromBirthDateException;
 
 @Controller
 public class HomeController {

@@ -197,9 +197,11 @@ body {
     height: 122px;
     line-height: 122px;
   }
+
   .notfound .notfound-404 h1 {
     font-size: 122px;
   }
+
   .notfound h2 {
     font-size: 26px;
   }

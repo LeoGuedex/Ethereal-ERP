@@ -1,0 +1,30 @@
+spring:
+
+  profiles:
+    active: local
+  thymeleaf:
+    mode: HTML
+    cache: false
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/etherealDB
+    username: root
+    password: admin
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+    include-message: always
+  port: 8080
