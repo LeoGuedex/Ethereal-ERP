@@ -73,10 +73,10 @@ public class DBService {
 
   public void createLoginAdmin() {
     HCUserData userData = new HCUserData();
-    userData.setAddress("A108 Adam Street, New York, NY 535022");
-    userData.setFirstName("Kevin");
-    userData.setLastName("Anderson");
-    userData.setPhoneNumber("(436) 486-3538 x29071");
+    userData.setAddress("Av. Nossa Senhora, N 100, Copacabana-RJ");
+    userData.setFirstName("Billy");
+    userData.setLastName("The Kid");
+    userData.setPhoneNumber("(11) 99999-8888");
     HCUser user = new HCUser();
 
     user.setPassword(encoder.encode("admin"));
