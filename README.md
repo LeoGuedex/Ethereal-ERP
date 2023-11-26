@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Health-Coach-red" height="130">
+  <img src="https://img.shields.io/badge/Ethereal-Web-red" height="130">
 </p>
 
 ![Status de Desenvolvimento](https://img.shields.io/badge/Status-Em_Desenvolvimento-green)
@@ -12,7 +12,7 @@
 
 ### Faça o clone do repositório
 ```
-git clone https://github.com/LeoGuedex/HealthCoach.git
+git clone https://github.com/LeoGuedex/Ethereal-ERP.git
 ```
 
 ### Utilize o comando para empacotar o projeto

@@ -1,28 +1,28 @@
 <aside th:fragment="sidebar" id="sidebar" class="sidebar">
-  <ul class="sidebar-nav" id="sidebar-nav">
-    <li class="nav-item">
-      <a class="nav-link" th:classappend="${activeItem ne 'home'} ? 'collapsed'" href="/home">
-        <i class="ri-home-4-fill"></i>
-        <span>Home</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" th:classappend="${activeItem ne 'forms'} ? 'collapsed'" href="/forms">
-        <i class="bi bi-person-plus-fill"></i>
-        <span>New Customer</span>
-      </a>
-    </li><!-- Forms Register new Customer -->
-    <li class="nav-item">
-      <a class="nav-link" th:classappend="${activeItem ne 'data'} ? 'collapsed'" href="/data">
-        <i class="bi bi-people-fill"></i>
-        <span>Customers</span>
-      </a>
-    </li><!-- Table to find Customer -->
-    <li class="nav-item">
-      <a class="nav-link" th:classappend="${activeItem ne 'contact'} ? 'collapsed'" href="/contact">
-        <i class="ri-customer-service-fill"></i>
-        <span>Contact Developer</span>
-      </a>
-    </li><!-- End Contact Page Nav -->
-  </ul>
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+            <a class="nav-link" th:classappend="${activeItem ne 'home'} ? 'collapsed'" href="/home">
+                <i class="ri-home-4-fill"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:classappend="${activeItem ne 'forms'} ? 'collapsed'" href="/forms">
+                <i class="bi bi-person-plus-fill"></i>
+                <span>New Customer</span>
+            </a>
+        </li><!-- Forms Register new Customer -->
+        <li class="nav-item">
+            <a class="nav-link" th:classappend="${activeItem ne 'data'} ? 'collapsed'" href="/data">
+                <i class="bi bi-people-fill"></i>
+                <span>Customers</span>
+            </a>
+        </li><!-- Table to find Customer -->
+        <li class="nav-item">
+            <a class="nav-link" th:classappend="${activeItem ne 'contact'} ? 'collapsed'" href="/contact">
+                <i class="ri-customer-service-fill"></i>
+                <span>Contact Company</span>
+            </a>
+        </li><!-- End Contact Page Nav -->
+    </ul>
 </aside>
