@@ -6,6 +6,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div th:if='${param.error}' class='alert alert-danger' role='alert'>
+    <p>Invalid username and password.</p>
+    <div class="timer"></div>
+  </div>
 <div class="main">
   <input type="checkbox" id="chk" aria-hidden="true">
   <div class="signup">
@@ -21,10 +25,6 @@
   </div>
   <div class="login">
     <form id="loginForm" th:action="@{/login}" method="post">
-      <!-- <div th:if="${param.error}">
-          Invalid username and password.</div>
-      <div th:if="${param.logout}">
-          You have been logged out.</div> -->
       <label for="chk" aria-hidden="true">Login</label>
       <input type="email" name="username" placeholder="Email" required="">
       <input type="password" name="password" placeholder="Password" required="">

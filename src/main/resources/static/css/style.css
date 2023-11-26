@@ -107,3 +107,53 @@ button:hover {
   font-family: 'Jost', sans-serif;
   color: #fff;
 }
+
+.alert {
+  border: solid 1px;
+  position: fixed;
+  border-radius: 10px;
+  top: 25px;
+  right: 25px;
+  overflow: hidden;
+  pointer-events: none;
+  animation: disableAlert 1s ease-out 3s forwards;
+}
+
+@keyframes disableAlert {
+  from {
+
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert>p {
+  padding: .8rem;
+  margin: 0px;
+}
+
+.alert>.timer {
+  background-color: #721c24;
+  height: 3px;
+  width: 0;
+  animation: progressAnimation 3s;
+}
+
+@keyframes progressAnimation {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0;
+  }
+}
