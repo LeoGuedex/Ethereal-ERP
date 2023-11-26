@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import jakarta.websocket.server.PathParam;
 import leoguedex.com.github.HealthCoachWeb.controller.CustomerController;
 import leoguedex.com.github.HealthCoachWeb.domain.Customer;
 import leoguedex.com.github.HealthCoachWeb.domain.HCUser;
@@ -55,9 +56,10 @@ public class HomeController {
   }
 
   @GetMapping("/profile")
-  public String profile(Model model) {
+  public String profile(Model model, @PathParam("updatedData") Boolean updatedData) {
     HCUser hcUser = (HCUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     model.addAttribute("userDataDTO", new UpdateUserDataDTO(hcUser));
+    model.addAttribute("updateData", updatedData);
     return "users-profile";
   }
 
