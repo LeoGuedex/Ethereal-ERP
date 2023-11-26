@@ -41,7 +41,7 @@ const sendUpdateData = async () => {
     ? currentUrl.split('?')[0] + '?updatedData='
     : currentUrl + '?updatedData=';
 
-  fetch('/api/hcuser', {
+  fetch('/api/etuser', {
     method: 'PATCH',
     body: formData,
   })
@@ -81,7 +81,7 @@ const sendPasswordUpdate = async () => {
   };
   if (newPassword !== renewPassword) return;
 
-  const response = await fetch('/api/hcuser/password', fetchMode);
+  const response = await fetch('/api/etuser/password', fetchMode);
   const status = await response.status;
 
   if (status === 202) {
