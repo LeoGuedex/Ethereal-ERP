@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
   ### Sobre o Projeto
-  #### Este é um projeto de um software de gestão para empresas
+  #### Este é um projeto de um software de gestão para empresas do ramo de saúde
 
 # Executar o projeto
 
