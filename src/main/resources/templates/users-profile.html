@@ -151,12 +151,16 @@
         <div class="card">
           <div class="card-body pt-3">
             <!-- Information of updated data and password popups -->
-            <div th:if="${updateData}" class="alert alert-success" role="alert">
+            <div th:if="${updatedData}" class="alert alert-success" role="alert">
               New data saved successfully.
             </div>
 
-            <div th:if="${updateData == false}" class="alert alert-danger" role="alert">
+            <div th:if="${updatedData == false}" class="alert alert-danger" role="alert">
               An error occurred while saving the data!
+            </div>
+            
+            <div style="display: none;" id="alert" class="alert" role="alert">
+              
             </div>
             <!-- Bordered Tabs -->
             <ul class="nav nav-tabs nav-tabs-bordered">
@@ -175,13 +179,13 @@
             <div class="tab-content pt-2">
               <div class="tab-pane fade active show profile-edit pt-3" id="profile-edit">
                 <!-- Profile Edit Form -->
-                <form th:action="@{/hcuser}" th:object="${userDataDTO}" method="post" enctype="multipart/form-data">
+                <form id="updateData">
 
                   <div class="row mb-3">
                     <label class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                     <div class="col-md-8 col-lg-9">
                       <img height="120px" width="120px" class="rounded" id="hcUserPic" src="/static/imagens/profile/default-user-profile.jpg" alt="Profile">
-                      <input type="file" id="hcUserPicInput" th:field="*{hcUserPic}" style="display: none;"/>
+                      <input type="file" id="hcUserPicInput" style="display: none;"/>
                       <div class="pt-2">
                         <a class="btn btn-primary btn-sm" id="addHcUserPicBtn" title="Upload new profile image">
                           <i class="bi bi-upload"></i>
@@ -196,7 +200,7 @@
                   <div class="row mb-3">
                     <label for="firstName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="firstName" type="text" class="form-control" id="firstName" th:field="*{firstName}"
+                      <input name="firstName" type="text" class="form-control" id="firstName"
                               th:value="${principal != null ? principal.getUserData().getFirstName() : 'Desconhecido'}">
                     </div>
                   </div>
@@ -204,7 +208,7 @@
                   <div class="row mb-3">
                     <label for="lastName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="lastName" type="text" class="form-control" id="lastName" th:field="*{lastName}"
+                      <input name="lastName" type="text" class="form-control" id="lastName"
                               th:value="${principal != null ? principal.getUserData().getLastName() : 'Desconhecido'}">
                     </div>
                   </div>
@@ -212,7 +216,7 @@
                   <div class="row mb-3">
                     <label for="address" class="col-md-4 col-lg-3 col-form-label">Address</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="address" type="text" class="form-control" id="address" th:field="*{address}"
+                      <input name="address" type="text" class="form-control" id="address"
                               th:value="${principal != null ? principal.getUserData().getAddress() : 'Desconhecido'}">
                     </div>
                   </div>
@@ -220,7 +224,7 @@
                   <div class="row mb-3">
                     <label for="phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="phone" type="text" class="form-control" id="phone" th:field="*{phone}"
+                      <input name="phone" type="text" class="form-control" id="phone"
                       th:value="${principal != null ? principal.getUserData().getPhoneNumber() : 'Desconhecido'}">
                     </div>
                   </div>
@@ -228,7 +232,7 @@
                   <div class="row mb-3">
                     <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="email" type="email" class="form-control" id="email" th:field="*{email}"
+                      <input name="email" type="email" class="form-control" id="email"
                       th:value="${principal != null ? principal.getEmail() : 'Desconhecido'}">
                     </div>
                   </div>
@@ -243,39 +247,34 @@
 
               <div class="tab-pane fade pt-3" id="profile-change-password">
                 <!-- Change Password Form -->
-                <form>
+                <form id="passwordForm">
 
                   <div class="row mb-3">
-                    <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current
-                      Password</label>
+                    <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label"> Current Password </label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="password" type="password" class="form-control"
-                             id="currentPassword">
+                      <input name="password" type="password" class="form-control" id="currentPassword">
                     </div>
                   </div>
 
                   <div class="row mb-3">
-                    <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New
-                      Password</label>
+                    <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="newpassword" type="password" class="form-control"
-                             id="newPassword">
+                      <input name="newpassword" type="password" class="form-control" id="newPassword">
                     </div>
                   </div>
 
                   <div class="row mb-3">
-                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New
-                      Password</label>
+                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                     <div class="col-md-8 col-lg-9">
-                      <input name="renewpassword" type="password" class="form-control"
-                             id="renewPassword">
+                      <input name="renewpassword" type="password" class="form-control" id="renewPassword">
                     </div>
                   </div>
 
                   <div class="text-center">
                     <button type="submit" class="btn btn-primary">Change Password</button>
                   </div>
-                </form><!-- End Change Password Form -->
+                </form>
+                <!-- End Change Password Form -->
 
               </div>
 
@@ -288,11 +287,12 @@
   </section>
 
   <script>
+    const updateDataForm = document.querySelector("#updateData")
+
     const hcUserPic = document.querySelector("#hcUserPic");
     const hcUserPicInput = document.querySelector("#hcUserPicInput");
     const addHcUserPicBtn = document.querySelector("#addHcUserPicBtn");
     const removeHcUserPicBtn = document.querySelector("#removeHcUserPicBtn");
-    
     function previewImage(input) {
       const file = input.files[0];
       if (file) {
@@ -304,8 +304,6 @@
         reader.readAsDataURL(file);
       }
     }
-
-    // hcUserPic.addEventListener("click", () => {})
     hcUserPicInput.addEventListener("change", (e) => {
       input = e.target;
       previewImage(input)
@@ -316,7 +314,88 @@
     removeHcUserPicBtn.addEventListener("click", () => {
       hcUserPic.src = "/static/imagens/profile/default-user-profile.jpg";
     })
+
+    const sendUpdateData = async () => {
+      const firstName = document.querySelector("#firstName").value
+      const hcUserPicture = hcUserPicInput.files[0]
+      const lastName = document.querySelector("#lastName").value
+      const address = document.querySelector("#address").value
+      const email = document.querySelector("#email").value
+      const phone = document.querySelector("#phone").value
+      
+      let formData = new FormData();
+      formData.append("firstName", firstName);
+      if (hcUserPicture) formData.append("hcUserPic", hcUserPicture);
+      formData.append("lastName", lastName);
+      formData.append("address", address);
+      formData.append("email", email);
+      formData.append("phone", phone);
+
+      const currentUrl = window.location.href;
+      const separator = currentUrl.includes('?');
+      let urlWithParam = separator ? currentUrl.split("?")[0] + "?updatedData=" : currentUrl + "?updatedData=";
+
+      fetch('/api/hcuser', {
+        method: 'PATCH',
+        body: formData
+      }).then(response => {
+        console.log(1)
+        if (response.ok) {
+          window.location.assign(urlWithParam + "true")
+        } else {
+          window.location.assign(urlWithParam + "false")
+        }
+      }).catch(error => {
+        window.location.assign(urlWithParam + "false")
+      });
+    }
+
+    updateDataForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      await sendUpdateData()
+    })
+
     
+  </script>
+
+  <script>
+    const passwordForm = document.querySelector("#passwordForm")
+    const showAlert = (type, message) => {
+      const alert = document.querySelector("#alert")
+      alert.style.display = 'block'
+
+      alert.classList.add(type)
+      alert.innerText = message
+    }
+    const sendPasswordUpdate = async () => {
+      const currentPassword = document.querySelector("#currentPassword").value
+      const newPassword = document.querySelector("#newPassword").value
+      const renewPassword = document.querySelector("#renewPassword").value 
+
+      const data = {currentPassword, newPassword}
+      const fetchMode = {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      }
+      if (newPassword !== renewPassword) return;
+
+      const response = await fetch("/api/hcuser/password", fetchMode);
+      const status = await response.status;
+      
+      if (status === 202) {
+        showAlert("alert-success", "Password updated.")
+      } else {
+        showAlert("alert-danger", "Password not updated")
+      }
+    }
+
+    passwordForm.addEventListener("submit", async (e) => {
+      e.preventDefault()
+      await sendPasswordUpdate()
+    })
   </script>
 
 </main>

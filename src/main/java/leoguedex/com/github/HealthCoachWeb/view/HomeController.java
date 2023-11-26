@@ -59,7 +59,7 @@ public class HomeController {
   public String profile(Model model, @PathParam("updatedData") Boolean updatedData) {
     HCUser hcUser = (HCUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     model.addAttribute("userDataDTO", new UpdateUserDataDTO(hcUser));
-    model.addAttribute("updateData", updatedData);
+    model.addAttribute("updatedData", updatedData);
     return "users-profile";
   }
 
