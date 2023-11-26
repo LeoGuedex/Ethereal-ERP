@@ -30,3 +30,6 @@ server:
       enabled: false
     include-message: always
   port: 8080
+
+file:
+  profile-pic: ${PROFILE_PIC_FOLDER:src/main/resources/static/imagens/profile}
