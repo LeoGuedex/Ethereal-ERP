@@ -72,6 +72,11 @@ public class DBService {
   }
 
   public void createLoginAdmin() {
+    HCUserData userData = new HCUserData();
+    userData.setAddress("Av. Nossa Senhora, N 100, Copacabana-RJ");
+    userData.setFirstName("Billy");
+    userData.setLastName("The Kid");
+    userData.setPhoneNumber("(11) 99999-8888");
     HCUser user = new HCUser();
 
     user.setPassword(encoder.encode("admin"));
@@ -79,6 +84,7 @@ public class DBService {
     user.setAdmin(true);
     user.setName("Admin User");
     user.setPersonFunction("Trainee");
+    user.setUserData(userData);
 
     hcUserRepository.createUser(user);
   }

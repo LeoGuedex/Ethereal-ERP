@@ -7,11 +7,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -35,6 +38,17 @@ public class HCUser implements UserDetails {
   private String email;
   private String password;
   private Boolean admin;
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "user_data", referencedColumnName = "id")
+  private HCUserData userData;
+
+  public String generateFullName() {
+    return new StringBuilder()
+        .append(userData.getFirstName())
+        .append(" ")
+        .append(userData.getLastName())
+        .toString();
+  }
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
