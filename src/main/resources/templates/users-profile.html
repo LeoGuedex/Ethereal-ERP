@@ -29,10 +29,10 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header th:replace="fragments/header :: header"></header>
+  <header th:replace="~{fragments/header :: header}"></header>
 
   <!-- ======= Sidebar ======= -->
-  <aside th:replace="fragments/sidebar :: sidebar(activeItem='none')"></aside>
+  <aside th:replace="~{fragments/sidebar :: sidebar(activeItem='none')}"></aside>
 
   <!-- Editar Aqui o Main -->
   <main id="main" class="main">
@@ -212,7 +212,7 @@
   </main>
 
   <!-- ======= Footer ======= -->
-  <footer th:replace="fragments/footer :: footer"></footer>
+  <footer th:replace="~{fragments/footer :: footer}"></footer>
 
   <script src="/static/template/assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="/static/template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
