@@ -26,7 +26,7 @@ import java.io.IOException;
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-    private static final String[] STATIC_RESOURCES = {"/static/**", "/error"};
+    private static final String[] STATIC_RESOURCES = {"/static/**", "/error", "/api/etuser/picture/*"};
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
