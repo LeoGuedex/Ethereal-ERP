@@ -21,4 +21,5 @@ public class ETUserData {
     private String LastName;
     private String Address;
     private String phoneNumber;
+    private String profilePictureName;
 }
