@@ -29,7 +29,7 @@ const sendUpdateData = async () => {
 
   let formData = new FormData();
   formData.append('firstName', firstName);
-  if (hcUserPicture) formData.append('hcUserPic', hcUserPicture);
+  if (hcUserPicture) formData.append('hcUserPic',hcUserPicture,  "image" + hcUserPicture.name.slice(-4));
   formData.append('lastName', lastName);
   formData.append('address', address);
   formData.append('email', email);
@@ -46,7 +46,6 @@ const sendUpdateData = async () => {
     body: formData,
   })
     .then(response => {
-      console.log(1);
       if (response.ok) {
         window.location.assign(urlWithParam + 'true');
       } else {
