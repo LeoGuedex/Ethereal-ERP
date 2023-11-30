@@ -1,11 +1,13 @@
 package leoguedex.com.github.EtherealERP.service;
 
 import leoguedex.com.github.EtherealERP.domain.*;
+import leoguedex.com.github.EtherealERP.domain.enums.DiseasesEnum;
 import leoguedex.com.github.EtherealERP.repository.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class DBService {
@@ -41,6 +43,10 @@ public class DBService {
             CustomerGym customerGym = new CustomerGym();
             CustomerNutritionistInformation customerNutritionistInformation = new CustomerNutritionistInformation();
             CustomerRotineTable customerRotineTable = new CustomerRotineTable();
+
+            customerHealth.setDiseases(
+                Set.of(DiseasesEnum.toEnum(0), DiseasesEnum.toEnum(1))
+            );
 
             customerRepository.save(customer);
 
