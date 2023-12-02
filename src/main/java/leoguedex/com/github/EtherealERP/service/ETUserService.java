@@ -52,7 +52,7 @@ public class ETUserService {
 
         if (ProfilePicture != null) {
             fileName = StringUtils.cleanPath(ProfilePicture.getOriginalFilename())
-                .replace("image", "profile_picture_user_");
+                .replace("image", "profile_picture_user_" + logedUser.getId().toString());
             fileStorageService.updatePhoto(ProfilePicture, fileName);
         }
         

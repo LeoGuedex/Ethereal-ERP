@@ -5,18 +5,27 @@ const hcUserPicInput = document.querySelector('#hcUserPicInput');
 const addHcUserPicBtn = document.querySelector('#addHcUserPicBtn');
 const removeHcUserPicBtn = document.querySelector('#removeHcUserPicBtn');
 
+const previewDiv = document.querySelector('#cropCanva');
+const prev = document.querySelectorAll('#previewCrop');
+const removeCropBtn = document.querySelector('#removeCropBtn');
+const modal = document.querySelector('#modal');
+const addCropBtn = document.querySelector('#addCropBtn');
+let cropper;
+let updatedImage = null;
+
 const passwordForm = document.querySelector('#passwordForm');
 
-function previewImage(input) {
-  const file = input.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      hcUserPic.src = e.target.result;
-      hcUserPicInput.files[0] = null;
-    };
-    reader.readAsDataURL(file);
-  }
+const crop = image => {
+  return new Cropper(image, {
+    dragMode: 'move',
+    aspectRatio: 1,
+    viewMode: 1,
+    preview: prev,
+  });
+};
+
+const updatePreviewImage = url => {
+  hcUserPic.src = url;
 }
 
 const sendUpdateData = async () => {
@@ -29,7 +38,9 @@ const sendUpdateData = async () => {
 
   let formData = new FormData();
   formData.append('firstName', firstName);
-  if (hcUserPicture) formData.append('hcUserPic',hcUserPicture,  "image" + hcUserPicture.name.slice(-4));
+  if (updatedImage) {
+    formData.append('hcUserPic',updatedImage, "image" + hcUserPicture.name.slice(-4))
+  };
   formData.append('lastName', lastName);
   formData.append('address', address);
   formData.append('email', email);
@@ -96,8 +107,42 @@ updateDataForm.addEventListener('submit', async e => {
 });
 
 hcUserPicInput.addEventListener('change', e => {
-  input = e.target;
-  previewImage(input);
+  const preview = document.querySelector('#preview-image');
+  const previewImage = document.createElement('img');
+
+  if (preview) {
+    preview.remove();
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = event => {
+    previewImage.id = 'preview-image';
+    previewImage.width = '100%';
+    previewImage.src = event.target.result;
+    previewDiv.appendChild(previewImage);
+    cropper = crop(previewImage);
+    modal.classList.remove('visually-hidden');
+  };
+
+  reader.readAsDataURL(e.target.files[0]);
+});
+
+removeCropBtn.addEventListener('click', event => {
+  cropper.destroy();
+  modal.classList.add('visually-hidden');
+});
+
+addCropBtn.addEventListener('click', event => {
+  if (cropper.cropped) {
+    cropper.getCroppedCanvas().toBlob(async blob => {
+      const objectURL = URL.createObjectURL(blob);
+      updatedImage = blob
+      updatePreviewImage(objectURL);
+      cropper.destroy();
+      modal.classList.add('visually-hidden');
+    });
+  }
 });
 
 addHcUserPicBtn.addEventListener('click', () => {
@@ -106,6 +151,7 @@ addHcUserPicBtn.addEventListener('click', () => {
 
 removeHcUserPicBtn.addEventListener('click', () => {
   hcUserPic.src = '/static/imagens/profile/default-user-profile.jpg';
+  updatedImage = null;
 });
 
 passwordForm.addEventListener('submit', async e => {

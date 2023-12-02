@@ -15,6 +15,7 @@
             rel="stylesheet">
 
     <link href="/static/template/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/template/assets/vendor/cropper-js/css/cropper-js.min.css" rel="stylesheet">
     <link href="/static/template/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="/static/template/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="/static/template/assets/vendor/quill/quill.snow.css" rel="stylesheet">
@@ -22,6 +23,7 @@
     <link href="/static/template/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="/static/template/assets/vendor/simple-datatables/style.css" rel="stylesheet">
     <link href="/static/template/assets/css/style.css" rel="stylesheet">
+    <link href="/static/css/users-profile.css" rel="stylesheet">
 
 </head>
 
@@ -216,6 +218,25 @@
         </div>
     </section>
 
+    <div id="modal"
+    class="modalBg bg-dark bg-opacity-50 justify-content-center align-items-center w-100 h-100 d-flex  visually-hidden">
+    <div class="modalCard rounded px-3 py-2 bg-white d-flex flex-column gap-1 justify-content-between">
+
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Cropper Image</h1>
+
+      <div class="d-flex gap-1 flex-grow-1">
+        <div id="previewCrop" class="rounded-circle overflow-hidden"></div>
+        <div class="flex-grow-1" id="cropCanva"></div>
+      </div>
+
+      <div class="footer d-flex gap-3 pt-2 border-top justify-content-end">
+        <button type="button" id="removeCropBtn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="addCropBtn" class="btn btn-primary">Save image cropped</button>
+      </div>
+
+    </div>
+  </div>
+
     <script src="/static/js/users-profile.js"></script>
 
 </main>
@@ -225,6 +246,7 @@
 
 <script src="/static/template/assets/vendor/apexcharts/apexcharts.min.js"></script>
 <script src="/static/template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/template/assets/vendor/cropper-js/js/cropper-js.min.js"></script>
 <script src="/static/template/assets/vendor/chart.js/chart.umd.js"></script>
 <script src="/static/template/assets/vendor/echarts/echarts.min.js"></script>
 <script src="/static/template/assets/vendor/quill/quill.min.js"></script>
