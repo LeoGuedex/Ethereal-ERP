@@ -108,16 +108,16 @@
                                         <div class="col-md-8 col-lg-9">
                                             <img height="120px" width="120px" class="rounded-circle" id="hcUserPic"
                                             th:src="${principal.userData.profilePictureName != null ? '/api/etuser/picture/' + principal.userData.profilePictureName : '/static/imagens/profile/default-user-profile.jpg'}" alt="Profile">
-                                            <input type="file" id="hcUserPicInput" style="display: none;"/>
+                                            <input type="file" id="hcUserPicInput" style="display: none;" accept="image/*"/>
                                             <div class="pt-2">
-                                                <a class="btn btn-primary btn-sm" id="addHcUserPicBtn"
+                                                <button type="button" class="btn btn-primary btn-sm" id="addHcUserPicBtn"
                                                    title="Upload new profile image">
                                                     <i class="bi bi-upload"></i>
-                                                </a>
-                                                <a class="btn btn-danger btn-sm" id="removeHcUserPicBtn"
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-sm" id="removeHcUserPicBtn"
                                                    title="Remove my profile image">
                                                     <i class="bi bi-trash"></i>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

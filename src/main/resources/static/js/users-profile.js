@@ -12,6 +12,7 @@ const modal = document.querySelector('#modal');
 const addCropBtn = document.querySelector('#addCropBtn');
 let cropper;
 let updatedImage = null;
+let updatedUserPic = false;
 
 const passwordForm = document.querySelector('#passwordForm');
 
@@ -42,6 +43,7 @@ const sendUpdateData = async () => {
     formData.append('hcUserPic',updatedImage, "image" + hcUserPicture.name.slice(-4))
   };
   formData.append('lastName', lastName);
+  formData.append('updatedUserPic', updatedUserPic);
   formData.append('address', address);
   formData.append('email', email);
   formData.append('phone', phone);
@@ -126,6 +128,8 @@ hcUserPicInput.addEventListener('change', e => {
   };
 
   reader.readAsDataURL(e.target.files[0]);
+
+  updatedUserPic = true;
 });
 
 removeCropBtn.addEventListener('click', event => {
@@ -151,6 +155,7 @@ addHcUserPicBtn.addEventListener('click', () => {
 
 removeHcUserPicBtn.addEventListener('click', () => {
   hcUserPic.src = '/static/imagens/profile/default-user-profile.jpg';
+  updatedUserPic = true;
   updatedImage = null;
 });
 
