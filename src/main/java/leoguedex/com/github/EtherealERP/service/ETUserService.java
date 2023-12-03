@@ -1,6 +1,7 @@
 package leoguedex.com.github.EtherealERP.service;
 
 import leoguedex.com.github.EtherealERP.domain.ETUser;
+import leoguedex.com.github.EtherealERP.domain.ETUserData;
 import leoguedex.com.github.EtherealERP.domain.dto.UpdatePasswordDTO;
 import leoguedex.com.github.EtherealERP.domain.dto.UpdateUserDataDTO;
 import leoguedex.com.github.EtherealERP.exception.ApiException;
@@ -42,21 +43,23 @@ public class ETUserService {
 
         MultipartFile ProfilePicture = newUserData.getHcUserPic();
         ETUser logedUser = getLoggedUser();
-        String fileName = null;
+        ETUserData logedUserData = logedUser.getUserData();
 
+        String profilePictureName = newUserData.isUpdatedUserPic() ? null : logedUserData.getProfilePictureName();
+        
         logedUser.setEmail(newUserData.getEmail());
-        logedUser.getUserData().setAddress(newUserData.getAddress());
-        logedUser.getUserData().setFirstName(newUserData.getFirstName());
-        logedUser.getUserData().setLastName(newUserData.getLastName());
-        logedUser.getUserData().setPhoneNumber(newUserData.getPhone());
+        logedUserData.setAddress(newUserData.getAddress());
+        logedUserData.setFirstName(newUserData.getFirstName());
+        logedUserData.setLastName(newUserData.getLastName());
+        logedUserData.setPhoneNumber(newUserData.getPhone());
 
         if (ProfilePicture != null) {
-            fileName = StringUtils.cleanPath(ProfilePicture.getOriginalFilename())
+            profilePictureName = StringUtils.cleanPath(ProfilePicture.getOriginalFilename())
                 .replace("image", "profile_picture_user_" + logedUser.getId().toString());
-            fileStorageService.updatePhoto(ProfilePicture, fileName);
+            fileStorageService.updatePhoto(ProfilePicture, profilePictureName);
         }
         
-        logedUser.getUserData().setProfilePictureName(fileName);
+        logedUser.getUserData().setProfilePictureName(profilePictureName);
 
         repository.save(logedUser);
 

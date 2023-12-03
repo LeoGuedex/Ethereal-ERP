@@ -15,6 +15,7 @@ public class UpdateUserDataDTO {
 
     private String firstName;
     private MultipartFile hcUserPic;
+    private boolean updatedUserPic;
     private String lastName;
     private String address;
     private String email;
