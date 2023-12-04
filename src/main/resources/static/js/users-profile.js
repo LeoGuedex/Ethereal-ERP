@@ -5,18 +5,28 @@ const hcUserPicInput = document.querySelector('#hcUserPicInput');
 const addHcUserPicBtn = document.querySelector('#addHcUserPicBtn');
 const removeHcUserPicBtn = document.querySelector('#removeHcUserPicBtn');
 
+const previewDiv = document.querySelector('#cropCanva');
+const prev = document.querySelectorAll('#previewCrop');
+const removeCropBtn = document.querySelector('#removeCropBtn');
+const modal = document.querySelector('#modal');
+const addCropBtn = document.querySelector('#addCropBtn');
+let cropper;
+let updatedImage = null;
+let updatedUserPic = false;
+
 const passwordForm = document.querySelector('#passwordForm');
 
-function previewImage(input) {
-  const file = input.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      hcUserPic.src = e.target.result;
-      hcUserPicInput.files[0] = null;
-    };
-    reader.readAsDataURL(file);
-  }
+const crop = image => {
+  return new Cropper(image, {
+    dragMode: 'move',
+    aspectRatio: 1,
+    viewMode: 1,
+    preview: prev,
+  });
+};
+
+const updatePreviewImage = url => {
+  hcUserPic.src = url;
 }
 
 const sendUpdateData = async () => {
@@ -29,8 +39,11 @@ const sendUpdateData = async () => {
 
   let formData = new FormData();
   formData.append('firstName', firstName);
-  if (hcUserPicture) formData.append('hcUserPic', hcUserPicture);
+  if (updatedImage) {
+    formData.append('hcUserPic',updatedImage, "image" + hcUserPicture.name.slice(-4))
+  };
   formData.append('lastName', lastName);
+  formData.append('updatedUserPic', updatedUserPic);
   formData.append('address', address);
   formData.append('email', email);
   formData.append('phone', phone);
@@ -41,12 +54,11 @@ const sendUpdateData = async () => {
     ? currentUrl.split('?')[0] + '?updatedData='
     : currentUrl + '?updatedData=';
 
-  fetch('/api/hcuser', {
+  fetch('/api/etuser', {
     method: 'PATCH',
     body: formData,
   })
     .then(response => {
-      console.log(1);
       if (response.ok) {
         window.location.assign(urlWithParam + 'true');
       } else {
@@ -81,7 +93,7 @@ const sendPasswordUpdate = async () => {
   };
   if (newPassword !== renewPassword) return;
 
-  const response = await fetch('/api/hcuser/password', fetchMode);
+  const response = await fetch('/api/etuser/password', fetchMode);
   const status = await response.status;
 
   if (status === 202) {
@@ -97,8 +109,44 @@ updateDataForm.addEventListener('submit', async e => {
 });
 
 hcUserPicInput.addEventListener('change', e => {
-  input = e.target;
-  previewImage(input);
+  const preview = document.querySelector('#preview-image');
+  const previewImage = document.createElement('img');
+
+  if (preview) {
+    preview.remove();
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = event => {
+    previewImage.id = 'preview-image';
+    previewImage.width = '100%';
+    previewImage.src = event.target.result;
+    previewDiv.appendChild(previewImage);
+    cropper = crop(previewImage);
+    modal.classList.remove('visually-hidden');
+  };
+
+  reader.readAsDataURL(e.target.files[0]);
+
+  updatedUserPic = true;
+});
+
+removeCropBtn.addEventListener('click', event => {
+  cropper.destroy();
+  modal.classList.add('visually-hidden');
+});
+
+addCropBtn.addEventListener('click', event => {
+  if (cropper.cropped) {
+    cropper.getCroppedCanvas().toBlob(async blob => {
+      const objectURL = URL.createObjectURL(blob);
+      updatedImage = blob
+      updatePreviewImage(objectURL);
+      cropper.destroy();
+      modal.classList.add('visually-hidden');
+    });
+  }
 });
 
 addHcUserPicBtn.addEventListener('click', () => {
@@ -107,6 +155,8 @@ addHcUserPicBtn.addEventListener('click', () => {
 
 removeHcUserPicBtn.addEventListener('click', () => {
   hcUserPic.src = '/static/imagens/profile/default-user-profile.jpg';
+  updatedUserPic = true;
+  updatedImage = null;
 });
 
 passwordForm.addEventListener('submit', async e => {

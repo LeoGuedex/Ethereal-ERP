@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/resources/static/imagens/profile/Captura de tela 2023-08-14 195424.png
+src/main/resources/static/imagens/profile/**
+!src/main/resources/static/imagens/profile/default-user-profile.jpg
+
