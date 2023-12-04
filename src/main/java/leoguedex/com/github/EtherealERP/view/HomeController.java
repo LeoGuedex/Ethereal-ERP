@@ -33,7 +33,10 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String index() {
+    public String index(Model model) {
+        int amountCustomers = customerController.findAllCustomers().getBody().size();
+        model.addAttribute("amountCustomers", amountCustomers);
+
         return "home";
     }
 
@@ -60,6 +63,7 @@ public class HomeController {
         ETUser ETUser = (ETUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("userDataDTO", new UpdateUserDataDTO(ETUser));
         model.addAttribute("updatedData", updatedData);
+
         return "users-profile";
     }
 
