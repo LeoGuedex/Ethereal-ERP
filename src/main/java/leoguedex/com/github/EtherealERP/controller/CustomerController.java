@@ -1,7 +1,6 @@
 package leoguedex.com.github.EtherealERP.controller;
 
 import leoguedex.com.github.EtherealERP.domain.Customer;
-import leoguedex.com.github.EtherealERP.exception.GetAgeFromBirthDateException;
 import leoguedex.com.github.EtherealERP.service.CustomerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
