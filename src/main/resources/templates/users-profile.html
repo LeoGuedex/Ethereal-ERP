@@ -56,7 +56,9 @@
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                        <img width="120px" height="120px" th:src="${principal.userData.profilePictureName != null ? '/api/etuser/picture/' + principal.userData.profilePictureName : '/static/imagens/profile/default-user-profile.jpg'}" alt="Profile"
+                        <img width="120px" height="120px"
+                             th:src="${principal.userData.profilePictureName != null ? '/api/etuser/picture/' + principal.userData.profilePictureName : '/static/imagens/profile/default-user-profile.jpg'}"
+                             alt="Profile"
                              class="rounded-circle">
                         <h2><span
                                 th:text="${principal != null ? principal.generateFullName() : 'Desconhecido'}"></span>
@@ -96,6 +98,11 @@
                                         data-bs-target="#profile-change-password">Change Password
                                 </button>
                             </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab"
+                                        data-bs-target="#profile-change-view">Change View
+                                </button>
+                            </li>
                         </ul>
 
                         <div class="tab-content pt-2">
@@ -107,15 +114,19 @@
                                         <label class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                         <div class="col-md-8 col-lg-9">
                                             <img height="120px" width="120px" class="rounded-circle" id="hcUserPic"
-                                            th:src="${principal.userData.profilePictureName != null ? '/api/etuser/picture/' + principal.userData.profilePictureName : '/static/imagens/profile/default-user-profile.jpg'}" alt="Profile">
-                                            <input type="file" id="hcUserPicInput" style="display: none;" accept="image/*"/>
+                                                 th:src="${principal.userData.profilePictureName != null ? '/api/etuser/picture/' + principal.userData.profilePictureName : '/static/imagens/profile/default-user-profile.jpg'}"
+                                                 alt="Profile">
+                                            <input type="file" id="hcUserPicInput" style="display: none;"
+                                                   accept="image/*"/>
                                             <div class="pt-2">
-                                                <button type="button" class="btn btn-primary btn-sm" id="addHcUserPicBtn"
-                                                   title="Upload new profile image">
+                                                <button type="button" class="btn btn-primary btn-sm"
+                                                        id="addHcUserPicBtn"
+                                                        title="Upload new profile image">
                                                     <i class="bi bi-upload"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-danger btn-sm" id="removeHcUserPicBtn"
-                                                   title="Remove my profile image">
+                                                <button type="button" class="btn btn-danger btn-sm"
+                                                        id="removeHcUserPicBtn"
+                                                        title="Remove my profile image">
                                                     <i class="bi bi-trash"></i>
                                                 </button>
                                             </div>
@@ -198,7 +209,7 @@
                                             Password</label>
                                         <div class="col-md-8 col-lg-9">
                                             <input name="renewpassword" type="password" class="form-control"
-                                                   id="renewPassword">
+                                                   id="renewPassword" >
                                         </div>
                                     </div>
 
@@ -207,6 +218,55 @@
                                     </div>
                                 </form>
                                 <!-- End Change Password Form -->
+
+                            </div>
+
+                            <div class="tab-pane fade pt-3" id="profile-change-view">
+                                <!-- Change View Form -->
+                                <form id="viewForm">
+
+                                    <!--TODO perguntar ao leo lance da origem da imagem --->
+                                    <div class="row mb-3">
+                                        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label"> Change
+                                            login screen photo </label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="password" type="text" class="form-control"
+                                                   id="loginScreenPhoto" placeholder="VER 'PROBELMA' DA ORIGEM DA IMAGEM">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">Change
+                                            Exhibition Name</label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="new_exhibition_name" type="text" class="form-control"
+                                                   id="exhibition_Name">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Change Logo
+                                        </label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="new_logo" type="text" class="form-control"
+                                                   id="logo_change">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">
+                                            Change Sidebar Name
+                                        </label>
+                                        <div class="col-md-8 col-lg-9">
+                                            <input name="new_sidebar_name" type="text" class="form-control"
+                                                   id="sidebar_name">
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Apply Changes</button>
+                                    </div>
+                                </form>
+                                <!-- End Change View Form -->
 
                             </div>
 
@@ -219,23 +279,24 @@
     </section>
 
     <div id="modal"
-    class="modalBg bg-dark bg-opacity-50 justify-content-center align-items-center w-100 h-100 d-flex  visually-hidden">
-    <div class="modalCard rounded px-3 py-2 bg-white d-flex flex-column gap-1 justify-content-between">
+         class="modalBg bg-dark bg-opacity-50 justify-content-center align-items-center w-100 h-100 d-flex  visually-hidden">
+        <div class="modalCard rounded px-3 py-2 bg-white d-flex flex-column gap-1 justify-content-between">
 
-      <h1 class="modal-title fs-5" id="exampleModalLabel">Cropper Image</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Cropper Image</h1>
 
-      <div class="d-flex gap-1 flex-grow-1">
-        <div id="previewCrop" class="rounded-circle overflow-hidden"></div>
-        <div class="flex-grow-1" id="cropCanva"></div>
-      </div>
+            <div class="d-flex gap-1 flex-grow-1">
+                <div id="previewCrop" class="rounded-circle overflow-hidden"></div>
+                <div class="flex-grow-1" id="cropCanva"></div>
+            </div>
 
-      <div class="footer d-flex gap-3 pt-2 border-top justify-content-end">
-        <button type="button" id="removeCropBtn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="addCropBtn" class="btn btn-primary">Save image cropped</button>
-      </div>
+            <div class="footer d-flex gap-3 pt-2 border-top justify-content-end">
+                <button type="button" id="removeCropBtn" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                </button>
+                <button type="button" id="addCropBtn" class="btn btn-primary">Save image cropped</button>
+            </div>
 
+        </div>
     </div>
-  </div>
 
     <script src="/static/js/users-profile.js"></script>
 
