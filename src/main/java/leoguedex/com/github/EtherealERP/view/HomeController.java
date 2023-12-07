@@ -1,17 +1,27 @@
 package leoguedex.com.github.EtherealERP.view;
 
-import jakarta.websocket.server.PathParam;
-import leoguedex.com.github.EtherealERP.controller.CustomerController;
-import leoguedex.com.github.EtherealERP.domain.Customer;
-import leoguedex.com.github.EtherealERP.domain.ETUser;
-import leoguedex.com.github.EtherealERP.domain.dto.UpdateUserDataDTO;
+import java.util.List;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
+import jakarta.websocket.server.PathParam;
+import leoguedex.com.github.EtherealERP.controller.CustomerController;
+import leoguedex.com.github.EtherealERP.domain.Customer;
+import leoguedex.com.github.EtherealERP.domain.ETUser;
+import leoguedex.com.github.EtherealERP.domain.dto.AllCustomerDTO;
+import leoguedex.com.github.EtherealERP.domain.dto.UpdateUserDataDTO;
+import leoguedex.com.github.EtherealERP.domain.enums.DiseasesEnum;
+import leoguedex.com.github.EtherealERP.domain.enums.ExpectedEnum;
+import leoguedex.com.github.EtherealERP.domain.enums.HealthGoalsEnum;
+import leoguedex.com.github.EtherealERP.domain.enums.IndicatedByEnum;
+import leoguedex.com.github.EtherealERP.domain.enums.QuantityPercentageEnum;
+import leoguedex.com.github.EtherealERP.domain.enums.SleepTypeEnum;
+import leoguedex.com.github.EtherealERP.domain.enums.TypeOfWeightEnum;
+import leoguedex.com.github.EtherealERP.domain.enums.TypePersonEnum;
 
 @Controller
 public class HomeController {
@@ -37,9 +47,20 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/forms")
-    public String forms() {
-        return "forms-layouts";
+    @GetMapping("/newCustomer")
+    public String newCustomer(Model model) {
+        model.addAttribute(new AllCustomerDTO());
+        model.addAttribute("IndicatedByEnumValues", IndicatedByEnum.values());
+        model.addAttribute("ExpectedEnumValues", ExpectedEnum.values());
+        model.addAttribute("TypeOfWeighValues", TypeOfWeightEnum.values());
+        model.addAttribute("QuantityPercentageValues", QuantityPercentageEnum.values());
+        model.addAttribute("SleepTypeValues", SleepTypeEnum.values());
+        model.addAttribute("DiseasesValues", DiseasesEnum.values());
+        model.addAttribute("TypePersonValues", TypePersonEnum.values());
+        model.addAttribute("HealthGoalsValues", HealthGoalsEnum.values());
+
+        return "new-customer-layouts";
+
     }
 
     @GetMapping("/contact")
@@ -63,7 +84,7 @@ public class HomeController {
         return "users-profile";
     }
 
-    @ExceptionHandler(value = {Exception.class})
+    @ExceptionHandler(value = { Exception.class })
     public String handleException() {
         return "pages-error-404";
     }
