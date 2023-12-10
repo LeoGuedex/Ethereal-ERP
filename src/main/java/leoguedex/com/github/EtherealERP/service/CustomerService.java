@@ -3,6 +3,7 @@ package leoguedex.com.github.EtherealERP.service;
 import leoguedex.com.github.EtherealERP.domain.Customer;
 import leoguedex.com.github.EtherealERP.exception.GetAgeFromBirthDateException;
 import leoguedex.com.github.EtherealERP.repository.CustomerRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -11,13 +12,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
+@AllArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
-
-    public CustomerService(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
 
     public Customer create(Customer customer) {
         return customerRepository.save(customer);
@@ -47,6 +45,10 @@ public class CustomerService {
         return customers;
     }
 
+    public List<Customer> findNewlyRegistered() {
+        return customerRepository.selectNewlyRegistered();
+    }
+
     private Integer getAgeFromBirthDate(String birthDate) throws GetAgeFromBirthDateException {
         Pattern pattern = Pattern.compile("(\\d{2})/(\\d{2})/(\\d{4})");
         Matcher matcher = pattern.matcher(birthDate);
@@ -71,5 +73,4 @@ public class CustomerService {
 
         return age;
     }
-
 }
