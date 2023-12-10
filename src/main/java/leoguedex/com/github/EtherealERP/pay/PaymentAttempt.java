@@ -157,5 +157,19 @@ public class PaymentAttempt {
 
     }
 
-    
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (accountId != null ? accountId.hashCode() : 0);
+        result = 31 * result + (paymentMethodId != null ? paymentMethodId.hashCode() : 0);
+        result = 31 * result + (transactionId != null ? transactionId.hashCode() : 0);
+        result = 31 * result + (transactionType != null ? transactionType.hashCode() : 0);
+        result = 31 * result + (effectiveDate != null ? effectiveDate.hashCode() : 0);
+        result = 31 * result + (stateName != null ? stateName.hashCode() : 0);
+        result = 31 * result + (amount != null ? amount.hashCode() : 0);
+        result = 31 * result + (currency != null ? currency.hashCode() : 0);
+        result = 31 * result + (pluginName != null ? pluginName.hashCode() : 0);
+        result = 31 * result + (pluginProperties != null ? pluginProperties.hashCode() : 0);
+        return result;
+    }
 }
