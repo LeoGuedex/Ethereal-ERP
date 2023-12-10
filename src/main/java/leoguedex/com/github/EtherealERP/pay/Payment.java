@@ -60,5 +60,69 @@ public class Payment {
         final BigDecimal chargebackProcessedAmount = chargebackProcessedCurrency == null ? BigDecimal.ZERO : getAmountForTransactions(chargebackTransactions, true);
 
         
-        
+        PaymentTransaction transactionToUseForCurrency = transactions.stream()
+                .filter(transaction -> (transaction.getTransactionType() == TransactionType.AUTHORIZE ||
+                                        transaction.getTransactionType() == TransactionType.PURCHASE ||
+                                        transaction.getTransactionType() == TransactionType.CREDIT) &&
+                                      (TransactionStatus.SUCCESS.equals(transaction.getTransactionStatus()) ||
+                                       TransactionStatus.PENDING.equals(transaction.getTransactionStatus())))
+                .findFirst().orElse(null);
+
+        if (transactionToUseForCurrency == null) {
+            final List<PaymentTransaction> nonSuccessfulTransactions = transactions.stream()
+                    .filter(transaction -> transaction.getTransactionType() == TransactionType.AUTHORIZE ||
+                                           transaction.getTransactionType() == TransactionType.PURCHASE ||
+                                           transaction.getTransactionType() == TransactionType.CREDIT)
+                    .collect(Collectors.toUnmodifiableList());
+            transactionToUseForCurrency = Iterables.getLast(nonSuccessfulTransactions);
+        }
+
+        this.currency = transactionToUseForCurrency == null ? null : transactionToUseForCurrency.getCurrency();
+
+        this.authAmount = getAmountForTransactions(this.currency,
+                                                   nonVoidedTransactions,
+                                                   TransactionType.AUTHORIZE,
+                                                   chargebackTransactions,
+                                                   chargebackProcessedAmount,
+                                                   chargebackProcessedCurrency,
+                                                   chargebackAmount,
+                                                   chargebackCurrency);
+        this.captureAmount = getAmountForTransactions(this.currency,
+                                                      nonVoidedTransactions,
+                                                      TransactionType.CAPTURE,
+                                                      chargebackTransactions,
+                                                      chargebackProcessedAmount,
+                                                      chargebackProcessedCurrency,
+                                                      chargebackAmount,
+                                                      chargebackCurrency);
+        this.purchasedAmount = getAmountForTransactions(this.currency,
+                                                        nonVoidedTransactions,
+                                                        TransactionType.PURCHASE,
+                                                        chargebackTransactions,
+                                                        chargebackProcessedAmount,
+                                                        chargebackProcessedCurrency,
+                                                        chargebackAmount,
+                                                        chargebackCurrency);
+        this.creditAmount = getAmountForTransactions(this.currency,
+                                                     nonVoidedTransactions,
+                                                     TransactionType.CREDIT,
+                                                     chargebackTransactions,
+                                                     chargebackProcessedAmount,
+                                                     chargebackProcessedCurrency,
+                                                     chargebackAmount,
+                                                     chargebackCurrency);
+        this.refundAmount = getAmountForTransactions(this.currency,
+                                                     nonVoidedTransactions,
+                                                     TransactionType.REFUND,
+                                                     chargebackTransactions,
+                                                     chargebackProcessedAmount,
+                                                     chargebackProcessedCurrency,
+                                                     chargebackAmount,
+                                                     chargebackCurrency);
+
+        this.isAuthVoided = voidedTransactions
+                .stream()
+                .anyMatch(input -> input.getTransactionType() == TransactionType.AUTHORIZE &&
+                                   TransactionStatus.SUCCESS.equals(input.getTransactionStatus()));
+    }
 }
