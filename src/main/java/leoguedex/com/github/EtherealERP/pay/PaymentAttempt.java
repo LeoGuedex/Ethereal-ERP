@@ -111,5 +111,51 @@ public class PaymentAttempt {
                 '}';
     }
 
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        final PaymentAttempt that = (PaymentAttempt) o;
+
+        if (accountId != null ? !accountId.equals(that.accountId) : that.accountId != null) {
+            return false;
+        }
+        if (paymentMethodId != null ? !paymentMethodId.equals(that.paymentMethodId) : that.paymentMethodId != null) {
+            return false;
+        }
+        if (transactionId != null ? !transactionId.equals(that.transactionId) : that.transactionId != null) {
+            return false;
+        }
+        if (transactionType != that.transactionType) {
+            return false;
+        }
+        if (effectiveDate != null ? !effectiveDate.equals(that.effectiveDate) : that.effectiveDate != null) {
+            return false;
+        }
+        if (stateName != null ? !stateName.equals(that.stateName) : that.stateName != null) {
+            return false;
+        }
+        if (amount != null ? !amount.equals(that.amount) : that.amount != null) {
+            return false;
+        }
+        if (currency != that.currency) {
+            return false;
+        }
+        if (pluginName != null ? !pluginName.equals(that.pluginName) : that.pluginName != null) {
+            return false;
+        }
+        return pluginProperties != null ? pluginProperties.equals(that.pluginProperties)
+                : that.pluginProperties == null;
+
+    }
+
     
 }
