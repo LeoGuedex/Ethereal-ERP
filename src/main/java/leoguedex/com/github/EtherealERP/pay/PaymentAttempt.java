@@ -95,5 +95,21 @@ public class PaymentAttempt {
         return pluginProperties;
     }
 
+    @Override
+    public String toString() {
+        return "DefaultPaymentAttempt{" +
+                "accountId=" + accountId +
+                ", paymentMethodId=" + paymentMethodId +
+                ", transactionId=" + transactionId +
+                ", transactionType=" + transactionType +
+                ", effectiveDate=" + effectiveDate +
+                ", stateName=" + stateName +
+                ", amount=" + amount +
+                ", currency=" + currency +
+                ", pluginName='" + pluginName + '\'' +
+                ", pluginProperties=" + pluginProperties +
+                '}';
+    }
+
     
 }
