@@ -45,5 +45,55 @@ public class PaymentAttempt {
         this.pluginProperties = pluginProperties;
     }
 
+    @Override
+    public UUID getAccountId() {
+        return accountId;
+    }
+
+    @Override
+    public UUID getPaymentMethodId() {
+        return paymentMethodId;
+    }
+
+    @Override
+    public UUID getTransactionId() {
+        return transactionId;
+    }
+
+    @Override
+    public TransactionType getTransactionType() {
+        return transactionType;
+    }
+
+    @Override
+    public DateTime getEffectiveDate() {
+        return effectiveDate;
+    }
+
+    @Override
+    public String getStateName() {
+        return stateName;
+    }
+
+    @Override
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    @Override
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    @Override
+    public String getPluginName() {
+        return pluginName;
+    }
+
+    @Override
+    public List<PluginProperty> getPluginProperties() {
+        return pluginProperties;
+    }
+
     
 }
