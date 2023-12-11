@@ -15,6 +15,7 @@
             rel="stylesheet">
 
     <link href="/static/template/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/template/assets/vendor/cropper-js/css/cropper-js.min.css" rel="stylesheet">
     <link href="/static/template/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="/static/template/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="/static/template/assets/vendor/quill/quill.snow.css" rel="stylesheet">
@@ -22,6 +23,7 @@
     <link href="/static/template/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="/static/template/assets/vendor/simple-datatables/style.css" rel="stylesheet">
     <link href="/static/template/assets/css/style.css" rel="stylesheet">
+    <link href="/static/css/users-profile.css" rel="stylesheet">
 
 </head>
 
@@ -54,7 +56,7 @@
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                        <img src="/static/template/assets/img/profile-img.jpg" alt="Profile"
+                        <img width="120px" height="120px" th:src="${principal.userData.profilePictureName != null ? '/api/etuser/picture/' + principal.userData.profilePictureName : '/static/imagens/profile/default-user-profile.jpg'}" alt="Profile"
                              class="rounded-circle">
                         <h2><span
                                 th:text="${principal != null ? principal.generateFullName() : 'Desconhecido'}"></span>
@@ -104,18 +106,18 @@
                                     <div class="row mb-3">
                                         <label class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                         <div class="col-md-8 col-lg-9">
-                                            <img height="120px" width="120px" class="rounded" id="hcUserPic"
-                                                 src="/static/imagens/profile/default-user-profile.jpg" alt="Profile">
-                                            <input type="file" id="hcUserPicInput" style="display: none;"/>
+                                            <img height="120px" width="120px" class="rounded-circle" id="hcUserPic"
+                                            th:src="${principal.userData.profilePictureName != null ? '/api/etuser/picture/' + principal.userData.profilePictureName : '/static/imagens/profile/default-user-profile.jpg'}" alt="Profile">
+                                            <input type="file" id="hcUserPicInput" style="display: none;" accept="image/*"/>
                                             <div class="pt-2">
-                                                <a class="btn btn-primary btn-sm" id="addHcUserPicBtn"
+                                                <button type="button" class="btn btn-primary btn-sm" id="addHcUserPicBtn"
                                                    title="Upload new profile image">
                                                     <i class="bi bi-upload"></i>
-                                                </a>
-                                                <a class="btn btn-danger btn-sm" id="removeHcUserPicBtn"
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-sm" id="removeHcUserPicBtn"
                                                    title="Remove my profile image">
                                                     <i class="bi bi-trash"></i>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -216,6 +218,25 @@
         </div>
     </section>
 
+    <div id="modal"
+    class="modalBg bg-dark bg-opacity-50 justify-content-center align-items-center w-100 h-100 d-flex  visually-hidden">
+    <div class="modalCard rounded px-3 py-2 bg-white d-flex flex-column gap-1 justify-content-between">
+
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Cropper Image</h1>
+
+      <div class="d-flex gap-1 flex-grow-1">
+        <div id="previewCrop" class="rounded-circle overflow-hidden"></div>
+        <div class="flex-grow-1" id="cropCanva"></div>
+      </div>
+
+      <div class="footer d-flex gap-3 pt-2 border-top justify-content-end">
+        <button type="button" id="removeCropBtn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="addCropBtn" class="btn btn-primary">Save image cropped</button>
+      </div>
+
+    </div>
+  </div>
+
     <script src="/static/js/users-profile.js"></script>
 
 </main>
@@ -225,6 +246,7 @@
 
 <script src="/static/template/assets/vendor/apexcharts/apexcharts.min.js"></script>
 <script src="/static/template/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/template/assets/vendor/cropper-js/js/cropper-js.min.js"></script>
 <script src="/static/template/assets/vendor/chart.js/chart.umd.js"></script>
 <script src="/static/template/assets/vendor/echarts/echarts.min.js"></script>
 <script src="/static/template/assets/vendor/quill/quill.min.js"></script>

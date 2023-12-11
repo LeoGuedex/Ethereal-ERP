@@ -34,7 +34,9 @@ public class DBService {
 
     public void createTestCustomer() {
         int amountPeopleFake = 30;
-        List<Customer> customerList = FakePeople.generateCustomer(amountPeopleFake);
+
+        FakePeople fakePeople = new FakePeople(amountPeopleFake);
+        List<Customer> customerList = fakePeople.generateCustomer();
 
         for (int i = 0; i < amountPeopleFake; i++) {
             Customer customer = customerList.get(i);
@@ -78,8 +80,8 @@ public class DBService {
         userData.setFirstName("Billy");
         userData.setLastName("The Kid");
         userData.setPhoneNumber("(11) 99999-8888");
-        ETUser user = new ETUser();
 
+        ETUser user = new ETUser();
         user.setPassword(encoder.encode("admin"));
         user.setEmail("email@email.com");
         user.setAdmin(true);
