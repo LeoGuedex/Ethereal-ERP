@@ -1,12 +1,5 @@
 package leoguedex.com.github.EtherealERP.service;
 
-import com.github.javafaker.Faker;
-import leoguedex.com.github.EtherealERP.domain.Customer;
-import leoguedex.com.github.EtherealERP.domain.enums.ExpectedEnum;
-import leoguedex.com.github.EtherealERP.domain.enums.IndicatedByEnum;
-import lombok.Getter;
-import lombok.Setter;
-
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -14,6 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
+
+import com.github.javafaker.Faker;
+
+import leoguedex.com.github.EtherealERP.domain.Customer;
+import leoguedex.com.github.EtherealERP.domain.enums.ExpectedEnum;
+import leoguedex.com.github.EtherealERP.domain.enums.IndicatedByEnum;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -47,6 +48,7 @@ public class FakePeople {
             customer.setWeight(random.nextDouble(50.0, 200.0));
             customer.setHeight(random.nextDouble(1.50, 2.10));
             customer.setWorksOrStudies(random.nextBoolean());
+
 
             customer.setReferredBy(
                     IndicatedByEnum.toEnum(random.nextInt(0, IndicatedByEnum.values().length)));

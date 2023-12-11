@@ -24,4 +24,11 @@ public enum TypeDaysEnum {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + cod));
     }
 
+    public static TypeDaysEnum toDescriptinEnum(String description) {
+        return EnumSet.allOf(TypeDaysEnum.class).stream()
+                .filter(e -> e.getDescription().equals(description))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Invalid description: " + description));
+    }
+
 }

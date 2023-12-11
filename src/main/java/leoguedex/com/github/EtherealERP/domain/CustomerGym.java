@@ -1,5 +1,8 @@
 package leoguedex.com.github.EtherealERP.domain;
 
+
+import java.util.Set;
+
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -36,17 +39,17 @@ public class CustomerGym {
     private String supplements;
     private Double desiredWeight;
     private String exerciseTypes;
-    // TODO:
     private Double weightOneYearAgo;
     private Double weightTenYearsAgo;
     private Boolean jobSatisfaction;
     private Boolean intendsToExercise;
     private String freeTimeActivities;
+    private Boolean doesExercise;
     private Boolean isPhysicallyActive;
     private String postExerciseFeeling;
     private String exerciseLimitations;
     private Integer determinationLevel;
-    private Integer trainingDaysPerWeek;
+    private String trainingDaysPerWeek;
     private TypeOfWeightEnum weightType;
     private String lifeSituationToChange;
     private String desiredFreeTimeActivity;
@@ -55,5 +58,5 @@ public class CustomerGym {
     @ElementCollection(targetClass = HealthGoalsEnum.class)
     @CollectionTable(name = "Goals", joinColumns = @JoinColumn(name = "customer_id"))
     @Enumerated(EnumType.STRING)
-    private HealthGoalsEnum goalsList;
+    private Set<HealthGoalsEnum> goalsArray;
 }

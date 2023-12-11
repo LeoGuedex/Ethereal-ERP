@@ -60,4 +60,11 @@ public enum DiseasesEnum {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Id: " + cod));
     }
+
+     public static DiseasesEnum toDescriptionEnum(String description) {
+        return EnumSet.allOf(DiseasesEnum.class).stream()
+                .filter(e -> e.getDescription().equals(description))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Invalid description: " + description));
+    }
 }

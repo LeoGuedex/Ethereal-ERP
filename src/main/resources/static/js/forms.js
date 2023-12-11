@@ -1,221 +1,170 @@
+const createSelector = (select, tbody, arrayLink) => {
+  const errorMessages = {
+    invalidOption: "Choose a valid option.",
+    duplicateItem: "The item already exists in the list.",
+    invalidValue: "Choose...",
+  };
+  const selectElement = document.getElementById(select);
+  const tbodyElement = document.getElementById(tbody);
+  const arrayItems = [];
 
-class SelectConstructor {
-  constructor(config) {
-    this.errorMessages = config.errorMessages;
-    this.selectElement = document.getElementById(config.selectElementId);
-    this.tbodyElement = document.getElementById(config.tbodyElementId);
-    this.arrayItems = [];
+  const updateArray = () => {
+    const arrayResult = arrayItems.map(item => item.name);
+    document.getElementById(arrayLink).value = arrayResult;
   }
 
-  add() {
-    let item = this.readData();
-    if (this.validateData(item.name)) {
-      alert(this.errorMessages.invalidOption);
-      return;
-    }
+  const listTable = () => {
+    tbodyElement.innerHTML = '';
 
-    if (this.isDuplicateItemName(item.name)) {
-      alert(this.errorMessages.duplicateItem);
-      return;
-    }
-
-    this.arrayItems.push(item);
-    this.listTable();
-  }
-
-  listTable() {
-    this.tbodyElement.innerHTML = '';
-
-    this.arrayItems.forEach((item, i) => {
-      let tr = this.tbodyElement.insertRow();
-      let trItem = tr.insertCell();
-      let trButton = tr.insertCell();
+    arrayItems.forEach((item, i) => {
+      const tr = tbodyElement.insertRow();
+      const trItem = tr.insertCell();
+      const trButton = tr.insertCell();
 
       trItem.innerText = item.name;
 
-      let iconElement = document.createElement("i");
+      const iconElement = document.createElement("i");
       iconElement.classList.add("bi", "bi-x-circle-fill");
 
+      trButton.classList.add("text-center")
       trButton.appendChild(iconElement);
 
-      iconElement.addEventListener("click", () => this.deleteItem(i));
+      iconElement.addEventListener("click", () => deleteItem(i));
 
-      iconElement.addEventListener("mouseover", () => {
-        iconElement.classList.remove("bi-x-circle-fill");
-        iconElement.classList.add("bi-x-circle");
-      });
+      iconElement.addEventListener("mouseover", () => toggleIconClass(iconElement, "bi-x-circle", "bi-x-circle-fill"));
 
-      iconElement.addEventListener("mouseout", () => {
-        iconElement.classList.remove("bi-x-circle");
-        iconElement.classList.add("bi-x-circle-fill");
-      });
+      iconElement.addEventListener("mouseout", () => toggleIconClass(iconElement, "bi-x-circle-fill", "bi-x-circle"));
     });
-  }
+  };
 
-  readData() {
-    let item = { name: this.selectElement.value };
-    return item;
-  }
+  const toggleIconClass = (element, addClass, removeClass) => {
+    element.classList.remove(removeClass);
+    element.classList.add(addClass);
+  };
 
-  isDuplicateItemName(name) {
-    return this.arrayItems.some(item => item.name === name);
-  }
+  const deleteItem = (i) => {
+    arrayItems.splice(i, 1);
+    listTable();
+    updateArray();
+  };
 
-  deleteItem(i) {
-    this.arrayItems.splice(i, 1);
-    this.listTable();
-  }
+  const add = () => {
+    const itemName = selectElement.value;
 
-  validateData(value) {
-    let invalidValues = this.errorMessages.invalidValues || [];
-    return invalidValues.includes(value);
-  }
-}
-
-class SelectConstructorD {
-  constructor(config) {
-    this.errorMessages = config.errorMessages;
-    this.selectElement = document.getElementById(config.selectElementId);
-    this.tbodyElement = document.getElementById(config.tbodyElementId);
-    this.selectElementD = document.getElementById(config.selectElementIdD);
-    this.arrayItems = [];
-  }
-
-  add() {
-    let item = this.readData();
-    if (this.validateData(item.name) || this.validateData(item.nameD)) {
-      alert(this.errorMessages.invalidOption);
-      return;
+    if (itemName === errorMessages.invalidValue || arrayItems.some(item => item.name === itemName)) {
+      alert(itemName === errorMessages.invalidValue ? errorMessages.invalidOption : errorMessages.duplicateItem);
+      return null;
     }
 
-    if (this.isDuplicateItemName(item.name)) {
-      alert(this.errorMessages.duplicateItem);
-      return;
-    }
+    arrayItems.push({ name: itemName });
+    listTable();
+    updateArray();
 
-    this.arrayItems.push(item);
-    this.listTable();
+  };
 
-  }
+  return add;
+};
 
-  listTable() {
-    this.tbodyElement.innerHTML = '';
 
-    this.arrayItems.forEach((item, i) => {
+const createFoodsSelector = () => {
+  const errorMessages = {
+    invalidOption: "Choose a valid option.",
+    duplicateItem: "The item already exists in the list.",
+    invalidValue: "Choose...",
+  };
 
-      let tr = this.tbodyElement.insertRow();
-      let trId = tr.insertCell();
-      let trItem = tr.insertCell();
-      let trItemD = tr.insertCell();
-      let trButton = tr.insertCell();
+  const selectElement = document.getElementById("foodsSelect");
+  const selectFrequencyElement = document.getElementById("frequencySelect");
+  const tbodyElement = document.getElementById("foodsTbody");
+  const arrayItems = [];
+
+  const updateFoodsArray = () => {
+    const arrayResult = arrayItems.map(item => ({ name: item.name, frequencyName: item.frequencyName }));
+    document.getElementById('foodFrequencyArray').value = arrayResult;
+  };
+
+  const listTable = () => {
+    tbodyElement.innerHTML = '';
+
+    arrayItems.forEach((item, i) => {
+      const tr = tbodyElement.insertRow();
+      const trId = tr.insertCell();
+      const trItem = tr.insertCell();
+      const trFrequencyName = tr.insertCell();
+      const trButton = tr.insertCell();
 
       trId.innerText = i + 1;
       trItem.innerText = item.name;
-      trItemD.innerText = item.nameD;
+      trFrequencyName.innerText = item.frequencyName;
       trId.classList.add("center");
 
-      let iconElement = document.createElement("i");
-      iconElement.classList.add("bi", "bi-x-circle-fill");
-
+      const iconElement = createIconElement();
       trButton.appendChild(iconElement);
 
-      iconElement.addEventListener("click", () => this.deleteItem(i));
-
-      iconElement.addEventListener("mouseover", () => {
-        iconElement.classList.remove("bi-x-circle-fill");
-        iconElement.classList.add("bi-x-circle");
-      });
-
-      iconElement.addEventListener("mouseout", () => {
-        iconElement.classList.remove("bi-x-circle");
-        iconElement.classList.add("bi-x-circle-fill");
-      });
+      iconElement.addEventListener("click", () => deleteItem(i));
+      addIconEventListeners(iconElement);
     });
-  }
 
-  readData() {
-    let item = { name: this.selectElement.value, nameD: this.selectElementD.value };
-    return item;
-  }
+    updateFoodsArray();
+  };
 
-  isDuplicateItemName(name) {
-    return this.arrayItems.some(item => item.name === name);
-  }
+  const createIconElement = () => {
+    const iconElement = document.createElement("i");
+    iconElement.classList.add("bi", "bi-x-circle-fill");
+    return iconElement;
+  };
 
-  deleteItem(i) {
-    this.arrayItems.splice(i, 1);
-    this.listTable();
-  }
+  const addIconEventListeners = (iconElement) => {
+    iconElement.addEventListener("mouseover", () => {
+      iconElement.classList.remove("bi-x-circle-fill");
+      iconElement.classList.add("bi-x-circle");
+    });
 
-  validateData(value) {
-    let invalidValues = this.errorMessages.invalidValues || [];
-    return invalidValues.includes(value);
-  }
-}
+    iconElement.addEventListener("mouseout", () => {
+      iconElement.classList.remove("bi-x-circle");
+      iconElement.classList.add("bi-x-circle-fill");
+    });
+  };
 
-const diseasesConfig = {
-  errorMessages: {
-    invalidOption: "Choose a valid option.",
-    duplicateItem: "The item already exists in the list.",
-    invalidValues: ["Choose..."],
-  },
-  selectElementId: "diseaseSelect",
-  tbodyElementId: "diseasesTbody"
+  const deleteItem = (i) => {
+    arrayItems.splice(i, 1);
+    listTable();
+    updateFoodsArray();
+  };
+
+  const add = () => {
+    const itemName = selectElement.value;
+    const itemFrequencyName = selectFrequencyElement.value;
+
+    // Verificar se os valores são inválidos ou duplicados
+    if (itemName === "Choose..." || itemFrequencyName === "Choose..." || arrayItems.some(item => item.name === itemName)) {
+      // Exiba a mensagem de erro na interface, em vez de usar um alerta
+      alert(errorMessages.invalidOption);
+      return;
+    }
+
+    arrayItems.push({ name: itemName, frequencyName: itemFrequencyName });
+    listTable();
+    updateFoodsArray();
+  };
+
+  return add;
 };
 
-const foodsConfig = {
-  errorMessages: {
-    invalidOption: "Choose a valid option.",
-    duplicateItem: "The item already exists in the list.",
-    invalidValues: ["Choose..."],
-  },
-  selectElementId: "foodsSelect",
-  selectElementIdD: "frequencySelect",
-  tbodyElementId: "foodsTbody"
 
-};
-var diseases = new SelectConstructor(diseasesConfig);
-var foods = new SelectConstructorD(foodsConfig);
+let diseases = createSelector("diseaseSelect", "diseasesTbody", 'diseasesArray');
+let goals = createSelector("goalsSelect", "goalsTbody", 'goalsArray');
+let foods = createFoodsSelector();
 
-function create() {
-  const customerCreate = document.getElementById("customerCreate");
-  const url = "http://127.0.0.1:8080/api/customer/create";
-
-  document.getElementById("submit").addEventListener('click', e => {
-    const customerName = customerCreate.name.value;
-    const customerAge = customerCreate.age.value;
-    const customerEmail = customerCreate.email.value;
-    const customerReferredBy = customerCreate.referredBy.value;
-    const customerAddress =   customerCreate.address.value;
-    const customerBirthDate = customerCreate.birthDate.value;
-    const customerPhoneNumber = customerCreate.phoneNumber.value;
-    const customerWeight = customerCreate.weight.value;
-    const customerHeight = customerCreate.height.value;
-    const customerWorksOrStudies = customerCreate.worksOrStudies.value;
-
-    e.preventDefault();
-
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      },
-      body: JSON.stringify({
-        "id": null,
-        customerName: customerName,
-        customerAge: customerAge,
-        customerEmail: customerEmail,
-        customerReferredBy: customerReferredBy,
-        customerAddress: customerAddress,
-        customerBirthDate: customerBirthDate,
-        customerPhoneNumber: customerPhoneNumber,
-        customerWeight: customerWeight,
-        customerHeight: customerHeight,
-        customerWorksOrStudies: customerWorksOrStudies
-      })
-    }).then(response => response.json())
-      .then(data => console.log(data))
-
-  });
+const handlePhone = (event) => {
+  let input = event.target
+  input.value = phoneMask(input.value)
 }
-create()
+
+const phoneMask = (value) => {
+  if (!value) return ""
+  value = value.replace(/\D/g,'')
+  value = value.replace(/(\d{2})(\d)/,"($1) $2")
+  value = value.replace(/(\d)(\d{4})$/,"$1-$2")
+  return value
+}

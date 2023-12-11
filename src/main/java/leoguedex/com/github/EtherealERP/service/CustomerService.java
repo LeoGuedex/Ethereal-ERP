@@ -1,6 +1,7 @@
 package leoguedex.com.github.EtherealERP.service;
 
 import leoguedex.com.github.EtherealERP.domain.Customer;
+import leoguedex.com.github.EtherealERP.domain.dto.AllCustomerDTO;
 import leoguedex.com.github.EtherealERP.exception.GetAgeFromBirthDateException;
 import leoguedex.com.github.EtherealERP.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,8 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    public Customer create(Customer customer) {
-        return customerRepository.save(customer);
+    public Customer create(AllCustomerDTO customer) {
+        return customerRepository.save(AllCustomerDTO.toCustomer(customer));
     }
 
     public void delete(Long id) {

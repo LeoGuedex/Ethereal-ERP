@@ -27,7 +27,7 @@ public class CustomerHealth {
     private Customer customer;
 
     @ElementCollection(targetClass = DiseasesEnum.class)
-    @CollectionTable(name = "diseases", joinColumns = @JoinColumn(name = "customer_id"))
+    @CollectionTable(name = "Diseases", joinColumns = @JoinColumn(name = "customer_id"))
     @Enumerated(EnumType.STRING)
     private Set<DiseasesEnum> diseases;
 
@@ -38,7 +38,7 @@ public class CustomerHealth {
     private SleepTypeEnum sleepTypeEnum;
     private String energyReductionMethods;
     private String stressReductionMethods;
-    private String dsleepImprovementMethods;
+    private String sleepImprovementMethods;
     private QuantityPercentageEnum stressLevel;
     private QuantityPercentageEnum recentMemory;
     private QuantityPercentageEnum concentration;

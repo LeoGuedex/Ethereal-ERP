@@ -1,7 +1,11 @@
 package leoguedex.com.github.EtherealERP.domain;
 
-import jakarta.persistence.*;
-import leoguedex.com.github.EtherealERP.domain.enums.QuantityPercentageEnum;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import leoguedex.com.github.EtherealERP.domain.enums.TypeDaysEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

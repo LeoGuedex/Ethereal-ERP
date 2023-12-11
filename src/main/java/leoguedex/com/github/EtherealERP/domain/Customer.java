@@ -32,19 +32,19 @@ public class Customer {
     private IndicatedByEnum referredBy;
     private ExpectedEnum expectedOutcome;
 
-    @OneToOne(mappedBy = "customer")
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private CustomerAlimentation customerAlimentation;
 
-    @OneToOne(mappedBy = "customer")
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private CustomerGym customerGym;
 
-    @OneToOne(mappedBy = "customer")
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private CustomerHealth customerHealth;
 
-    @OneToOne(mappedBy = "customer")
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private CustomerNutritionistInformation customerNutritionistInformation;
 
-    @OneToOne(mappedBy = "customer")
+    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private CustomerRotineTable customerRotineTable;
 
 }
