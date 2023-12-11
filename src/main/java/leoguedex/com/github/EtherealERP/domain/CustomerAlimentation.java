@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 public class CustomerAlimentation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @MapsId
     @OneToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;

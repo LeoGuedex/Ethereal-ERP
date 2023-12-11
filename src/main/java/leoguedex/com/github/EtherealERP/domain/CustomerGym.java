@@ -1,18 +1,8 @@
 package leoguedex.com.github.EtherealERP.domain;
 
-
 import java.util.Set;
 
-import jakarta.persistence.CollectionTable;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import leoguedex.com.github.EtherealERP.domain.enums.HealthGoalsEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.QuantityPercentageEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.TypeOfWeightEnum;
@@ -29,9 +19,9 @@ import lombok.NoArgsConstructor;
 public class CustomerGym {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @MapsId
     @OneToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
@@ -54,7 +44,7 @@ public class CustomerGym {
     private String lifeSituationToChange;
     private String desiredFreeTimeActivity;
     private QuantityPercentageEnum familyBalance;
-    
+
     @ElementCollection(targetClass = HealthGoalsEnum.class)
     @CollectionTable(name = "Goals", joinColumns = @JoinColumn(name = "customer_id"))
     @Enumerated(EnumType.STRING)

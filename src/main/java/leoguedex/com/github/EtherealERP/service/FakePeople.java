@@ -7,7 +7,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Random;
+
+import org.apache.commons.lang3.RandomUtils;
 
 import com.github.javafaker.Faker;
 
@@ -18,12 +19,10 @@ import leoguedex.com.github.EtherealERP.domain.enums.IndicatedByEnum;
 public class FakePeople {
     private final int amountPeople;
     private final Faker faker;
-    private final Random random;
 
     public FakePeople(int amountPeople) {
         this.amountPeople = amountPeople;
         faker = new Faker(new Locale("pt-BR"));
-        random = new Random();
     }
 
     public List<Customer> generateCustomer() {
@@ -36,6 +35,7 @@ public class FakePeople {
             String name = generateName();
 
             customer.setName(name);
+            customer.setAge(RandomUtils.nextInt(15, 100));
 
             customer.setEmail(removeAccentsAndSpaces(generateEmail(name)));
 
@@ -45,15 +45,15 @@ public class FakePeople {
 
             customer.setWhenCreated(generateDateCreated());
 
-            customer.setWeight(random.nextDouble(50.0, 200.0));
-            customer.setHeight(random.nextDouble(1.50, 2.10));
-            customer.setWorksOrStudies(random.nextBoolean());
+            customer.setWeight(RandomUtils.nextDouble(50.0, 200.0));
+            customer.setHeight(RandomUtils.nextDouble(1.50, 2.10));
+            customer.setWorksOrStudies(RandomUtils.nextBoolean());
 
 
             customer.setReferredBy(
-                    IndicatedByEnum.toEnum(random.nextInt(0, IndicatedByEnum.values().length)));
+                    IndicatedByEnum.toEnum(RandomUtils.nextInt(0, IndicatedByEnum.values().length)));
 
-            int option = random.nextInt(0, (ExpectedEnum.values().length) - 1);
+            int option = RandomUtils.nextInt(0, (ExpectedEnum.values().length) - 1);
             customer.setExpectedOutcome(ExpectedEnum.toEnum(option));
             customer.setConsultationReason("Motivo desconhecido");
 
