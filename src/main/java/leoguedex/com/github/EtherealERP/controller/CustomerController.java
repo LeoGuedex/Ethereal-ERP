@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import jakarta.transaction.Transactional;
 import leoguedex.com.github.EtherealERP.domain.Customer;
 import leoguedex.com.github.EtherealERP.domain.dto.AllCustomerDTO;
 import leoguedex.com.github.EtherealERP.service.CustomerService;
@@ -27,11 +26,10 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping
-    @Transactional
     public URI create(@ModelAttribute("allCustomerDTO") AllCustomerDTO customer) {
 
         URI result = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-        .buildAndExpand(customerService.create(customer).getId()).toUri();
+                .buildAndExpand(customerService.create(customer).getId()).toUri();
 
         return result;
     }

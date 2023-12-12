@@ -1,5 +1,13 @@
 package leoguedex.com.github.EtherealERP.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import leoguedex.com.github.EtherealERP.domain.Customer;
 import leoguedex.com.github.EtherealERP.domain.CustomerAlimentation;
 import leoguedex.com.github.EtherealERP.domain.CustomerGym;
@@ -9,22 +17,15 @@ import leoguedex.com.github.EtherealERP.domain.CustomerRotineTable;
 import leoguedex.com.github.EtherealERP.domain.dto.AllCustomerDTO;
 import leoguedex.com.github.EtherealERP.exception.GetAgeFromBirthDateException;
 import leoguedex.com.github.EtherealERP.repository.CustomerRepository;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    public CustomerService(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
-
+    @Transactional
     public Customer create(AllCustomerDTO customer) {
         Customer customerSaved = AllCustomerDTO.toCustomer(customer);
 

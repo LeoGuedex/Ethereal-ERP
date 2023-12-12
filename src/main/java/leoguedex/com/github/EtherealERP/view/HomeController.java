@@ -26,15 +26,14 @@ import leoguedex.com.github.EtherealERP.domain.enums.SleepTypeEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.TypeDaysEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.TypeOfWeightEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.TypePersonEnum;
+import lombok.RequiredArgsConstructor;
+
 
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
 
     private final CustomerController customerController;
-
-    public HomeController(CustomerController customerController) {
-        this.customerController = customerController;
-    }
 
     @GetMapping("/login")
     public String login() {

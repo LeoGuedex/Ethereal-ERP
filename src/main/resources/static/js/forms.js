@@ -172,5 +172,5 @@ const phoneMask = (value) => {
 }
 
 function openSmallModal() {
-  bootstrap.Modal('smallModal').show();
+  new bootstrap.Modal('#modalCorrect').show();
 }
