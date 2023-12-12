@@ -80,7 +80,7 @@ const createFoodsSelector = () => {
 
   const updateFoodsArray = () => {
     const arrayResult = arrayItems.map(item => ({ name: item.name, frequencyName: item.frequencyName }));
-    document.getElementById('foodFrequencyArray').value = arrayResult;
+    document.getElementById('foodFrequencyArray').value = JSON.stringify(arrayResult);
   };
 
   const listTable = () => {
@@ -103,9 +103,11 @@ const createFoodsSelector = () => {
 
       iconElement.addEventListener("click", () => deleteItem(i));
       addIconEventListeners(iconElement);
+      updateFoodsArray();
     });
 
-    updateFoodsArray();
+    
+    
   };
 
   const createIconElement = () => {
@@ -167,4 +169,8 @@ const phoneMask = (value) => {
   value = value.replace(/(\d{2})(\d)/,"($1) $2")
   value = value.replace(/(\d)(\d{4})$/,"$1-$2")
   return value
+}
+
+function openSmallModal() {
+  bootstrap.Modal('smallModal').show();
 }

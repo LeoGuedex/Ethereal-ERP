@@ -1,5 +1,7 @@
 package leoguedex.com.github.EtherealERP.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import leoguedex.com.github.EtherealERP.domain.enums.QuantityPercentageEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.TypePersonEnum;
@@ -20,6 +22,7 @@ public class CustomerNutritionistInformation {
 
     @MapsId
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     @JoinColumn(name = "customer_id")
     private Customer customer;
 

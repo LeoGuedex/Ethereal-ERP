@@ -142,11 +142,6 @@ public class AllCustomerDTO {
                 .whenCreated(String.valueOf(LocalDateTime.now()))
                 .referredBy(customer.getReferredBy())
                 .expectedOutcome(customer.getExpectedOutcome())
-                .customerAlimentation(AllCustomerDTO.toCustomerAlimentation(customer))
-                .customerGym(AllCustomerDTO.toCustomerGym(customer))
-                .customerHealth(AllCustomerDTO.toCustomerHealth(customer))
-                .customerNutritionistInformation(AllCustomerDTO.toCustomerNutritionistInformation(customer))
-                .customerRotineTable(AllCustomerDTO.toCustomerRotineTable(customer))
                 .build();
     }
 
@@ -250,8 +245,8 @@ public class AllCustomerDTO {
 
     public static CustomerRotineTable toCustomerRotineTable(AllCustomerDTO customer) {
 
-        if(customer.getFoodFrequencyArray().equals("")){
-            return null;
+        if(customer.getFoodFrequencyArray().isEmpty()){
+            return new CustomerRotineTable();
         }
 
         JSONArray data = new JSONArray(customer.getFoodFrequencyArray());

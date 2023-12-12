@@ -1,5 +1,7 @@
 package leoguedex.com.github.EtherealERP.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import leoguedex.com.github.EtherealERP.domain.enums.TypeDaysEnum;
 import lombok.AllArgsConstructor;
@@ -18,6 +20,7 @@ public class CustomerRotineTable {
     private Long id;
 
     @MapsId
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     private Customer customer;

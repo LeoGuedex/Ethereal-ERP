@@ -10,7 +10,6 @@
   <meta content="" name="keywords">
   <meta charset="ISO-8859-1">
 
-  <link href="/static/template/assets/img/favicon.png" rel="icon">
   <link href="/static/template/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -86,7 +85,7 @@
 
                     <!-- Referred By Dropdown -->
                     <div class="dropdown col-md-6">
-                      <label class="form-label">Referred By?</label>
+                      <label for="referredBy" class="form-label">Referred By?</label>
                       <select id="referredBy" class="form-select" th:field="*{referredBy}">
                         <option value="" selected>Choose...</option>
                         <option th:each="IndicatedByEnum : ${IndicatedByEnumValues}"
@@ -132,7 +131,7 @@
 
                     <!-- Expected Outcome Dropdown -->
                     <div class="dropdown col-md-6">
-                      <label class="form-label">Expected Outcome?</label>
+                      <label for="expectedOutcome" class="form-label">Expected Outcome?</label>
                       <select id="expectedOutcome" class="form-select" th:field="*{expectedOutcome}">
                         <option value="" selected>Choose...</option>
                         <option th:each="ExpectedEnum : ${ExpectedEnumValues}" th:text="${ExpectedEnum.description}"
@@ -283,59 +282,7 @@
                   <h5 class="card-title">Customer Gym Information</h5>
                   <div class="row g-3">
 
-                    <div class="col-md-5">
-                      <!-- Does Exercise Checkbox -->
-                      <div class="form-check ms-2">
-                        <label for="doesExercise" data-bs-toggle="collapse" data-bs-target=".doesExercises"
-                          class="form-check-label">
-                          <input id="doesExercise" class="form-check-input" type="checkbox" name="doesExercise"
-                            th:field="*{doesExercise}">
-                          Do you exercise?
-                        </label>
 
-                        <div class="col-md-12 collapse doesExercises">
-                          <div class="mt-4">
-                            <!-- Training Days Per Week Dropdown -->
-                            <label for="trainingDaysPerWeek" class="form-label">Days of exercise per week?</label>
-                            <select id="trainingDaysPerWeek" class="form-select" name="trainingDaysPerWeek"
-                              th:field="*{trainingDaysPerWeek}">
-                              <option value="" selected>Choose...</option>
-                              <option th:each="num: ${#numbers.sequence(1, 7)}" th:text="${num}" th:value="${num}">
-                              </option>
-                            </select>
-                          </div>
-
-                          <div class="my-4">
-                            <!-- Exercise Types Textarea -->
-                            <label for="exerciseTypes" class="form-label">What types of exercises?</label>
-                            <textarea id="exerciseTypes" class="form-control" placeholder="Exercises..."
-                              name="exerciseTypes" th:field="*{exerciseTypes}"></textarea>
-                          </div>
-
-                          <div class="col-md-12">
-                            <!-- Post Exercise Feeling Textarea -->
-                            <label for="postExerciseFeeling" class="form-label">After exercising, do you feel
-                              anything?</label>
-                            <textarea id="postExerciseFeeling" class="form-control" placeholder="Exercises..."
-                              name="postExerciseFeeling" th:field="*{postExerciseFeeling}"></textarea>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- Intends To Exercise Checkbox -->
-                      <div class="form-check ms-2">
-                        <label for="intendsToExercise" class="form-check-label">Do you intend to exercise?</label>
-                        <input id="intendsToExercise" class="form-check-input" type="checkbox" name="intendsToExercise"
-                          th:field="*{intendsToExercise}">
-                      </div>
-
-                      <!-- Is Physically Active Checkbox -->
-                      <div class="form-check ms-2 mb-3">
-                        <label for="isPhysicallyActive" class="form-check-label">Do you exercise regularly?</label>
-                        <input id="isPhysicallyActive" class="form-check-input" type="checkbox"
-                          name="isPhysicallyActive" th:field="*{isPhysicallyActive}">
-                      </div>
-                    </div>
 
                     <!-- Weight Type Dropdown -->
                     <div class="dropdown col-md-8 ">
@@ -393,8 +340,62 @@
                         name="lifeSituationToChange" th:field="*{lifeSituationToChange}"></textarea>
                     </div>
 
+                    <div class="col-md-3">
+                      <!-- Does Exercise Checkbox -->
+                      <div class="form-check ms-2">
+                        <label for="doesExercise" data-bs-toggle="collapse" data-bs-target=".doesExercises"
+                          class="form-check-label">
+                          <input id="doesExercise" class="form-check-input" type="checkbox" name="doesExercise"
+                            th:field="*{doesExercise}">
+                          Do you exercise?
+                        </label>
+
+                        <div class="col-md-12 collapse doesExercises">
+                          <div class="mt-4">
+                            <!-- Training Days Per Week Dropdown -->
+                            <label for="trainingDaysPerWeek" class="form-label">Days of exercise per week?</label>
+                            <select id="trainingDaysPerWeek" class="form-select" name="trainingDaysPerWeek"
+                              th:field="*{trainingDaysPerWeek}">
+                              <option value="" selected>Choose...</option>
+                              <option th:each="num: ${#numbers.sequence(1, 7)}" th:text="${num}" th:value="${num}">
+                              </option>
+                            </select>
+                          </div>
+
+                          <div class="my-4">
+                            <!-- Exercise Types Textarea -->
+                            <label for="exerciseTypes" class="form-label">What types of exercises?</label>
+                            <textarea id="exerciseTypes" class="form-control" placeholder="Exercises..."
+                              name="exerciseTypes" th:field="*{exerciseTypes}"></textarea>
+                          </div>
+
+                          <div class="col-md-12">
+                            <!-- Post Exercise Feeling Textarea -->
+                            <label for="postExerciseFeeling" class="form-label">After exercising, do you feel
+                              anything?</label>
+                            <textarea id="postExerciseFeeling" class="form-control" placeholder="Exercises..."
+                              name="postExerciseFeeling" th:field="*{postExerciseFeeling}"></textarea>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Intends To Exercise Checkbox -->
+                      <div class="form-check ms-2">
+                        <label for="intendsToExercise" class="form-check-label">Do you intend to exercise?</label>
+                        <input id="intendsToExercise" class="form-check-input" type="checkbox" name="intendsToExercise"
+                          th:field="*{intendsToExercise}">
+                      </div>
+
+                      <!-- Is Physically Active Checkbox -->
+                      <div class="form-check ms-2 mb-3">
+                        <label for="isPhysicallyActive" class="form-check-label">Do you exercise regularly?</label>
+                        <input id="isPhysicallyActive" class="form-check-input" type="checkbox"
+                          name="isPhysicallyActive" th:field="*{isPhysicallyActive}">
+                      </div>
+                    </div>
+
                     <!-- Family Balance Dropdown -->
-                    <div class="dropdown col-md-2">
+                    <div class="dropdown col-md-3">
                       <label for="familyBalance" class="form-label">Family Balance</label>
                       <select id="familyBalance" class="form-select" name="familyBalance" th:field="*{familyBalance}">
                         <option value="" selected>Choose...</option>
@@ -405,7 +406,7 @@
                     </div>
 
                     <!-- Determination Level Range Input -->
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                       <label for="determinationLevel" class="form-label">What's your determination level?</label>
                       <input id="determinationLevel" type="range" class="form-range" min="0" max="10"
                         name="determinationLevel" th:field="*{determinationLevel}">
@@ -419,7 +420,7 @@
                       <div class="row">
                         <!-- Goals Dropdown -->
                         <div class="dropdown col-4">
-                          <label class="form-label">Do you have any goals?</label>
+                          <label for="goalsSelect" class="form-label">Do you have any goals?</label>
                           <select id="goalsSelect" name="goalsSelect" class="form-select">
                             <option selected>Choose...</option>
                             <option th:each="HealthGoalsEnum : ${HealthGoalsValues}"
@@ -450,7 +451,6 @@
                         </div>
                       </div>
                     </div>
-
                   </div><!-- End Multi Columns Form -->
                 </div>
               </div>
@@ -503,24 +503,26 @@
                     <!-- Concentration Range Input -->
                     <div class="col-md-12 pt-5">
                       <label for="concentration" class="form-label">What's your current level of concentration?</label>
-                      <input id="concentration" type="range" class="form-range" min="0" max="100" step="25" name="concentration"
-                        th:field="*{concentration}">
+                      <input id="concentration" type="range" class="form-range" min="0" max="100" step="25"
+                        name="concentration" th:field="*{concentration}">
                       <div class="d-flex justify-content-between pr-2">
                         <p class="d-flex justify-content-between pe-2"
                           th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
-                          th:text="${QuantityPercentageEnum.description}" th:value="${QuantityPercentageEnum.description}"></p>
+                          th:text="${QuantityPercentageEnum.description}"
+                          th:value="${QuantityPercentageEnum.description}"></p>
                       </div>
                     </div>
 
                     <!-- Recent Memory Range Input -->
                     <div class="col-md-12 pt-5">
                       <label for="recentMemory" class="form-label">How would you describe your recent memory?</label>
-                      <input id="recentMemory" type="range" class="form-range" min="0" max="100" step="25" name="recentMemory"
-                        th:field="*{recentMemory}">
+                      <input id="recentMemory" type="range" class="form-range" min="0" max="100" step="25"
+                        name="recentMemory" th:field="*{recentMemory}">
                       <div class="d-flex justify-content-between pr-2">
                         <p class="d-flex justify-content-between pe-2"
                           th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
-                          th:text="${QuantityPercentageEnum.description}" th:value="${QuantityPercentageEnum.description}"></p>
+                          th:text="${QuantityPercentageEnum.description}"
+                          th:value="${QuantityPercentageEnum.description}"></p>
                       </div>
                     </div>
 
@@ -528,12 +530,13 @@
                     <div class="col-md-12 pt-5">
                       <label for="longTermMemory" class="form-label">How would you describe your long-term
                         memory?</label>
-                      <input id="longTermMemory" type="range" class="form-range" min="0" max="100" step="25" name="longTermMemory"
-                        th:field="*{longTermMemory}">
+                      <input id="longTermMemory" type="range" class="form-range" min="0" max="100" step="25"
+                        name="longTermMemory" th:field="*{longTermMemory}">
                       <div class="d-flex justify-content-between pr-2">
                         <p class="d-flex justify-content-between pe-2"
                           th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
-                          th:text="${QuantityPercentageEnum.description}" th:value="${QuantityPercentageEnum.description}"></p>
+                          th:text="${QuantityPercentageEnum.description}"
+                          th:value="${QuantityPercentageEnum.description}"></p>
                       </div>
                     </div>
 
@@ -546,7 +549,8 @@
                       <div class="d-flex justify-content-between pr-2">
                         <p class="d-flex justify-content-between pe-2"
                           th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
-                          th:text="${QuantityPercentageEnum.description}" th:value="${QuantityPercentageEnum.description}"></p>
+                          th:text="${QuantityPercentageEnum.description}"
+                          th:value="${QuantityPercentageEnum.description}"></p>
                       </div>
                     </div>
 
@@ -559,7 +563,8 @@
                       <div class="d-flex justify-content-between pr-2">
                         <p class="d-flex justify-content-between pe-2"
                           th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
-                          th:text="${QuantityPercentageEnum.description}" th:value="${QuantityPercentageEnum.description}"></p>
+                          th:text="${QuantityPercentageEnum.description}"
+                          th:value="${QuantityPercentageEnum.description}"></p>
                       </div>
                     </div>
 
@@ -572,27 +577,29 @@
                       <div class="d-flex justify-content-between pr-2">
                         <p class="d-flex justify-content-between pe-2"
                           th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
-                          th:text="${QuantityPercentageEnum.description}" th:value="${QuantityPercentageEnum.description}"></p>
+                          th:text="${QuantityPercentageEnum.description}"
+                          th:value="${QuantityPercentageEnum.description}"></p>
                       </div>
                     </div>
 
                     <!-- Daytime Energy Range Input -->
                     <div class="col-md-12 pt-5">
                       <label for="daytimeEnergy" class="form-label">How would you describe your day time energy?</label>
-                      <input id="daytimeEnergy" type="range" class="form-range" min="0" max="100" step="25" name="daytimeEnergy"
-                        th:field="*{daytimeEnergy}">
+                      <input id="daytimeEnergy" type="range" class="form-range" min="0" max="100" step="25"
+                        name="daytimeEnergy" th:field="*{daytimeEnergy}">
                       <div class="d-flex justify-content-between pr-2">
                         <p class="d-flex justify-content-between pe-2"
                           th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
-                          th:text="${QuantityPercentageEnum.description}" th:value="${QuantityPercentageEnum.description}"></p>
+                          th:text="${QuantityPercentageEnum.description}"
+                          th:value="${QuantityPercentageEnum.description}"></p>
                       </div>
                     </div>
 
                     <!-- Stress Level Range Input -->
                     <div class="col-md-12 pt-5">
                       <label for="stressLevel" class="form-label">What is your stress level?</label>
-                      <input id="stressLevel" type="range" class="form-range" min="0" max="100" step="25" name="stressLevel"
-                        th:field="*{stressLevel}">
+                      <input id="stressLevel" type="range" class="form-range" min="0" max="100" step="25"
+                        name="stressLevel" th:field="*{stressLevel}">
                       <div class="d-flex justify-content-between pr-2">
                         <p class="d-flex justify-content-between pe-2"
                           th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
@@ -637,7 +644,7 @@
                       <div class="row">
                         <div class="dropdown col-4">
                           <!-- Do you have any comorbidities? Dropdown Input -->
-                          <label class="form-label">Do you have any comorbidities?</label>
+                          <label for="diseaseSelect" class="form-label">Do you have any comorbidities?</label>
                           <select id="diseaseSelect" name="diseaseSelect" class="form-select">
                             <option selected>Choose...</option>
                             <option th:each="diseasesEnum : ${DiseasesValues}" th:text="${diseasesEnum.description}"
@@ -691,189 +698,154 @@
                     <div class="col-5 pt-4">
                       <!-- Visited Nutritionist Checkbox Input -->
                       <div class="form-check">
-                        <label for="visited-nutritionist" class="form-check-label">Have you visited a
-                          nutritionist?</label>
-                        <input id="visited-nutritionist" class="form-check-input" type="checkbox"
-                          name="visited-nutritionist" th:field="*{visitedNutritionist}">
+                        <label for="visitedNutritionist" class="form-check-label">Have you visited a nutritionist?</label>
+                        <input id="visitedNutritionist" class="form-check-input" type="checkbox" name="visitedNutritionist" th:field="*{visitedNutritionist}">
                       </div>
-
+                  
                       <!-- Short On Time For Meals Checkbox Input -->
                       <div class="form-check">
-                        <label for="short-on-time-for-meals" class="form-check-label">Short on Time for Meals</label>
-                        <input id="short-on-time-for-meals" class="form-check-input" type="checkbox"
-                          name="short-on-time-for-meals" th:field="*{shortOnTimeForMeals}">
+                        <label for="shortOnTimeForMeals" class="form-check-label">Short on Time for Meals</label>
+                        <input id="shortOnTimeForMeals" class="form-check-input" type="checkbox" name="shortOnTimeForMeals" th:field="*{shortOnTimeForMeals}">
                       </div>
-
+                  
                       <!-- Eats Out More Than Half The Time Checkbox Input -->
                       <div class="form-check">
-                        <label for="eats-out-more-than-half-the-time" class="form-check-label">Eats out more than Half
-                          the Time</label>
-                        <input id="eats-out-more-than-half-the-time" class="form-check-input" type="checkbox"
-                          name="eats-out-more-than-half-the-time" th:field="*{eatsOutMoreThanHalfTheTime}">
+                        <label for="eatsOutMoreThanHalfTheTime" class="form-check-label">Eats out more than Half the Time</label>
+                        <input id="eatsOutMoreThanHalfTheTime" class="form-check-input" type="checkbox" name="eatsOutMoreThanHalfTheTime" th:field="*{eatsOutMoreThanHalfTheTime}">
                       </div>
-
+                  
                       <!-- Unhealthy Food At Home Checkbox Input -->
                       <div class="form-check">
-                        <label for="unhealthy-food-at-home" class="form-check-label">Unhealthy Food at Home</label>
-                        <input id="unhealthy-food-at-home" class="form-check-input" type="checkbox"
-                          name="unhealthy-food-at-home" th:field="*{unhealthyFoodAtHome}">
+                        <label for="unhealthyFoodAtHome" class="form-check-label">Unhealthy Food at Home</label>
+                        <input id="unhealthyFoodAtHome" class="form-check-input" type="checkbox" name="unhealthyFoodAtHome" th:field="*{unhealthyFoodAtHome}">
                       </div>
-
+                  
                       <!-- Unhealthy Eating Around Checkbox Input -->
                       <div class="form-check">
-                        <label for="unhealthy-eating-around" class="form-check-label">Unhealthy Eating Around</label>
-                        <input id="unhealthy-eating-around" class="form-check-input" type="checkbox"
-                          name="unhealthy-eating-around" th:field="*{unhealthyEatingAround}">
+                        <label for="unhealthyEatingAround" class="form-check-label">Unhealthy Eating Around</label>
+                        <input id="unhealthyEatingAround" class="form-check-input" type="checkbox" name="unhealthyEatingAround" th:field="*{unhealthyEatingAround}">
                       </div>
-
+                  
                       <!-- Creative With Food Checkbox Input -->
                       <div class="form-check">
-                        <label for="creative-with-food" class="form-check-label">Creative With Food</label>
-                        <input id="creative-with-food" class="form-check-input" type="checkbox"
-                          name="creative-with-food" th:field="*{creativeWithFood}">
+                        <label for="creativeWithFood" class="form-check-label">Creative With Food</label>
+                        <input id="creativeWithFood" class="form-check-input" type="checkbox" name="creativeWithFood" th:field="*{creativeWithFood}">
                       </div>
-
+                  
                       <!-- Eats Something Right After Waking Up Checkbox Input -->
                       <div class="form-check">
-                        <label for="eats-something-right-after-waking-up" class="form-check-label">Eats Something Right
-                          After Waking up</label>
-                        <input id="eats-something-right-after-waking-up" class="form-check-input" type="checkbox"
-                          name="eats-something-right-after-waking-up" th:field="*{eatsSomethingRightAfterWakingUp}">
+                        <label for="eatsSomethingRightAfterWakingUp" class="form-check-label">Eats Something Right After Waking up</label>
+                        <input id="eatsSomethingRightAfterWakingUp" class="form-check-input" type="checkbox" name="eatsSomethingRightAfterWakingUp" th:field="*{eatsSomethingRightAfterWakingUp}">
                       </div>
-
+                  
                       <!-- Food Allergy Checkbox Input -->
                       <div class="form-check">
-                        <label for="food-allergy" class="form-check-label">Do you have any allergies?</label>
-                        <input id="food-allergy" class="form-check-input" type="checkbox" name="food-allergy"
-                          th:field="*{foodAllergy}">
+                        <label for="foodAllergy" class="form-check-label">Do you have any allergies?</label>
+                        <input id="foodAllergy" class="form-check-input" type="checkbox" name="foodAllergy" th:field="*{foodAllergy}">
                       </div>
-
+                  
                       <!-- Gluten Or Grain Intolerance Checkbox Input -->
                       <div class="form-check">
-                        <label for="gluten-or-grain-intolerance" class="form-check-label">Any issues with gluten or
-                          grains?</label>
-                        <input id="gluten-or-grain-intolerance" class="form-check-input" type="checkbox"
-                          name="gluten-or-grain-intolerance" th:field="*{glutenOrGrainIntolerance}">
+                        <label for="glutenOrGrainIntolerance" class="form-check-label">Any issues with gluten or grains?</label>
+                        <input id="glutenOrGrainIntolerance" class="form-check-input" type="checkbox" name="glutenOrGrainIntolerance" th:field="*{glutenOrGrainIntolerance}">
                       </div>
-
+                  
                       <!-- Drinks Alcohol Checkbox Input -->
                       <div class="form-check">
-                        <label for="drinks-alcohol" data-bs-toggle="collapse" data-bs-target="#collapse-drinks-alcohol"
-                          class="form-label">Do you drink alcohol?
-                          <input id="drinks-alcohol" class="form-check-input" type="checkbox" name="drinks-alcohol"
-                            th:field="*{drinksAlcohol}">
+                        <label for="drinksAlcohol" data-bs-toggle="collapse" data-bs-target="#collapseDrinksAlcohol" class="form-label">Do you drink alcohol?
+                          <input id="drinksAlcohol" class="form-check-input" type="checkbox" name="drinksAlcohol" th:field="*{drinksAlcohol}">
                         </label>
-                        <div id="collapse-drinks-alcohol" class="col-md-5 collapse pt-2">
-                          <input id="alcohol-per-week" type="number" class="form-control" max="200" min="1"
-                            placeholder="Alcohol per week..." name="alcohol-per-week" th:field="*{alcoholPerWeek}">
+                        <div id="collapseDrinksAlcohol" class="col-md-5 collapse pt-2">
+                          <input id="alcoholPerWeek" type="number" class="form-control" max="200" min="1" placeholder="Alcohol per week..." name="alcoholPerWeek" th:field="*{alcoholPerWeek}">
                         </div>
                       </div>
                     </div>
-
+                  
                     <div class="col-7">
                       <!-- Chewing Text Input -->
                       <div class="col">
                         <label for="chewing" class="form-label">What is your chewing pace?</label>
                         <input id="chewing" type="text" class="form-control" th:field="*{chewing}" />
                       </div>
-
+                  
                       <!-- Meals Per Day Number Input -->
                       <div class="col pt-3">
-                        <label for="meals-per-day" class="form-label">How many daily meals?</label>
-                        <input id="meals-per-day" type="number" class="form-control" placeholder="Quantity..."
-                          th:field="*{mealsPerDay}" />
+                        <label for="mealsPerDay" class="form-label">How many daily meals?</label>
+                        <input id="mealsPerDay" type="number" class="form-control" placeholder="Quantity..." th:field="*{mealsPerDay}" />
                       </div>
-
+                  
                       <!-- Cups Of Water Per Day Number Input -->
                       <div class="col pt-3">
-                        <label for="cups-of-water-per-day" class="form-label">How many cups of water do you drink per
-                          day?</label>
-                        <input id="cups-of-water-per-day" type="number" class="form-control" placeholder="Quantity..."
-                          th:field="*{cupsOfWaterPerDay}" />
+                        <label for="cupsOfWaterPerDay" class="form-label">How many cups of water do you drink per day?</label>
+                        <input id="cupsOfWaterPerDay" type="number" class="form-control" placeholder="Quantity..." th:field="*{cupsOfWaterPerDay}" />
                       </div>
                     </div>
-
+                  
                     <!-- Most Hungry Time Of Day Textarea Input -->
                     <div class="pt-2">
-                      <label for="most-hungry-time-of-day" class="form-label">What is your most hungry time of
-                        day?</label>
-                      <textarea id="most-hungry-time-of-day" type="text" class="form-control"
-                        placeholder="Description..." th:field="*{mostHungryTimeOfDay}"></textarea>
+                      <label for="mostHungryTimeOfDay" class="form-label">What is your most hungry time of day?</label>
+                      <textarea id="mostHungryTimeOfDay" type="text" class="form-control" placeholder="Description..." th:field="*{mostHungryTimeOfDay}"></textarea>
                     </div>
-
+                  
                     <!-- Go-To Snack Textarea Input -->
                     <div class="pt-2">
-                      <label for="go-to-snack" class="form-label">Do you have a go-to snack?</label>
-                      <textarea id="go-to-snack" type="text" class="form-control" placeholder="Description..."
-                        th:field="*{goToSnack}"></textarea>
+                      <label for="goToSnack" class="form-label">Do you have a go-to snack?</label>
+                      <textarea id="goToSnack" type="text" class="form-control" placeholder="Description..." th:field="*{goToSnack}"></textarea>
                     </div>
-
+                  
                     <!-- Favorite Food Textarea Input -->
                     <div class="pt-2">
-                      <label for="favorite-food" class="form-label">What is your favorite food?</label>
-                      <textarea id="favorite-food" type="text" class="form-control" placeholder="Description..."
-                        th:field="*{favoriteFood}"></textarea>
+                      <label for="favoriteFood" class="form-label">What is your favorite food?</label>
+                      <textarea id="favoriteFood" type="text" class="form-control" placeholder="Description..." th:field="*{favoriteFood}"></textarea>
                     </div>
-
+                  
                     <!-- Disliked Food Textarea Input -->
                     <div class="pt-2">
-                      <label for="disliked-food" class="form-label">What is a food you dislike?</label>
-                      <textarea id="disliked-food" type="text" class="form-control" placeholder="Description..."
-                        th:field="*{dislikedFood}"></textarea>
+                      <label for="dislikedFood" class="form-label">What is a food you dislike?</label>
+                      <textarea id="dislikedFood" type="text" class="form-control" placeholder="Description..." th:field="*{dislikedFood}"></textarea>
                     </div>
-
+                  
                     <!-- Weekend Food Choice Textarea Input -->
                     <div class="pt-2">
-                      <label for="weekend-food-choice" class="form-label">What are your preferred food choices during
-                        the weekend?</label>
-                      <textarea id="weekend-food-choice" type="text" class="form-control" placeholder="Description..."
-                        th:field="*{weekendFoodChoice}"></textarea>
+                      <label for="weekendFoodChoice" class="form-label">What are your preferred food choices during the weekend?</label>
+                      <textarea id="weekendFoodChoice" type="text" class="form-control" placeholder="Description..." th:field="*{weekendFoodChoice}"></textarea>
                     </div>
-
+                  
                     <!-- Nutritionist Recommendations Textarea Input -->
                     <div class="pt-2">
-                      <label for="nutritionist-recommendations" class="form-label">Nutritionist recommendations?</label>
-                      <textarea id="nutritionist-recommendations" type="text" class="form-control"
-                        placeholder="Description..." th:field="*{nutritionistRecommendations}"></textarea>
+                      <label for="nutritionistRecommendations" class="form-label">Nutritionist recommendations?</label>
+                      <textarea id="nutritionistRecommendations" type="text" class="form-control" placeholder="Description..." th:field="*{nutritionistRecommendations}"></textarea>
                     </div>
-
+                  
                     <div class="row pt-5">
                       <!-- Grocery Buyer Dropdown Input -->
                       <div class="dropdown col-4 ps-2 pb-3">
-                        <label class="form-label">Grocery Buyer</label>
-                        <select id="grocery-buyer" name="grocery-buyer" class="form-select">
+                        <label for="groceryBuyer" class="form-label">Grocery Buyer</label>
+                        <select id="groceryBuyer" name="groceryBuyer" class="form-select">
                           <option value="" selected>Choose...</option>
-                          <option th:each="TypePersonEnum : ${TypePersonValues}" th:text="${TypePersonEnum.description}"
-                            th:value="${TypePersonEnum}"></option>
+                          <option th:each="typePersonEnum : ${TypePersonValues}" th:text="${typePersonEnum.description}" th:value="${typePersonEnum}"></option>
                         </select>
                       </div>
-
+                  
                       <!-- Prepare Meals Range Input -->
                       <div class="col-8">
-                        <label for="prepare-meals" class="form-label">How often do you prepare meals?</label>
-                        <input id="prepare-meals" type="range" class="form-range" min="0" max="100" step="25" name="prepare-meals"
-                          th:field="*{prepareMeals}">
+                        <label for="prepareMeals" class="form-label">How often do you prepare meals?</label>
+                        <input id="prepareMeals" type="range" class="form-range" min="0" max="100" step="25" name="prepareMeals" th:field="*{prepareMeals}">
                         <div class="d-flex justify-content-between pr-2">
-                          <p class="d-flex justify-content-between pe-2"
-                            th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
-                            th:text="${QuantityPercentageEnum.description}"></p>
+                          <p class="d-flex justify-content-between pe-2" th:each="quantityPercentageEnum : ${QuantityPercentageValues}" th:text="${quantityPercentageEnum.description}"></p>
                         </div>
                       </div>
                     </div>
-
+                  
                     <!-- Plan Meals Range Input -->
                     <div class="col-12">
-                      <label for="plan-meals" class="form-label">Meal plan details?</label>
-                      <input id="plan-meals" type="range" class="form-range" min="0" max="100" step="25" name="plan-meals"
-                        th:field="*{planMeals}">
+                      <label for="planMeals" class="form-label">Meal plan details?</label>
+                      <input id="planMeals" type="range" class="form-range" min="0" max="100" step="25" name="planMeals" th:field="*{planMeals}">
                       <div class="d-flex justify-content-between pr-2">
-                        <p class="d-flex justify-content-between pe-2"
-                          th:each="QuantityPercentageEnum : ${QuantityPercentageValues}"
-                          th:text="${QuantityPercentageEnum.description}"></p>
+                        <p class="d-flex justify-content-between pe-2" th:each="quantityPercentageEnum : ${QuantityPercentageValues}" th:text="${quantityPercentageEnum.description}"></p>
                       </div>
                     </div>
                   </div>
-                </div>
               </div><!-- End Multi Columns Form -->
             </div>
         </section>
@@ -883,13 +855,10 @@
         <section class="section">
           <div class="row">
             <div class="col-lg-12">
-
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Customer Rotine Information</h5>
-
                   <div class="row g-3">
-
                     <div class="conteiner">
                       <div class="row">
                         <div class="col-5 ms-4">
@@ -905,7 +874,7 @@
                           </div>
                         </div>
                         <div class="dropdown col-5 ms-5">
-                          <label for="" class="form-label">How often do you eat this particular food?</label>
+                          <label for="frequencySelect" class="form-label">How often do you eat this particular food?</label>
                           <!-- How often do you eat this particular food? Dropdown Input -->
                           <select id="frequencySelect" class="form-select">
                             <option th:each="TypeDaysEnum : ${TypeDaysValues}" th:text="${TypeDaysEnum.description}"
@@ -936,7 +905,6 @@
                           <!-- Hidden Input for Food Frequency Array -->
                           <input type="hidden" id="foodFrequencyArray" name="foodFrequencyArray" value="" />
                         </table>
-
                       </div>
                     </div>
                   </div>
@@ -948,8 +916,28 @@
       </div>
 
       <div class="text-center">
-        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="submit"
+          class="btn btn-primary">Submit</button>
         <button type="reset" id="reset" class="btn btn-secondary">Reset</button>
+      </div>
+
+      <!-- Small Modal -->
+      <button onclick="openSmallModal()" type="button" class="btn btn-primary" data-toggle="modal"
+        data-target=".bd-example-modal-sm">Small
+        modal</button>
+
+
+      <div id="smallModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+        aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="text-center">
+              <img class="img-thumbnail border border-0" src="../static/template/assets/img/correct.svg" alt="">
+              <h2 class="alert-heading border border-0">Registration Complete!</h2>
+            </div>
+
+          </div>
+        </div>
       </div>
     </form>
 

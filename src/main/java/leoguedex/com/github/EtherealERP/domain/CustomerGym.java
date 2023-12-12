@@ -2,6 +2,8 @@ package leoguedex.com.github.EtherealERP.domain;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import leoguedex.com.github.EtherealERP.domain.enums.HealthGoalsEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.QuantityPercentageEnum;
@@ -23,6 +25,7 @@ public class CustomerGym {
 
     @MapsId
     @OneToOne
+    @JsonIgnore
     @JoinColumn(name = "customer_id")
     private Customer customer;
 

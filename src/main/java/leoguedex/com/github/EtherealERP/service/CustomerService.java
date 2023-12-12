@@ -1,6 +1,11 @@
 package leoguedex.com.github.EtherealERP.service;
 
 import leoguedex.com.github.EtherealERP.domain.Customer;
+import leoguedex.com.github.EtherealERP.domain.CustomerAlimentation;
+import leoguedex.com.github.EtherealERP.domain.CustomerGym;
+import leoguedex.com.github.EtherealERP.domain.CustomerHealth;
+import leoguedex.com.github.EtherealERP.domain.CustomerNutritionistInformation;
+import leoguedex.com.github.EtherealERP.domain.CustomerRotineTable;
 import leoguedex.com.github.EtherealERP.domain.dto.AllCustomerDTO;
 import leoguedex.com.github.EtherealERP.exception.GetAgeFromBirthDateException;
 import leoguedex.com.github.EtherealERP.repository.CustomerRepository;
@@ -21,7 +26,28 @@ public class CustomerService {
     }
 
     public Customer create(AllCustomerDTO customer) {
-        return customerRepository.save(AllCustomerDTO.toCustomer(customer));
+        Customer customerSaved = AllCustomerDTO.toCustomer(customer);
+
+        CustomerAlimentation customerAlimentation = AllCustomerDTO.toCustomerAlimentation(customer);
+        CustomerGym customerGym = AllCustomerDTO.toCustomerGym(customer);
+        CustomerHealth customerHealth = AllCustomerDTO.toCustomerHealth(customer);
+        CustomerNutritionistInformation customerNutritionistInformation = AllCustomerDTO.toCustomerNutritionistInformation(customer);
+        CustomerRotineTable customerRotineTable = AllCustomerDTO.toCustomerRotineTable(customer);
+
+        customerAlimentation.setCustomer(customerSaved);
+        customerGym.setCustomer(customerSaved);
+        customerHealth.setCustomer(customerSaved);
+        customerNutritionistInformation.setCustomer(customerSaved);
+        customerRotineTable.setCustomer(customerSaved);
+
+        customerSaved.setCustomerNutritionistInformation(customerNutritionistInformation);
+        customerSaved.setCustomerRotineTable(customerRotineTable);
+        customerSaved.setCustomerAlimentation(customerAlimentation);
+        customerSaved.setCustomerGym(customerGym);
+        customerSaved.setCustomerHealth(customerHealth);
+
+        return customerRepository.save(customerSaved);
+
     }
 
     public void delete(Long id) {
