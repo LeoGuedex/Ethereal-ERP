@@ -16,11 +16,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import leoguedex.com.github.EtherealERP.domain.Customer;
 import leoguedex.com.github.EtherealERP.domain.dto.AllCustomerDTO;
 import leoguedex.com.github.EtherealERP.service.CustomerService;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/customer")
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class CustomerController {
 
     private final CustomerService customerService;
@@ -51,6 +51,13 @@ public class CustomerController {
     @GetMapping
     public ResponseEntity<List<Customer>> findAllCustomers() {
         List<Customer> result = customerService.findAllCustomers();
+
+        return ResponseEntity.ok().body(result);
+    }
+
+    @GetMapping("/newlyRegistered")
+    public ResponseEntity<List<Customer>> newlyRegistered() {
+        List<Customer> result = customerService.findNewlyRegistered();
 
         return ResponseEntity.ok().body(result);
     }

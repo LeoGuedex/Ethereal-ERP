@@ -75,6 +75,10 @@ public class CustomerService {
         return customers;
     }
 
+    public List<Customer> findNewlyRegistered() {
+        return customerRepository.selectNewlyRegistered();
+    }
+
     private Integer getAgeFromBirthDate(String birthDate) throws GetAgeFromBirthDateException {
         Pattern pattern = Pattern.compile("(\\d{2})/(\\d{2})/(\\d{4})");
         Matcher matcher = pattern.matcher(birthDate);
@@ -99,5 +103,4 @@ public class CustomerService {
 
         return age;
     }
-
 }
