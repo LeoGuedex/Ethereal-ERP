@@ -1,13 +1,13 @@
 package leoguedex.com.github.EtherealERP.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
-import leoguedex.com.github.EtherealERP.domain.enums.QuantityPercentageEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.TypeDaysEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 @Data
 @Entity
@@ -17,97 +17,55 @@ import lombok.NoArgsConstructor;
 public class CustomerRotineTable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @MapsId
+    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    private TypeDaysEnum riceType;
-    private Integer rice;
-    private TypeDaysEnum potatoType;
-    private Integer potato;
-    private TypeDaysEnum pastaType;
-    private Integer pasta;
-    private TypeDaysEnum brownRiceType;
-    private Integer brownRice;
-    private TypeDaysEnum wholeWheatPastaType;
-    private Integer wholeWheatPasta;
-    private TypeDaysEnum quinoaType;
-    private Integer quinoa;
-    private TypeDaysEnum beansType;
-    private Integer beans;
-    private TypeDaysEnum lentilsType;
-    private Integer lentils;
-    private TypeDaysEnum chickpeasType;
-    private Integer chickpeas;
-    private TypeDaysEnum fishType;
-    private Integer fish;
-    private TypeDaysEnum redMeatType;
-    private Integer redMeat;
-    private TypeDaysEnum poultryType;
-    private Integer poultry;
-    private TypeDaysEnum eggsType;
-    private Integer eggs;
-    private TypeDaysEnum sweetPotatoType;
-    private Integer sweetPotato;
-    private TypeDaysEnum cassavaType;
-    private Integer cassava;
-    private TypeDaysEnum pumpkinType;
-    private Integer pumpkin;
-    private TypeDaysEnum yamType;
-    private Integer yam;
-    private TypeDaysEnum kaleType;
-    private Integer kale;
-    private TypeDaysEnum spinachType;
-    private Integer spinach;
-    private TypeDaysEnum arugulaType;
-    private Integer arugula;
-    private TypeDaysEnum lettuceType;
-    private Integer lettuce;
-    private TypeDaysEnum cauliflowerType;
-    private Integer cauliflower;
-    private TypeDaysEnum broccoliType;
-    private Integer broccoli;
-    private TypeDaysEnum zucchiniType;
-    private Integer zucchini;
-    private TypeDaysEnum soupsType;
-    private Integer soups;
-    private TypeDaysEnum saladsType;
-    private Integer salads;
-    private TypeDaysEnum nutsType;
-    private Integer nuts;
-    private TypeDaysEnum seedsType;
-    private Integer seeds;
-    private TypeDaysEnum fruitsType;
-    private Integer fruits;
-    private TypeDaysEnum flourType;
-    private Integer flour;
-    private TypeDaysEnum milkType;
-    private Integer milk;
-    private TypeDaysEnum yogurtType;
-    private Integer yogurt;
-    private TypeDaysEnum cheeseType;
-    private Integer cheese;
-    private TypeDaysEnum slicedBreadType;
-    private Integer slicedBread;
-    private TypeDaysEnum frenchBreadType;
-    private Integer frenchBread;
-    private TypeDaysEnum wholeWheatBreadType;
-    private Integer wholeWheatBread;
-    private TypeDaysEnum processedMeatsType;
-    private Integer processedMeats;
-    private TypeDaysEnum biscuitsType;
-    private Integer biscuits;
-    private TypeDaysEnum dessertType;
-    private Integer dessert;
-    private TypeDaysEnum sodaType;
-    private Integer soda;
-    private TypeDaysEnum boxedJuiceType;
-    private Integer boxedJuice;
-    private TypeDaysEnum frozenFoodsType;
-    private Integer frozenFoods;
-    private QuantityPercentageEnum organic;
+    private TypeDaysEnum rice;
+    private TypeDaysEnum potato;
+    private TypeDaysEnum pasta;
+    private TypeDaysEnum brownRice;
+    private TypeDaysEnum wholeWheatPasta;
+    private TypeDaysEnum quinoa;
+    private TypeDaysEnum beans;
+    private TypeDaysEnum lentils;
+    private TypeDaysEnum chickpeas;
+    private TypeDaysEnum fish;
+    private TypeDaysEnum redMeat;
+    private TypeDaysEnum poultry;
+    private TypeDaysEnum eggs;
+    private TypeDaysEnum sweetPotato;
+    private TypeDaysEnum cassava;
+    private TypeDaysEnum pumpkin;
+    private TypeDaysEnum yam;
+    private TypeDaysEnum kale;
+    private TypeDaysEnum spinach;
+    private TypeDaysEnum arugula;
+    private TypeDaysEnum lettuce;
+    private TypeDaysEnum cauliflower;
+    private TypeDaysEnum broccoli;
+    private TypeDaysEnum zucchini;
+    private TypeDaysEnum soups;
+    private TypeDaysEnum salads;
+    private TypeDaysEnum nuts;
+    private TypeDaysEnum seeds;
+    private TypeDaysEnum fruits;
+    private TypeDaysEnum flour;
+    private TypeDaysEnum milk;
+    private TypeDaysEnum yogurt;
+    private TypeDaysEnum cheese;
+    private TypeDaysEnum slicedBread;
+    private TypeDaysEnum frenchBread;
+    private TypeDaysEnum wholeWheatBread;
+    private TypeDaysEnum processedMeats;
+    private TypeDaysEnum biscuits;
+    private TypeDaysEnum dessert;
+    private TypeDaysEnum soda;
+    private TypeDaysEnum boxedJuice;
+    private TypeDaysEnum frozenFoods;
 
 }

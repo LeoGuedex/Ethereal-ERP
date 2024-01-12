@@ -1,34 +1,31 @@
 package leoguedex.com.github.EtherealERP.service;
 
-import leoguedex.com.github.EtherealERP.domain.*;
-import leoguedex.com.github.EtherealERP.repository.*;
+import java.util.List;
+import java.util.Set;
+
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import leoguedex.com.github.EtherealERP.domain.Customer;
+import leoguedex.com.github.EtherealERP.domain.CustomerAlimentation;
+import leoguedex.com.github.EtherealERP.domain.CustomerGym;
+import leoguedex.com.github.EtherealERP.domain.CustomerHealth;
+import leoguedex.com.github.EtherealERP.domain.CustomerNutritionistInformation;
+import leoguedex.com.github.EtherealERP.domain.CustomerRotineTable;
+import leoguedex.com.github.EtherealERP.domain.ETUser;
+import leoguedex.com.github.EtherealERP.domain.ETUserData;
+import leoguedex.com.github.EtherealERP.domain.enums.DiseasesEnum;
+import leoguedex.com.github.EtherealERP.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class DBService {
 
-    private final CustomerAlimentationRepository customerAlimentationRepository;
-    private final CustomerGymRepository customerGymRepository;
-    private final CustomerHealthRepository customerHealthRepository;
-    private final CustomerNutritionistInformationRepository customerNutritionistInformationRepository;
     private final CustomerRepository customerRepository;
-    private final CustomerRotineTableRepository customerRotineTableRepository;
     private final ETUserService userService;
     private final PasswordEncoder encoder;
-
-    public DBService(CustomerAlimentationRepository customerAlimentationRepository, CustomerGymRepository customerGymRepository, CustomerHealthRepository customerHealthRepository, CustomerNutritionistInformationRepository customerNutritionistInformationRepository, CustomerRepository customerRepository, CustomerRotineTableRepository customerRotineTableRepository, ETUserService userService, PasswordEncoder encoder) {
-        this.customerAlimentationRepository = customerAlimentationRepository;
-        this.customerGymRepository = customerGymRepository;
-        this.customerHealthRepository = customerHealthRepository;
-        this.customerNutritionistInformationRepository = customerNutritionistInformationRepository;
-        this.customerRepository = customerRepository;
-        this.customerRotineTableRepository = customerRotineTableRepository;
-        this.userService = userService;
-        this.encoder = encoder;
-    }
 
     public void createTestCustomer() {
         int amountPeopleFake = 30;
@@ -44,27 +41,27 @@ public class DBService {
             CustomerNutritionistInformation customerNutritionistInformation = new CustomerNutritionistInformation();
             CustomerRotineTable customerRotineTable = new CustomerRotineTable();
 
-            customerRepository.save(customer);
+            customerHealth.setDiseases(
+                Set.of(DiseasesEnum.toEnum(RandomUtils.nextInt(0, DiseasesEnum.values().length)))
+            );
 
             customerAlimentation.setCustomer(customer);
             customer.setCustomerAlimentation(customerAlimentation);
-            customerAlimentationRepository.save(customerAlimentation);
-
+            
             customerGym.setCustomer(customer);
             customer.setCustomerGym(customerGym);
-            customerGymRepository.save(customerGym);
-
+            
             customerHealth.setCustomer(customer);
             customer.setCustomerHealth(customerHealth);
-            customerHealthRepository.save(customerHealth);
-
+            
             customerNutritionistInformation.setCustomer(customer);
             customer.setCustomerNutritionistInformation(customerNutritionistInformation);
-            customerNutritionistInformationRepository.save(customerNutritionistInformation);
-
+            
             customerRotineTable.setCustomer(customer);
             customer.setCustomerRotineTable(customerRotineTable);
-            customerRotineTableRepository.save(customerRotineTable);
+            
+            customerRepository.save(customer);
+            
         }
     }
 

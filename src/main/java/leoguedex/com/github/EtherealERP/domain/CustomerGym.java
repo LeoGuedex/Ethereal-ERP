@@ -1,13 +1,17 @@
 package leoguedex.com.github.EtherealERP.domain;
 
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
+import leoguedex.com.github.EtherealERP.domain.enums.HealthGoalsEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.QuantityPercentageEnum;
 import leoguedex.com.github.EtherealERP.domain.enums.TypeOfWeightEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 @Data
 @Entity
@@ -17,40 +21,35 @@ import lombok.NoArgsConstructor;
 public class CustomerGym {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @MapsId
     @OneToOne
+    @JsonIgnore
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
     private String supplements;
-    private Boolean loseWeight;
-    private Boolean improveDiet;
-    private Boolean doesExercise;
     private Double desiredWeight;
-    private Boolean improveSleep;
     private String exerciseTypes;
-    private Boolean increaseEnergy;
-    private Boolean decreaseStress;
     private Double weightOneYearAgo;
-    private Boolean jobSatisfaction;
     private Double weightTenYearsAgo;
-    private Boolean improveWellBeing;
-    private Boolean increaseExercise;
+    private Boolean jobSatisfaction;
     private Boolean intendsToExercise;
     private String freeTimeActivities;
+    private Boolean doesExercise;
     private Boolean isPhysicallyActive;
     private String postExerciseFeeling;
     private String exerciseLimitations;
     private Integer determinationLevel;
-    private Boolean improveLifeBalance;
-    private Integer trainingDaysPerWeek;
-    private Boolean improveMentalHealth;
+    private String trainingDaysPerWeek;
     private TypeOfWeightEnum weightType;
     private String lifeSituationToChange;
-    private Boolean increaseProductivity;
     private String desiredFreeTimeActivity;
     private QuantityPercentageEnum familyBalance;
 
+    @ElementCollection(targetClass = HealthGoalsEnum.class)
+    @CollectionTable(name = "Goals", joinColumns = @JoinColumn(name = "customer_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<HealthGoalsEnum> goalsArray;
 }

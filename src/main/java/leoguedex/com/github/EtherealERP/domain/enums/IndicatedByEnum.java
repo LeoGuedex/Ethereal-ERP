@@ -9,11 +9,11 @@ import java.util.EnumSet;
 @AllArgsConstructor
 public enum IndicatedByEnum {
 
-    FRIEND(0, "Amigos"),
-    AD(1, "Anúncios"),
-    NOT_INDICATED(2, "Não fui indicado"),
-    SEARCH_INTERNET(3, "Pesquisei na internet"),
-    OTHERS(4, "Outros");
+    FRIEND(0, "By friends"),
+    AD(1, "By ads"),
+    NOT_INDICATED(2, "I wasn't nominated"),
+    SEARCH_INTERNET(3, "I searched the internet"),
+    OTHERS(4, "Others");
 
     private final int cod;
     private final String description;

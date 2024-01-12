@@ -1,5 +1,7 @@
 package leoguedex.com.github.EtherealERP.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,10 +16,11 @@ import lombok.NoArgsConstructor;
 public class CustomerAlimentation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @MapsId
     @OneToOne
+    @JsonIgnore
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
