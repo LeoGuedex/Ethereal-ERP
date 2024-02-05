@@ -125,7 +125,7 @@
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
-                <table class="table datatable">
+                <table class="table table-bordered datatable">
                     <thead>
                     <tr>
                         <th scope="col">id</th>
@@ -133,6 +133,7 @@
                         <th scope="col">Age</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Start Date</th>
+                        <th scope="col">Options</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -142,6 +143,19 @@
                         <td th:text="${customers.getAge}"></td>
                         <td th:text="${customers.getPhoneNumber}"></td>
                         <td th:text="${customers.getWhenCreated}"></td>
+                        <td>
+                            <button type="button" class="btn btn-primary"
+                                    onclick="showAlert('Esse botão ainda não faz nada')">Edit
+                            </button>
+                            <button type="button" class="btn btn-primary" style="background-color: red; color: white"
+                                    onclick="showAlert('Remove ainda não faz nada')">Remove
+                            </button>
+                            <script>
+                                function showAlert(message){
+                                    alert(message)
+                                }
+                            </script>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
