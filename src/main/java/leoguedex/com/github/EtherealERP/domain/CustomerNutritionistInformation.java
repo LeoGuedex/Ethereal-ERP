@@ -48,4 +48,6 @@ public class CustomerNutritionistInformation {
     private QuantityPercentageEnum prepareMeals;
     private Boolean eatsSomethingRightAfterWakingUp;
 
+    //Comentario teste
+
 }
